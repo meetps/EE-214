@@ -1,0 +1,29 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup '74193:inst3|24'
+Slack : -6.484
+TNS   : -46.694
+
+Type  : Setup 'Clock'
+Slack : -4.258
+TNS   : -28.364
+
+Type  : Hold 'Clock'
+Slack : -5.459
+TNS   : -9.109
+
+Type  : Hold '74193:inst3|24'
+Slack : 1.640
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'Clock'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width '74193:inst3|24'
+Slack : 0.234
+TNS   : 0.000
+
+------------------------------------------------------------

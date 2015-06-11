@@ -1,0 +1,159 @@
+# do fsm_light_sequence_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying /home/tinchuk/altera/13.1/modelsim_ase/linux/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied /home/tinchuk/altera/13.1/modelsim_ase/linux/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+/home/tinchuk/ee214/fsm {/home/tinchuk/ee214/fsm/fsm_light_sequence.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module fsm_light_sequence
+# 
+# Top level modules:
+# 	fsm_light_sequence
+# 
+vsim -voptargs=+acc work.fsm_light_sequence
+# vsim -voptargs=+acc work.fsm_light_sequence 
+# Loading work.fsm_light_sequence
+add wave -position insertpoint  \
+sim:/fsm_light_sequence/IDLE \
+sim:/fsm_light_sequence/L1 \
+sim:/fsm_light_sequence/L2 \
+sim:/fsm_light_sequence/L3 \
+sim:/fsm_light_sequence/R1 \
+sim:/fsm_light_sequence/R2 \
+sim:/fsm_light_sequence/R3 \
+sim:/fsm_light_sequence/LR3 \
+sim:/fsm_light_sequence/clk \
+sim:/fsm_light_sequence/left \
+sim:/fsm_light_sequence/right \
+sim:/fsm_light_sequence/haz \
+sim:/fsm_light_sequence/La \
+sim:/fsm_light_sequence/Lb \
+sim:/fsm_light_sequence/Lc \
+sim:/fsm_light_sequence/Ra \
+sim:/fsm_light_sequence/Rb \
+sim:/fsm_light_sequence/Rc \
+sim:/fsm_light_sequence/state_n \
+sim:/fsm_light_sequence/state_p
+force -freeze sim:/fsm_light_sequence/clk 1 0, 0 {50 ps} -r 100
+run
+run
+run
+run
+run
+run
+force -freeze sim:/fsm_light_sequence/haz 1 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/fsm_light_sequence/haz 0 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/fsm_light_sequence/right 1 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/fsm_light_sequence/left 0 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/fsm_light_sequence/haz 1 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run

@@ -1,0 +1,46 @@
+module EE214_Exp8 (clk,start,A,B,S,done);            //Start is a one-time input -> Push Button
+input clk,start; input [3:0]A,B;output done;
+output [3:0]S; 
+reg [3:0]shiftA,shiftB,S;
+
+always@(posedge clk)begin                          //Shift Register for A
+if(start)shiftA<=A;
+if((~start)&(!done))shiftA<={1'b0,shiftA[3:1]};
+end
+
+always@(posedge clk)begin                          //Shift Register for B
+if(start)shiftB<=B;
+if((~start)&(!done))shiftB<={1'b0,shiftB[3:1]};
+end
+
+reg carry;                                         // Computing carry and sum_bit  
+always@(posedge clk)begin
+if(start) carry=1'b0;
+if((~start)&(~done)) carry<=((shiftA[0]&shiftB[0])|(shiftB[0]&carry)|(carry&shiftA[0]));
+end
+
+wire sum_bit;                                      //Try implemetation using an always block
+assign sum_bit=shiftA[0]^shiftB[0]^carry;
+
+always@(posedge clk)begin                               //Shift Register for S
+if (start) S<=4'b0000;
+if ((~start)&(~done)) S<={sum_bit,S[3:1]};
+end
+
+
+reg [2:0]count;                                        //Calculation of done status
+always@(posedge clk)begin
+if(start) count=3'b000;
+if((~start)&(~done)) count<=count+1;
+end
+
+assign done=((count[2])&(~count[1])&(~count[0]));           // when count is 5, done should change
+              
+
+endmodule
+
+module test;
+reg clk,start; reg [3:0]A,B;
+wire [3:0]S; 
+EE214_Exp8 x0(clk,start,A,B,S,done);
+endmodule

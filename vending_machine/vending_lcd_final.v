@@ -1,0 +1,180 @@
+//Sample code for interfacing with lcd module
+//This displays the two messages
+//      1.Pepsi = Rs.15
+//      2.lays  = Rs.16
+//without any delay between the two messages 
+
+//**NOTE : THIS IS JUST SAMPLE PARTIAL CODE OF MAIN FSM COVERING THE PART OF 
+//INTEGRATING WITH LCD MODULE. THIS CODE SHOULD BE MODIFIED APPROPRIATELY IN MAIN FSM  
+//TO COVER ALL THE MSGES TO BE DISPLAYED UNDER DIFFERENT IO CONDITIONS IN PROGRAM
+
+ 
+module vending_lcd_final(lcd, lcd_rs, lcd_rw, lcd_en, clk, rst);
+
+	input clk;
+	input rst;
+
+	output lcd_rs;
+	output lcd_rw; 
+	output lcd_en;
+   output [7:0] lcd;
+
+
+	//FSM to lcd
+	reg lcd_start=0;
+	reg [2:0] lcd_qty=0;
+	reg [1:0] lcd_item_no=0;
+	reg [7:0] lcd_price=0;
+	reg [3:0] lcd_msg_index=0;
+	//lcd to FSM
+	wire lcd_done;	 
+
+
+	//States
+	parameter state_reset 							= 5'h00;
+	parameter send_start_to_lcd1					= 5'h01;
+	parameter send_data_to_lcd1						= 5'h02;
+	parameter send_start_to_lcd2					= 5'h03;
+	parameter send_data_to_lcd2						= 5'h04;
+	parameter just_wait								= 5'h05;
+	
+	reg [4:0] state=0;  
+	reg [4:0] next_state = 0;
+	reg [7:0] total_money;
+	reg [1:0] item_database [0:3];
+	reg [7:0] price_database [0:3];
+	reg [2:0] qty_database [0:3];
+
+	//Initialization of database
+    //This database represents the information stored in the SRAM
+    //In your vending machine this information has to be stored in the SRAM
+
+	initial 
+	begin
+        qty_database[1]     =5;
+        price_database[1]   =15;
+		
+		qty_database[2]     =5;
+        price_database[2]   =16;
+		
+		qty_database[3]     =5;
+        price_database[3]   =16;
+	end
+	
+    always @(clk or lcd_done or state) begin
+       
+        //This block determines what the next state should be
+		
+		//**NOTE : ALSO HERE DIFFERENT STATES ARE USED FOR SENDING DIFFERENT LCD DATA TO LCD.
+		//INSTEAD WE CAN IMPLEMENT IT WITH LESS NO. OF STATES USING ARRAY OF DIFFERENT
+		//DATA TO BE SENT AND OPTIMIZE IT.
+		//SO IN YOUR PROGRAM YOU CAN USE ONLY STATE_RESET,SEND_START_TO_LCD,SEND_DATA_TO_LCD,JUST_WAIT STATES
+		//THE SIGNALS TO BE GIVEN IN THIS STATES DYNAMICALLY ARE DETERMINED BY INPUT CONDITIONS AND APPROPRIATE
+		//ARRAY VALUE IS INDEXED.
+        case (state)
+	//===============================================================================================	 
+            state_reset:
+                begin
+					next_state <= send_start_to_lcd1;
+                end
+	//===============================================================================================					
+			send_start_to_lcd1:
+				begin
+					next_state <= send_data_to_lcd1;
+				end
+    //===============================================================================================	 
+			send_data_to_lcd1:
+                begin
+					if(lcd_done == 1) begin
+						next_state <= send_start_to_lcd2; end
+					else begin
+						next_state <= send_data_to_lcd1;
+					end
+               end 
+    //===============================================================================================
+		   	send_start_to_lcd2:
+				begin
+					next_state <= send_data_to_lcd2;
+				end
+    //===============================================================================================		
+			send_data_to_lcd2:
+                begin
+					if(lcd_done == 1) begin
+						next_state <= just_wait; end
+					else begin
+						next_state <= send_data_to_lcd2;
+					end
+               end 
+    //=============================================================================================== 
+	        just_wait:  
+			    begin 
+			   	    next_state <= just_wait; 
+			    end 
+    //===============================================================================================
+        endcase	 
+      
+ 
+        //This block determines the output, based on current state and inputs
+        case (state)
+	    //===============================================================================================					
+			state_reset:
+				begin
+				    total_money <= 0;
+                end
+        //===============================================================================================
+			send_start_to_lcd1:
+				begin
+					lcd_start       <= 1;
+				end
+        //===============================================================================================	 
+			send_data_to_lcd1:
+                begin
+		            lcd_start       <= 0;
+					lcd_item_no 	<= 1;
+					lcd_qty 		<= qty_database[1];
+					lcd_price 		<= price_database[1];
+					lcd_msg_index	<= 1;
+               end 
+       //===============================================================================================
+			send_start_to_lcd2:
+				begin
+					lcd_start       <= 1;
+				end
+       //===============================================================================================		
+			send_data_to_lcd2:
+                begin
+		         lcd_start       <= 0;
+					lcd_item_no     <= 2;
+					lcd_qty 		<= qty_database[2];
+					lcd_price 		<= price_database[2];
+					lcd_msg_index	<= 2;
+               end 
+       endcase 
+    end
+    
+    //Assigning next state
+    //Note that reset is synchronous    
+    always @(posedge clk) begin 
+        if(rst==1) begin 
+			state <= state_reset; end
+        else begin 
+			state <= next_state;  
+		end
+    end 
+
+
+    //Portmap 
+    lcd lcd0		       (.start(lcd_start),
+							.done(lcd_done), 
+							.qty(lcd_qty), 
+							.item(lcd_item_no), 
+							.price(lcd_price), 
+							.msg_index(lcd_msg_index),
+							.lcd(lcd), 
+							.lcd_rs(lcd_rs), 
+							.lcd_rw(lcd_rw), 
+							.lcd_en(lcd_en), 
+							.clk(clk), 
+							.rst(rst));
+endmodule						
+

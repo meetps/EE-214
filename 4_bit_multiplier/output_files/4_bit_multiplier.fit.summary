@@ -1,0 +1,11 @@
+Fitter Status : Successful - Tue Mar  3 23:59:12 2015
+Quartus II 32-bit Version : 13.1.0 Build 162 10/23/2013 SJ Web Edition
+Revision Name : 4_bit_multiplier
+Top-level Entity Name : four_bit_multiplier
+Family : MAX V
+Device : 5M1270ZT144C5
+Timing Models : Final
+Total logic elements : 21 / 1,270 ( 2 % )
+Total pins : 19 / 114 ( 17 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

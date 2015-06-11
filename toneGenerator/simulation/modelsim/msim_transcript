@@ -1,0 +1,68 @@
+# do toneGenerator_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying /home/tinchuk/altera/13.1/modelsim_ase/linux/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied /home/tinchuk/altera/13.1/modelsim_ase/linux/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+/home/tinchuk/Desktop/toneGenerator {/home/tinchuk/Desktop/toneGenerator/toneGenerator.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module toneGenerator
+# 
+# Top level modules:
+# 	toneGenerator
+# 
+vsim -voptargs=+acc work.toneGenerator
+# vsim -voptargs=+acc work.toneGenerator 
+# Loading work.toneGenerator
+add wave -position insertpoint  \
+sim:/toneGenerator/clk \
+sim:/toneGenerator/octaveSel \
+sim:/toneGenerator/keyIn \
+sim:/toneGenerator/toneOut \
+sim:/toneGenerator/clk_240 \
+sim:/toneGenerator/clk_480 \
+sim:/toneGenerator/clk_270 \
+sim:/toneGenerator/clk_540 \
+sim:/toneGenerator/clk_300 \
+sim:/toneGenerator/clk_600 \
+sim:/toneGenerator/clk_320 \
+sim:/toneGenerator/clk_640 \
+sim:/toneGenerator/clk_360 \
+sim:/toneGenerator/clk_720 \
+sim:/toneGenerator/clk_400 \
+sim:/toneGenerator/clk_800 \
+sim:/toneGenerator/clk_450 \
+sim:/toneGenerator/clk_900 \
+sim:/toneGenerator/count_240 \
+sim:/toneGenerator/count_480 \
+sim:/toneGenerator/count_270 \
+sim:/toneGenerator/count_540 \
+sim:/toneGenerator/count_300 \
+sim:/toneGenerator/count_600 \
+sim:/toneGenerator/count_320 \
+sim:/toneGenerator/count_640 \
+sim:/toneGenerator/count_360 \
+sim:/toneGenerator/count_720 \
+sim:/toneGenerator/count_400 \
+sim:/toneGenerator/count_800 \
+sim:/toneGenerator/count_450 \
+sim:/toneGenerator/count_900
+force -freeze sim:/toneGenerator/clk 1 0, 0 {10000 ps} -r 20000
+force -freeze sim:/toneGenerator/octaveSel 0 0
+force -freeze sim:/toneGenerator/keyIn 0000001 0
+run -all
+force -freeze sim:/toneGenerator/octaveSel 1 0
+# Break key hit 
+# Simulation stop requested.
+force -freeze sim:/toneGenerator/octaveSel St1 0
+run -all
+# Break key hit 
+# Simulation stop requested.
+run -all
+# Break key hit 
+# Simulation stop requested.

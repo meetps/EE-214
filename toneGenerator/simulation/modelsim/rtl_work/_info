@@ -1,0 +1,26 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/tinchuk/Desktop/toneGenerator/simulation/modelsim
+vtoneGenerator
+!i10b 1
+!s100 3TLboIHbQo`W4:NzRD3bi2
+IZJSa[bVb3o;RU@;9ea2dE3
+VPK2RAd`Z^_]0=[<d16B]72
+Z1 d/home/tinchuk/Desktop/toneGenerator/simulation/modelsim
+w1429091378
+8/home/tinchuk/Desktop/toneGenerator/toneGenerator.v
+F/home/tinchuk/Desktop/toneGenerator/toneGenerator.v
+L0 1
+OV;L;10.1d;51
+r1
+!s85 0
+31
+!s108 1429091896.441698
+!s107 /home/tinchuk/Desktop/toneGenerator/toneGenerator.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/tinchuk/Desktop/toneGenerator|/home/tinchuk/Desktop/toneGenerator/toneGenerator.v|
+!s101 -O0
+o-vlog01compat -work work -O0
+!s92 -vlog01compat -work work +incdir+/home/tinchuk/Desktop/toneGenerator -O0
+ntone@generator

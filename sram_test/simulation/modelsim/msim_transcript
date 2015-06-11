@@ -1,0 +1,81 @@
+# do sram_test_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying /home/tinchuk/altera/13.1/modelsim_ase/linux/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied /home/tinchuk/altera/13.1/modelsim_ase/linux/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+/home/tinchuk/ee214/sram_test {/home/tinchuk/ee214/sram_test/sram.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module sram_test
+# -- Compiling module sram
+# 
+# Top level modules:
+# 	sram
+# 
+vsim -voptargs=+acc work.sram
+# vsim -voptargs=+acc work.sram 
+# Loading work.sram
+# Loading work.sram_test
+view -new wave
+# -new not supported on PE
+add wave -position insertpoint  \
+sim:/sram/s_clk \
+sim:/sram/s_rst_n \
+sim:/sram/s_enable \
+sim:/sram/s_writeenable \
+sim:/sram/s_readenable \
+sim:/sram/s_rd_done \
+sim:/sram/s_wr_done \
+sim:/sram/s_cs_n \
+sim:/sram/s_we_n \
+sim:/sram/s_oe_n \
+sim:/sram/s_addr_in \
+sim:/sram/s_addr_out \
+sim:/sram/s_data_in \
+sim:/sram/s_data_out \
+sim:/sram/s_data_sram
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run

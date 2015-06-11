@@ -1,0 +1,48 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/tinchuk/ee214/multiplier/simulation/modelsim
+Emultiplier
+Z1 w1425372568
+Z2 DPx4 ieee 16 vital_primitives 0 22 9W@YP9_VCb?_GCJ8e:;YQ0
+Z3 DPx4 maxv 14 maxv_atom_pack 0 22 HIc_8dE2iaCi=:]z3`g^=1
+Z4 DPx4 ieee 12 vital_timing 0 22 7h8zz2S4HVg:a;2TBMI[j1
+Z5 DPx4 maxv 15 maxv_components 0 22 XEc`kIQ=^I0g0BW]7CQEF1
+Z6 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z7 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z8 d/home/tinchuk/ee214/multiplier/simulation/modelsim
+Z9 8multiplier.vho
+Z10 Fmultiplier.vho
+l0
+L34
+VO_X`=5L>>O`UgSHzb[F:;0
+!s100 NN_=5Chh2QTSd<ZAiToYl0
+Z11 OV;C;10.1d;51
+31
+!i10b 1
+Z12 !s108 1425372726.459423
+Z13 !s90 -reportprogress|300|-93|-work|work|multiplier.vho|
+Z14 !s107 multiplier.vho|
+Z15 o-93 -work work -O0
+Z16 tExplicit 1
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+DEx4 work 10 multiplier 0 22 O_X`=5L>>O`UgSHzb[F:;0
+l138
+L78
+VS@dL=:?9=NdRD[b2A=O]30
+!s100 9E[U6d4giB04Qg[2LY1Uz2
+R11
+31
+!i10b 1
+R12
+R13
+R14
+R15
+R16

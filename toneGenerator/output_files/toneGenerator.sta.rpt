@@ -1,0 +1,552 @@
+TimeQuest Timing Analyzer report for toneGenerator
+Wed Apr 15 17:37:25 2015
+Quartus II 32-bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'clk'
+ 12. Hold: 'clk'
+ 13. Minimum Pulse Width: 'clk'
+ 14. Clock to Output Times
+ 15. Minimum Clock to Output Times
+ 16. Setup Transfers
+ 17. Hold Transfers
+ 18. Report TCCS
+ 19. Report RSKM
+ 20. Unconstrained Paths
+ 21. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                       ;
++--------------------+----------------------------------------------------+
+; Quartus II Version ; Version 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name      ; toneGenerator                                      ;
+; Device Family      ; MAX V                                              ;
+; Device Name        ; 5M1270ZT144C5                                      ;
+; Timing Models      ; Final                                              ;
+; Delay Model        ; Slow Model                                         ;
+; Rise/Fall Delays   ; Unavailable                                        ;
++--------------------+----------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++--------------------------------------------------+
+; Fmax Summary                                     ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 110.86 MHz ; 110.86 MHz      ; clk        ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++--------------------------------+
+; Setup Summary                  ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -8.020 ; -153.564      ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Hold Summary                  ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 1.422 ; 0.000         ;
++-------+-------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++--------------------------------+
+; Minimum Pulse Width Summary    ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -2.289 ; -2.289        ;
++-------+--------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                                                   ;
++--------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                      ; To Node                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; -8.020 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.687      ;
+; -8.020 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.687      ;
+; -8.020 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.687      ;
+; -8.020 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.687      ;
+; -8.020 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.687      ;
+; -8.020 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.687      ;
+; -8.020 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.687      ;
+; -8.020 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.687      ;
+; -8.020 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.687      ;
+; -7.895 ; toneGenerator:t1|count_240[14] ; toneGenerator:t1|count_240[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.562      ;
+; -7.895 ; toneGenerator:t1|count_240[14] ; toneGenerator:t1|count_240[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.562      ;
+; -7.895 ; toneGenerator:t1|count_240[14] ; toneGenerator:t1|count_240[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.562      ;
+; -7.895 ; toneGenerator:t1|count_240[14] ; toneGenerator:t1|count_240[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.562      ;
+; -7.895 ; toneGenerator:t1|count_240[14] ; toneGenerator:t1|count_240[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.562      ;
+; -7.895 ; toneGenerator:t1|count_240[14] ; toneGenerator:t1|count_240[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.562      ;
+; -7.895 ; toneGenerator:t1|count_240[14] ; toneGenerator:t1|count_240[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.562      ;
+; -7.895 ; toneGenerator:t1|count_240[14] ; toneGenerator:t1|count_240[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.562      ;
+; -7.895 ; toneGenerator:t1|count_240[14] ; toneGenerator:t1|count_240[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.562      ;
+; -7.874 ; toneGenerator:t1|count_240[9]  ; toneGenerator:t1|count_240[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.541      ;
+; -7.874 ; toneGenerator:t1|count_240[9]  ; toneGenerator:t1|count_240[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.541      ;
+; -7.874 ; toneGenerator:t1|count_240[9]  ; toneGenerator:t1|count_240[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.541      ;
+; -7.874 ; toneGenerator:t1|count_240[9]  ; toneGenerator:t1|count_240[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.541      ;
+; -7.874 ; toneGenerator:t1|count_240[9]  ; toneGenerator:t1|count_240[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.541      ;
+; -7.874 ; toneGenerator:t1|count_240[9]  ; toneGenerator:t1|count_240[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.541      ;
+; -7.874 ; toneGenerator:t1|count_240[9]  ; toneGenerator:t1|count_240[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.541      ;
+; -7.874 ; toneGenerator:t1|count_240[9]  ; toneGenerator:t1|count_240[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.541      ;
+; -7.874 ; toneGenerator:t1|count_240[9]  ; toneGenerator:t1|count_240[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.541      ;
+; -7.829 ; toneGenerator:t1|count_240[15] ; toneGenerator:t1|count_240[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.496      ;
+; -7.829 ; toneGenerator:t1|count_240[15] ; toneGenerator:t1|count_240[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.496      ;
+; -7.829 ; toneGenerator:t1|count_240[15] ; toneGenerator:t1|count_240[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.496      ;
+; -7.829 ; toneGenerator:t1|count_240[15] ; toneGenerator:t1|count_240[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.496      ;
+; -7.829 ; toneGenerator:t1|count_240[15] ; toneGenerator:t1|count_240[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.496      ;
+; -7.829 ; toneGenerator:t1|count_240[15] ; toneGenerator:t1|count_240[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.496      ;
+; -7.829 ; toneGenerator:t1|count_240[15] ; toneGenerator:t1|count_240[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.496      ;
+; -7.829 ; toneGenerator:t1|count_240[15] ; toneGenerator:t1|count_240[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.496      ;
+; -7.829 ; toneGenerator:t1|count_240[15] ; toneGenerator:t1|count_240[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.496      ;
+; -7.732 ; toneGenerator:t1|count_240[12] ; toneGenerator:t1|count_240[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.399      ;
+; -7.732 ; toneGenerator:t1|count_240[12] ; toneGenerator:t1|count_240[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.399      ;
+; -7.732 ; toneGenerator:t1|count_240[12] ; toneGenerator:t1|count_240[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.399      ;
+; -7.732 ; toneGenerator:t1|count_240[12] ; toneGenerator:t1|count_240[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.399      ;
+; -7.732 ; toneGenerator:t1|count_240[12] ; toneGenerator:t1|count_240[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.399      ;
+; -7.732 ; toneGenerator:t1|count_240[12] ; toneGenerator:t1|count_240[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.399      ;
+; -7.732 ; toneGenerator:t1|count_240[12] ; toneGenerator:t1|count_240[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.399      ;
+; -7.732 ; toneGenerator:t1|count_240[12] ; toneGenerator:t1|count_240[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.399      ;
+; -7.732 ; toneGenerator:t1|count_240[12] ; toneGenerator:t1|count_240[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.399      ;
+; -7.678 ; toneGenerator:t1|count_240[8]  ; toneGenerator:t1|count_240[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.345      ;
+; -7.678 ; toneGenerator:t1|count_240[8]  ; toneGenerator:t1|count_240[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.345      ;
+; -7.678 ; toneGenerator:t1|count_240[8]  ; toneGenerator:t1|count_240[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.345      ;
+; -7.678 ; toneGenerator:t1|count_240[8]  ; toneGenerator:t1|count_240[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.345      ;
+; -7.678 ; toneGenerator:t1|count_240[8]  ; toneGenerator:t1|count_240[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.345      ;
+; -7.678 ; toneGenerator:t1|count_240[8]  ; toneGenerator:t1|count_240[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.345      ;
+; -7.678 ; toneGenerator:t1|count_240[8]  ; toneGenerator:t1|count_240[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.345      ;
+; -7.678 ; toneGenerator:t1|count_240[8]  ; toneGenerator:t1|count_240[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.345      ;
+; -7.678 ; toneGenerator:t1|count_240[8]  ; toneGenerator:t1|count_240[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.345      ;
+; -7.654 ; toneGenerator:t1|count_240[10] ; toneGenerator:t1|count_240[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.321      ;
+; -7.654 ; toneGenerator:t1|count_240[10] ; toneGenerator:t1|count_240[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.321      ;
+; -7.654 ; toneGenerator:t1|count_240[10] ; toneGenerator:t1|count_240[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.321      ;
+; -7.654 ; toneGenerator:t1|count_240[10] ; toneGenerator:t1|count_240[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.321      ;
+; -7.654 ; toneGenerator:t1|count_240[10] ; toneGenerator:t1|count_240[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.321      ;
+; -7.654 ; toneGenerator:t1|count_240[10] ; toneGenerator:t1|count_240[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.321      ;
+; -7.654 ; toneGenerator:t1|count_240[10] ; toneGenerator:t1|count_240[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.321      ;
+; -7.654 ; toneGenerator:t1|count_240[10] ; toneGenerator:t1|count_240[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.321      ;
+; -7.654 ; toneGenerator:t1|count_240[10] ; toneGenerator:t1|count_240[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.321      ;
+; -7.524 ; toneGenerator:t1|count_240[18] ; toneGenerator:t1|count_240[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.191      ;
+; -7.524 ; toneGenerator:t1|count_240[18] ; toneGenerator:t1|count_240[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.191      ;
+; -7.524 ; toneGenerator:t1|count_240[18] ; toneGenerator:t1|count_240[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.191      ;
+; -7.524 ; toneGenerator:t1|count_240[18] ; toneGenerator:t1|count_240[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.191      ;
+; -7.524 ; toneGenerator:t1|count_240[18] ; toneGenerator:t1|count_240[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.191      ;
+; -7.524 ; toneGenerator:t1|count_240[18] ; toneGenerator:t1|count_240[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.191      ;
+; -7.524 ; toneGenerator:t1|count_240[18] ; toneGenerator:t1|count_240[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.191      ;
+; -7.524 ; toneGenerator:t1|count_240[18] ; toneGenerator:t1|count_240[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.191      ;
+; -7.524 ; toneGenerator:t1|count_240[18] ; toneGenerator:t1|count_240[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.191      ;
+; -7.452 ; toneGenerator:t1|count_240[11] ; toneGenerator:t1|count_240[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.119      ;
+; -7.452 ; toneGenerator:t1|count_240[11] ; toneGenerator:t1|count_240[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.119      ;
+; -7.452 ; toneGenerator:t1|count_240[11] ; toneGenerator:t1|count_240[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.119      ;
+; -7.452 ; toneGenerator:t1|count_240[11] ; toneGenerator:t1|count_240[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.119      ;
+; -7.452 ; toneGenerator:t1|count_240[11] ; toneGenerator:t1|count_240[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.119      ;
+; -7.452 ; toneGenerator:t1|count_240[11] ; toneGenerator:t1|count_240[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.119      ;
+; -7.452 ; toneGenerator:t1|count_240[11] ; toneGenerator:t1|count_240[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.119      ;
+; -7.452 ; toneGenerator:t1|count_240[11] ; toneGenerator:t1|count_240[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.119      ;
+; -7.452 ; toneGenerator:t1|count_240[11] ; toneGenerator:t1|count_240[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.119      ;
+; -7.450 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.117      ;
+; -7.450 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.117      ;
+; -7.450 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.117      ;
+; -7.450 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.117      ;
+; -7.450 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.117      ;
+; -7.450 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.117      ;
+; -7.450 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.117      ;
+; -7.450 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.117      ;
+; -7.450 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.117      ;
+; -7.450 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.117      ;
+; -7.448 ; toneGenerator:t1|count_240[1]  ; toneGenerator:t1|count_240[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.115      ;
+; -7.448 ; toneGenerator:t1|count_240[1]  ; toneGenerator:t1|count_240[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.115      ;
+; -7.448 ; toneGenerator:t1|count_240[1]  ; toneGenerator:t1|count_240[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.115      ;
+; -7.448 ; toneGenerator:t1|count_240[1]  ; toneGenerator:t1|count_240[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.115      ;
+; -7.448 ; toneGenerator:t1|count_240[1]  ; toneGenerator:t1|count_240[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.115      ;
+; -7.448 ; toneGenerator:t1|count_240[1]  ; toneGenerator:t1|count_240[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.115      ;
+; -7.448 ; toneGenerator:t1|count_240[1]  ; toneGenerator:t1|count_240[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.115      ;
+; -7.448 ; toneGenerator:t1|count_240[1]  ; toneGenerator:t1|count_240[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.115      ;
+; -7.448 ; toneGenerator:t1|count_240[1]  ; toneGenerator:t1|count_240[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.115      ;
++--------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                                                   ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                      ; To Node                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; 1.422 ; toneGenerator:t1|clk_240       ; toneGenerator:t1|toneOut       ; clk          ; clk         ; 0.000        ; 0.000      ; 1.643      ;
+; 1.659 ; toneGenerator:t1|count_240[18] ; toneGenerator:t1|count_240[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.880      ;
+; 1.934 ; toneGenerator:t1|clk_240       ; toneGenerator:t1|clk_240       ; clk          ; clk         ; 0.000        ; 0.000      ; 2.155      ;
+; 2.108 ; toneGenerator:t1|count_240[6]  ; toneGenerator:t1|count_240[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.329      ;
+; 2.116 ; toneGenerator:t1|count_240[9]  ; toneGenerator:t1|count_240[9]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.337      ;
+; 2.117 ; toneGenerator:t1|count_240[16] ; toneGenerator:t1|count_240[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.126 ; toneGenerator:t1|count_240[10] ; toneGenerator:t1|count_240[10] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; toneGenerator:t1|count_240[11] ; toneGenerator:t1|count_240[11] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; toneGenerator:t1|count_240[8]  ; toneGenerator:t1|count_240[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.347      ;
+; 2.135 ; toneGenerator:t1|count_240[0]  ; toneGenerator:t1|count_240[0]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.356      ;
+; 2.221 ; toneGenerator:t1|count_240[12] ; toneGenerator:t1|count_240[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.221 ; toneGenerator:t1|count_240[17] ; toneGenerator:t1|count_240[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.230 ; toneGenerator:t1|count_240[14] ; toneGenerator:t1|count_240[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.451      ;
+; 2.230 ; toneGenerator:t1|count_240[7]  ; toneGenerator:t1|count_240[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.451      ;
+; 2.231 ; toneGenerator:t1|count_240[15] ; toneGenerator:t1|count_240[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.239 ; toneGenerator:t1|count_240[4]  ; toneGenerator:t1|count_240[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.460      ;
+; 2.240 ; toneGenerator:t1|count_240[5]  ; toneGenerator:t1|count_240[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.461      ;
+; 2.241 ; toneGenerator:t1|count_240[2]  ; toneGenerator:t1|count_240[2]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.462      ;
+; 2.252 ; toneGenerator:t1|count_240[3]  ; toneGenerator:t1|count_240[3]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.473      ;
+; 2.639 ; toneGenerator:t1|count_240[1]  ; toneGenerator:t1|count_240[1]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.860      ;
+; 2.940 ; toneGenerator:t1|count_240[6]  ; toneGenerator:t1|count_240[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.161      ;
+; 2.948 ; toneGenerator:t1|count_240[9]  ; toneGenerator:t1|count_240[10] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.169      ;
+; 2.949 ; toneGenerator:t1|count_240[16] ; toneGenerator:t1|count_240[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.170      ;
+; 2.958 ; toneGenerator:t1|count_240[11] ; toneGenerator:t1|count_240[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.179      ;
+; 2.958 ; toneGenerator:t1|count_240[10] ; toneGenerator:t1|count_240[11] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.179      ;
+; 2.967 ; toneGenerator:t1|count_240[0]  ; toneGenerator:t1|count_240[1]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.188      ;
+; 3.051 ; toneGenerator:t1|count_240[6]  ; toneGenerator:t1|count_240[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.272      ;
+; 3.059 ; toneGenerator:t1|count_240[9]  ; toneGenerator:t1|count_240[11] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.280      ;
+; 3.060 ; toneGenerator:t1|count_240[16] ; toneGenerator:t1|count_240[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.281      ;
+; 3.069 ; toneGenerator:t1|count_240[11] ; toneGenerator:t1|count_240[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.290      ;
+; 3.069 ; toneGenerator:t1|count_240[10] ; toneGenerator:t1|count_240[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.290      ;
+; 3.078 ; toneGenerator:t1|count_240[0]  ; toneGenerator:t1|count_240[2]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.299      ;
+; 3.161 ; toneGenerator:t1|count_240[17] ; toneGenerator:t1|count_240[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.382      ;
+; 3.161 ; toneGenerator:t1|count_240[12] ; toneGenerator:t1|count_240[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.382      ;
+; 3.170 ; toneGenerator:t1|count_240[14] ; toneGenerator:t1|count_240[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.391      ;
+; 3.170 ; toneGenerator:t1|count_240[7]  ; toneGenerator:t1|count_240[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.391      ;
+; 3.170 ; toneGenerator:t1|count_240[9]  ; toneGenerator:t1|count_240[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.391      ;
+; 3.171 ; toneGenerator:t1|count_240[15] ; toneGenerator:t1|count_240[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.392      ;
+; 3.179 ; toneGenerator:t1|count_240[4]  ; toneGenerator:t1|count_240[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.400      ;
+; 3.180 ; toneGenerator:t1|count_240[5]  ; toneGenerator:t1|count_240[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.401      ;
+; 3.180 ; toneGenerator:t1|count_240[10] ; toneGenerator:t1|count_240[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.401      ;
+; 3.181 ; toneGenerator:t1|count_240[2]  ; toneGenerator:t1|count_240[3]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.402      ;
+; 3.189 ; toneGenerator:t1|count_240[0]  ; toneGenerator:t1|count_240[3]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.410      ;
+; 3.281 ; toneGenerator:t1|count_240[14] ; toneGenerator:t1|count_240[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.502      ;
+; 3.281 ; toneGenerator:t1|count_240[9]  ; toneGenerator:t1|count_240[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.502      ;
+; 3.282 ; toneGenerator:t1|count_240[15] ; toneGenerator:t1|count_240[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.503      ;
+; 3.290 ; toneGenerator:t1|count_240[4]  ; toneGenerator:t1|count_240[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.511      ;
+; 3.291 ; toneGenerator:t1|count_240[5]  ; toneGenerator:t1|count_240[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.512      ;
+; 3.392 ; toneGenerator:t1|count_240[14] ; toneGenerator:t1|count_240[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.613      ;
+; 3.393 ; toneGenerator:t1|count_240[15] ; toneGenerator:t1|count_240[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.614      ;
+; 3.401 ; toneGenerator:t1|count_240[4]  ; toneGenerator:t1|count_240[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.622      ;
+; 3.402 ; toneGenerator:t1|count_240[5]  ; toneGenerator:t1|count_240[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.623      ;
+; 3.492 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; toneGenerator:t1|count_240[13] ; toneGenerator:t1|count_240[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.503 ; toneGenerator:t1|count_240[14] ; toneGenerator:t1|count_240[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.724      ;
+; 3.512 ; toneGenerator:t1|count_240[4]  ; toneGenerator:t1|count_240[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.733      ;
+; 3.513 ; toneGenerator:t1|count_240[3]  ; toneGenerator:t1|count_240[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.734      ;
+; 3.513 ; toneGenerator:t1|count_240[3]  ; toneGenerator:t1|count_240[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.734      ;
+; 3.513 ; toneGenerator:t1|count_240[3]  ; toneGenerator:t1|count_240[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.734      ;
+; 3.513 ; toneGenerator:t1|count_240[3]  ; toneGenerator:t1|count_240[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.734      ;
+; 3.513 ; toneGenerator:t1|count_240[3]  ; toneGenerator:t1|count_240[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.734      ;
+; 3.538 ; toneGenerator:t1|count_240[11] ; toneGenerator:t1|count_240[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.759      ;
+; 3.538 ; toneGenerator:t1|count_240[11] ; toneGenerator:t1|count_240[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.759      ;
+; 3.538 ; toneGenerator:t1|count_240[11] ; toneGenerator:t1|count_240[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.759      ;
+; 3.538 ; toneGenerator:t1|count_240[11] ; toneGenerator:t1|count_240[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.759      ;
+; 3.538 ; toneGenerator:t1|count_240[11] ; toneGenerator:t1|count_240[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.759      ;
+; 3.579 ; toneGenerator:t1|count_240[1]  ; toneGenerator:t1|count_240[2]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.800      ;
+; 3.630 ; toneGenerator:t1|count_240[12] ; toneGenerator:t1|count_240[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.851      ;
+; 3.630 ; toneGenerator:t1|count_240[12] ; toneGenerator:t1|count_240[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.851      ;
+; 3.630 ; toneGenerator:t1|count_240[12] ; toneGenerator:t1|count_240[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.851      ;
+; 3.630 ; toneGenerator:t1|count_240[12] ; toneGenerator:t1|count_240[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.851      ;
+; 3.630 ; toneGenerator:t1|count_240[12] ; toneGenerator:t1|count_240[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.851      ;
+; 3.649 ; toneGenerator:t1|count_240[10] ; toneGenerator:t1|count_240[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.870      ;
+; 3.649 ; toneGenerator:t1|count_240[10] ; toneGenerator:t1|count_240[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.870      ;
+; 3.649 ; toneGenerator:t1|count_240[10] ; toneGenerator:t1|count_240[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.870      ;
+; 3.649 ; toneGenerator:t1|count_240[10] ; toneGenerator:t1|count_240[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.870      ;
+; 3.649 ; toneGenerator:t1|count_240[10] ; toneGenerator:t1|count_240[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.870      ;
+; 3.650 ; toneGenerator:t1|count_240[2]  ; toneGenerator:t1|count_240[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.871      ;
+; 3.650 ; toneGenerator:t1|count_240[2]  ; toneGenerator:t1|count_240[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.871      ;
+; 3.650 ; toneGenerator:t1|count_240[2]  ; toneGenerator:t1|count_240[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.871      ;
+; 3.650 ; toneGenerator:t1|count_240[2]  ; toneGenerator:t1|count_240[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.871      ;
+; 3.650 ; toneGenerator:t1|count_240[2]  ; toneGenerator:t1|count_240[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.871      ;
+; 3.658 ; toneGenerator:t1|count_240[0]  ; toneGenerator:t1|count_240[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.879      ;
+; 3.658 ; toneGenerator:t1|count_240[0]  ; toneGenerator:t1|count_240[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.879      ;
+; 3.658 ; toneGenerator:t1|count_240[0]  ; toneGenerator:t1|count_240[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.879      ;
+; 3.658 ; toneGenerator:t1|count_240[0]  ; toneGenerator:t1|count_240[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.879      ;
+; 3.658 ; toneGenerator:t1|count_240[0]  ; toneGenerator:t1|count_240[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.879      ;
+; 3.690 ; toneGenerator:t1|count_240[1]  ; toneGenerator:t1|count_240[3]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.911      ;
+; 3.750 ; toneGenerator:t1|count_240[9]  ; toneGenerator:t1|count_240[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.971      ;
+; 3.750 ; toneGenerator:t1|count_240[9]  ; toneGenerator:t1|count_240[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.971      ;
+; 3.750 ; toneGenerator:t1|count_240[9]  ; toneGenerator:t1|count_240[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.971      ;
+; 3.750 ; toneGenerator:t1|count_240[9]  ; toneGenerator:t1|count_240[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.971      ;
+; 3.750 ; toneGenerator:t1|count_240[9]  ; toneGenerator:t1|count_240[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.971      ;
+; 3.777 ; toneGenerator:t1|count_240[8]  ; toneGenerator:t1|count_240[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.998      ;
+; 3.777 ; toneGenerator:t1|count_240[8]  ; toneGenerator:t1|count_240[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.998      ;
+; 3.777 ; toneGenerator:t1|count_240[8]  ; toneGenerator:t1|count_240[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.998      ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'clk'                                                                                      ;
++--------+--------------+----------------+------------------+-------+------------+--------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                         ;
++--------+--------------+----------------+------------------+-------+------------+--------------------------------+
+; -2.289 ; 1.000        ; 3.289          ; Port Rate        ; clk   ; Rise       ; clk                            ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|clk_240       ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|clk_240       ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|count_240[0]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|count_240[0]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|count_240[10] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|count_240[10] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|count_240[11] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|count_240[11] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|count_240[12] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|count_240[12] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|count_240[13] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|count_240[13] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|count_240[14] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|count_240[14] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|count_240[15] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|count_240[15] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|count_240[16] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|count_240[16] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|count_240[17] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|count_240[17] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|count_240[18] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|count_240[18] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|count_240[1]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|count_240[1]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|count_240[2]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|count_240[2]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|count_240[3]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|count_240[3]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|count_240[4]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|count_240[4]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|count_240[5]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|count_240[5]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|count_240[6]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|count_240[6]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|count_240[7]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|count_240[7]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|count_240[8]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|count_240[8]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|count_240[9]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|count_240[9]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; toneGenerator:t1|toneOut       ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; toneGenerator:t1|toneOut       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk|combout                    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk|combout                    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|clk_240|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|clk_240|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|count_240[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|count_240[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|count_240[10]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|count_240[10]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|count_240[11]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|count_240[11]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|count_240[12]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|count_240[12]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|count_240[13]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|count_240[13]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|count_240[14]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|count_240[14]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|count_240[15]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|count_240[15]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|count_240[16]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|count_240[16]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|count_240[17]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|count_240[17]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|count_240[18]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|count_240[18]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|count_240[1]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|count_240[1]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|count_240[2]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|count_240[2]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|count_240[3]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|count_240[3]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|count_240[4]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|count_240[4]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|count_240[5]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|count_240[5]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|count_240[6]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|count_240[6]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|count_240[7]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|count_240[7]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|count_240[8]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|count_240[8]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|count_240[9]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|count_240[9]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; t1|toneOut|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; t1|toneOut|clk                 ;
++--------+--------------+----------------+------------------+-------+------------+--------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; to        ; clk        ; 9.298 ; 9.298 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; to        ; clk        ; 9.298 ; 9.298 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 853      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 853      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 0     ; 0    ;
+; Unconstrained Input Port Paths  ; 0     ; 0    ;
+; Unconstrained Output Ports      ; 1     ; 1    ;
+; Unconstrained Output Port Paths ; 1     ; 1    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Wed Apr 15 17:37:23 2015
+Info: Command: quartus_sta toneGenerator -c toneGenerator
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (306004): Started post-fitting delay annotation
+Info (306005): Delay annotation completed successfully
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'toneGenerator.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -8.020
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -8.020            -153.564 clk 
+Info (332146): Worst-case hold slack is 1.422
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.422               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 322 megabytes
+    Info: Processing ended: Wed Apr 15 17:37:25 2015
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+

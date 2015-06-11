@@ -1,0 +1,26 @@
+
+State Machine - |vending_machine|main_fsm_state
+Name main_fsm_state.state_idle2 main_fsm_state.state_refill main_fsm_state.state_endMessage main_fsm_state.state_transactionStatus main_fsm_state.state_payment main_fsm_state.state_selectQuantity main_fsm_state.state_idle 
+main_fsm_state.state_idle 0 0 0 0 0 0 0 
+main_fsm_state.state_selectQuantity 0 0 0 0 0 1 1 
+main_fsm_state.state_payment 0 0 0 0 1 0 1 
+main_fsm_state.state_transactionStatus 0 0 0 1 0 0 1 
+main_fsm_state.state_endMessage 0 0 1 0 0 0 1 
+main_fsm_state.state_refill 0 1 0 0 0 0 1 
+main_fsm_state.state_idle2 1 0 0 0 0 0 1 
+
+State Machine - |vending_machine|selected_product
+Name selected_product.11 selected_product.10 selected_product.01 selected_product.00 
+selected_product.00 0 0 0 0 
+selected_product.01 0 0 1 1 
+selected_product.10 0 1 0 1 
+selected_product.11 1 0 0 1 
+
+State Machine - |vending_machine|lcd:lcd_instance|lcd_state
+Name lcd_state.S5 lcd_state.S4 lcd_state.S3 lcd_state.S2 lcd_state.S1 lcd_state.000 
+lcd_state.000 0 0 0 0 0 0 
+lcd_state.S1 0 0 0 0 1 1 
+lcd_state.S2 0 0 0 1 0 1 
+lcd_state.S3 0 0 1 0 0 1 
+lcd_state.S4 0 1 0 0 0 1 
+lcd_state.S5 1 0 0 0 0 1 

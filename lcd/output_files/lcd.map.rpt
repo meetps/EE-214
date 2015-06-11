@@ -1,0 +1,374 @@
+Analysis & Synthesis report for lcd
+Sat Mar 14 02:31:08 2015
+Quartus II 32-bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |key_lcd|state_debounce
+  9. User-Specified and Inferred Latches
+ 10. Logic Cells Representing Combinational Loops
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Parameter Settings for User Entity Instance: Top-level Entity: |key_lcd
+ 15. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                             ;
++-----------------------------+--------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Sat Mar 14 02:31:08 2015      ;
+; Quartus II 32-bit Version   ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name               ; lcd                                        ;
+; Top-level Entity Name       ; key_lcd                                    ;
+; Family                      ; MAX V                                      ;
+; Total logic elements        ; 77                                         ;
+; Total pins                  ; 26                                         ;
+; Total virtual pins          ; 0                                          ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                              ;
++-----------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; 5M1270ZT144C5      ;                    ;
+; Top-level entity name                                                      ; key_lcd            ; lcd                ;
+; Family name                                                                ; MAX V              ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                    ;
++----------------------------------+-----------------+------------------------+-----------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path      ; Library ;
++----------------------------------+-----------------+------------------------+-----------------------------------+---------+
+; key_lcd.v                        ; yes             ; User Verilog HDL File  ; /home/tinchuk/ee214/lcd/key_lcd.v ;         ;
++----------------------------------+-----------------+------------------------+-----------------------------------+---------+
+
+
++--------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary            ;
++---------------------------------------------+----------+
+; Resource                                    ; Usage    ;
++---------------------------------------------+----------+
+; Total logic elements                        ; 77       ;
+;     -- Combinational with no register       ; 36       ;
+;     -- Register only                        ; 14       ;
+;     -- Combinational with a register        ; 27       ;
+;                                             ;          ;
+; Logic element usage by number of LUT inputs ;          ;
+;     -- 4 input functions                    ; 32       ;
+;     -- 3 input functions                    ; 6        ;
+;     -- 2 input functions                    ; 22       ;
+;     -- 1 input functions                    ; 3        ;
+;     -- 0 input functions                    ; 0        ;
+;                                             ;          ;
+; Logic elements by mode                      ;          ;
+;     -- normal mode                          ; 60       ;
+;     -- arithmetic mode                      ; 17       ;
+;     -- qfbk mode                            ; 0        ;
+;     -- register cascade mode                ; 0        ;
+;     -- synchronous clear/load mode          ; 1        ;
+;     -- asynchronous clear/load mode         ; 0        ;
+;                                             ;          ;
+; Total registers                             ; 41       ;
+; Total logic cells in carry chains           ; 18       ;
+; I/O pins                                    ; 26       ;
+; Maximum fan-out node                        ; WideAnd0 ;
+; Maximum fan-out                             ; 22       ;
+; Total fan-out                               ; 273      ;
+; Average fan-out                             ; 2.65     ;
++---------------------------------------------+----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                  ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
+; |key_lcd                   ; 77 (77)     ; 41           ; 0          ; 26   ; 0            ; 36 (36)      ; 14 (14)           ; 27 (27)          ; 18 (18)         ; 0 (0)      ; |key_lcd            ; work         ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------+
+; State Machine - |key_lcd|state_debounce                                       ;
++-------------------+-------------------+-------------------+-------------------+
+; Name              ; state_debounce.D0 ; state_debounce.D2 ; state_debounce.D1 ;
++-------------------+-------------------+-------------------+-------------------+
+; state_debounce.D0 ; 0                 ; 0                 ; 0                 ;
+; state_debounce.D1 ; 1                 ; 0                 ; 1                 ;
+; state_debounce.D2 ; 1                 ; 1                 ; 0                 ;
++-------------------+-------------------+-------------------+-------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; lcd[0]$latch                                       ; rst                 ; yes                    ;
+; lcd[1]$latch                                       ; rst                 ; yes                    ;
+; lcd[2]$latch                                       ; rst                 ; yes                    ;
+; lcd[3]$latch                                       ; rst                 ; yes                    ;
+; lcd[4]$latch                                       ; rst                 ; yes                    ;
+; lcd[6]$latch                                       ; rst                 ; yes                    ;
+; lcd_rs$latch                                       ; rst                 ; yes                    ;
+; lcd_en$latch                                       ; rst                 ; yes                    ;
+; Number of user-specified and inferred latches = 8  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops               ;
++--------------------------------------------------------+---+
+; Logic Cell Name                                        ;   ;
++--------------------------------------------------------+---+
+; WideOr11~0                                             ;   ;
+; WideOr11~1                                             ;   ;
+; Number of logic cells representing combinational loops ; 2 ;
++--------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; led[4]~reg0                           ; Stuck at GND due to stuck port data_in ;
+; lcd_dat[5]                            ; Stuck at VCC due to stuck port data_in ;
+; lcd_dat[7]                            ; Stuck at GND due to stuck port data_in ;
+; state_debounce.D2                     ; Lost fanout                            ;
+; lcd_dat[0..4]                         ; Lost fanout                            ;
+; Total Number of Removed Registers = 9 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 41    ;
+; Number of registers using Synchronous Clear  ; 1     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 16    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; col[3]~reg0                            ; 4       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |key_lcd ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; S0             ; 000   ; Unsigned Binary                                ;
+; S1             ; 001   ; Unsigned Binary                                ;
+; S2             ; 010   ; Unsigned Binary                                ;
+; S3             ; 011   ; Unsigned Binary                                ;
+; S4             ; 100   ; Unsigned Binary                                ;
+; S5             ; 101   ; Unsigned Binary                                ;
+; D0             ; 00    ; Unsigned Binary                                ;
+; D1             ; 01    ; Unsigned Binary                                ;
+; D2             ; 10    ; Unsigned Binary                                ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 32-bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Sat Mar 14 02:31:05 2015
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lcd -c lcd
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file key_lcd.v
+    Info (12023): Found entity 1: key_lcd
+Warning (10236): Verilog HDL Implicit Net warning at key_lcd.v(95): created implicit net for "boolmy"
+Info (12127): Elaborating entity "key_lcd" for the top level hierarchy
+Warning (10235): Verilog HDL Always Construct warning at key_lcd.v(214): variable "rst" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at key_lcd.v(222): variable "state" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at key_lcd.v(225): variable "count_cmd" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at key_lcd.v(227): variable "count_cmd" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at key_lcd.v(239): variable "count_cmd" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at key_lcd.v(247): variable "count_cmd" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at key_lcd.v(252): variable "count_cmd" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at key_lcd.v(257): variable "lcd_dat" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at key_lcd.v(265): variable "lcd_dat" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at key_lcd.v(273): variable "lcd_dat" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at key_lcd.v(279): variable "state_debounce" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10240): Verilog HDL Always Construct warning at key_lcd.v(211): inferring latch(es) for variable "count_cmd", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at key_lcd.v(211): inferring latch(es) for variable "lcd", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at key_lcd.v(211): inferring latch(es) for variable "lcd_rs", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at key_lcd.v(211): inferring latch(es) for variable "lcd_rw", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at key_lcd.v(211): inferring latch(es) for variable "lcd_en", which holds its previous value in one or more paths through the always construct
+Warning (10030): Net "lcd_commands.data_a" at key_lcd.v(29) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "lcd_commands.waddr_a" at key_lcd.v(29) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "lcd_commands.we_a" at key_lcd.v(29) has no driver or initial value, using a default initial value '0'
+Info (10041): Inferred latch for "lcd_en" at key_lcd.v(211)
+Info (10041): Inferred latch for "lcd_rw" at key_lcd.v(211)
+Info (10041): Inferred latch for "lcd_rs" at key_lcd.v(211)
+Info (10041): Inferred latch for "lcd[0]" at key_lcd.v(211)
+Info (10041): Inferred latch for "lcd[1]" at key_lcd.v(211)
+Info (10041): Inferred latch for "lcd[2]" at key_lcd.v(211)
+Info (10041): Inferred latch for "lcd[3]" at key_lcd.v(211)
+Info (10041): Inferred latch for "lcd[4]" at key_lcd.v(211)
+Info (10041): Inferred latch for "lcd[5]" at key_lcd.v(211)
+Info (10041): Inferred latch for "lcd[6]" at key_lcd.v(211)
+Info (10041): Inferred latch for "lcd[7]" at key_lcd.v(211)
+Info (10041): Inferred latch for "count_cmd[0]" at key_lcd.v(211)
+Info (10041): Inferred latch for "count_cmd[1]" at key_lcd.v(211)
+Info (10041): Inferred latch for "count_cmd[2]" at key_lcd.v(211)
+Critical Warning (127005): Memory depth (8) in the design file differs from memory depth (5) in the Memory Initialization File "/home/tinchuk/ee214/lcd/db/lcd.ram0_key_lcd_7e8d76ae.hdl.mif" -- setting initial value for remaining addresses to 0
+Warning (14025): LATCH primitive "count_cmd[0]" is permanently disabled
+Warning (14025): LATCH primitive "count_cmd[1]" is permanently disabled
+Warning (14025): LATCH primitive "count_cmd[2]" is permanently disabled
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "lcd[0]" is stuck at GND
+    Warning (13410): Pin "lcd[1]" is stuck at GND
+    Warning (13410): Pin "lcd[2]" is stuck at GND
+    Warning (13410): Pin "lcd[3]" is stuck at VCC
+    Warning (13410): Pin "lcd[4]" is stuck at VCC
+    Warning (13410): Pin "lcd[5]" is stuck at VCC
+    Warning (13410): Pin "lcd[6]" is stuck at GND
+    Warning (13410): Pin "lcd[7]" is stuck at GND
+    Warning (13410): Pin "led[4]" is stuck at GND
+    Warning (13410): Pin "lcd_rs" is stuck at GND
+    Warning (13410): Pin "lcd_rw" is stuck at GND
+    Warning (13410): Pin "lcd_en" is stuck at GND
+Info (17049): 6 registers lost all their fanouts during netlist optimizations.
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "rst"
+Info (21057): Implemented 103 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 20 output pins
+    Info (21061): Implemented 77 logic cells
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 40 warnings
+    Info: Peak virtual memory: 364 megabytes
+    Info: Processing ended: Sat Mar 14 02:31:08 2015
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
+
+

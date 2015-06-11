@@ -1,0 +1,21 @@
+
+State Machine - |lcd_final|temp_debounce
+Name temp_debounce.00 temp_debounce.10 temp_debounce.01 
+temp_debounce.00 0 0 0 
+temp_debounce.01 1 0 1 
+temp_debounce.10 1 1 0 
+
+State Machine - |lcd_final|temp_state
+Name temp_state.101 temp_state.100 temp_state.011 temp_state.010 temp_state.001 temp_state.000 
+temp_state.000 0 0 0 0 0 0 
+temp_state.001 0 0 0 0 1 1 
+temp_state.010 0 0 0 1 0 1 
+temp_state.011 0 0 1 0 0 1 
+temp_state.100 0 1 0 0 0 1 
+temp_state.101 1 0 0 0 0 1 
+
+State Machine - |lcd_final|state_debounce
+Name state_debounce.00 state_debounce.10 state_debounce.01 
+state_debounce.00 0 0 0 
+state_debounce.01 1 0 1 
+state_debounce.10 1 1 0 

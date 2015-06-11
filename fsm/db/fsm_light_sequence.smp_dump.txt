@@ -1,0 +1,22 @@
+
+State Machine - |fsm_light_sequence|state_n
+Name state_n.LR3 state_n.R3 state_n.R2 state_n.R1 state_n.L3 state_n.L2 state_n.L1 state_n.000 
+state_n.000 0 0 0 0 0 0 0 0 
+state_n.L1 0 0 0 0 0 0 1 1 
+state_n.L2 0 0 0 0 0 1 0 1 
+state_n.L3 0 0 0 0 1 0 0 1 
+state_n.R1 0 0 0 1 0 0 0 1 
+state_n.R2 0 0 1 0 0 0 0 1 
+state_n.R3 0 1 0 0 0 0 0 1 
+state_n.LR3 1 0 0 0 0 0 0 1 
+
+State Machine - |fsm_light_sequence|state_p
+Name state_p.LR3 state_p.R3 state_p.R2 state_p.R1 state_p.L3 state_p.L2 state_p.L1 state_p.000 
+state_p.000 0 0 0 0 0 0 0 0 
+state_p.L1 0 0 0 0 0 0 1 1 
+state_p.L2 0 0 0 0 0 1 0 1 
+state_p.L3 0 0 0 0 1 0 0 1 
+state_p.R1 0 0 0 1 0 0 0 1 
+state_p.R2 0 0 1 0 0 0 0 1 
+state_p.R3 0 1 0 0 0 0 0 1 
+state_p.LR3 1 0 0 0 0 0 0 1 

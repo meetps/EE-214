@@ -1,0 +1,3 @@
+Warning (10268): Verilog HDL information at lcd_final.v(59): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at lcd_final.v(80): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at lcd_final.v(173): always construct contains both blocking and non-blocking assignments

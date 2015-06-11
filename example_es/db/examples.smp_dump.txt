@@ -1,0 +1,6 @@
+
+State Machine - |sram|present_state
+Name present_state.00 present_state.S2 present_state.S1 
+present_state.00 0 0 0 
+present_state.S1 1 0 1 
+present_state.S2 1 1 0 

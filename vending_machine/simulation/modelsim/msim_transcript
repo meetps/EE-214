@@ -1,0 +1,56 @@
+# ERROR: No extended dataflow license exists
+# do vending_machine_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying /home/tinchuk/altera/13.1/modelsim_ase/linux/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied /home/tinchuk/altera/13.1/modelsim_ase/linux/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+/home/tinchuk/ee214/vending_machine {/home/tinchuk/ee214/vending_machine/vending_machine.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module vending_machine
+# 
+# Top level modules:
+# 	vending_machine
+# vlog -vlog01compat -work work +incdir+/home/tinchuk/ee214/vending_machine {/home/tinchuk/ee214/vending_machine/lcd.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module lcd
+# 
+# Top level modules:
+# 	lcd
+# 
+vsim -voptargs=+acc work.vending_machine
+# vsim -voptargs=+acc work.vending_machine 
+# Loading work.vending_machine
+# Loading work.lcd
+add wave -position insertpoint  \
+sim:/vending_machine/clk
+add wave -position insertpoint  \
+sim:/vending_machine/clk \
+sim:/vending_machine/done_1 \
+sim:/vending_machine/start_1 \
+sim:/vending_machine/main_fsm_state
+add wave -position insertpoint  \
+sim:/vending_machine/lcd_msg_index
+# Can't move the Now cursor.
+force -freeze sim:/vending_machine/clk 1 0, 0 {5 ps} -r 10
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run -all

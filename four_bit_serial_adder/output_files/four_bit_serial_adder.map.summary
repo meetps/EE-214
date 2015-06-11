@@ -1,0 +1,9 @@
+Analysis & Synthesis Status : Successful - Wed Mar  4 00:14:00 2015
+Quartus II 32-bit Version : 13.1.0 Build 162 10/23/2013 SJ Web Edition
+Revision Name : four_bit_serial_adder
+Top-level Entity Name : four_bit_serial_adder
+Family : MAX V
+Total logic elements : 20
+Total pins : 15
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

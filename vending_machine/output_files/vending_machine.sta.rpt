@@ -1,0 +1,965 @@
+TimeQuest Timing Analyzer report for vending_machine
+Mon Apr 13 17:10:18 2015
+Quartus II 32-bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'clk'
+ 12. Setup: 'lcd:lcd_instance|clk10'
+ 13. Hold: 'clk'
+ 14. Hold: 'lcd:lcd_instance|clk10'
+ 15. Minimum Pulse Width: 'clk'
+ 16. Minimum Pulse Width: 'lcd:lcd_instance|clk10'
+ 17. Setup Times
+ 18. Hold Times
+ 19. Clock to Output Times
+ 20. Minimum Clock to Output Times
+ 21. Setup Transfers
+ 22. Hold Transfers
+ 23. Report TCCS
+ 24. Report RSKM
+ 25. Unconstrained Paths
+ 26. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                       ;
++--------------------+----------------------------------------------------+
+; Quartus II Version ; Version 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name      ; vending_machine                                    ;
+; Device Family      ; MAX V                                              ;
+; Device Name        ; 5M1270ZT144C5                                      ;
+; Timing Models      ; Final                                              ;
+; Delay Model        ; Slow Model                                         ;
+; Rise/Fall Delays   ; Unavailable                                        ;
++--------------------+----------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                         ;
++------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------+
+; Clock Name             ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                    ;
++------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------+
+; clk                    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                    ;
+; lcd:lcd_instance|clk10 ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { lcd:lcd_instance|clk10 } ;
++------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------+
+
+
++-------------------------------------------------------------+
+; Fmax Summary                                                ;
++-----------+-----------------+------------------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name             ; Note ;
++-----------+-----------------+------------------------+------+
+; 91.67 MHz ; 91.67 MHz       ; clk                    ;      ;
+; 178.0 MHz ; 178.0 MHz       ; lcd:lcd_instance|clk10 ;      ;
++-----------+-----------------+------------------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-------------------------------------------------+
+; Setup Summary                                   ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; clk                    ; -9.909 ; -1133.017     ;
+; lcd:lcd_instance|clk10 ; -4.618 ; -78.261       ;
++------------------------+--------+---------------+
+
+
++-------------------------------------------------+
+; Hold Summary                                    ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; clk                    ; -1.968 ; -1.968        ;
+; lcd:lcd_instance|clk10 ; 0.940  ; 0.000         ;
++------------------------+--------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++-------------------------------------------------+
+; Minimum Pulse Width Summary                     ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; clk                    ; -2.289 ; -2.289        ;
+; lcd:lcd_instance|clk10 ; 0.234  ; 0.000         ;
++------------------------+--------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                                                    ;
++--------+--------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                      ; To Node                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
+; -9.909 ; total_cost[6]                  ; total_money[7]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 10.576     ;
+; -9.831 ; total_cost[3]                  ; total_money[7]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 10.498     ;
+; -9.791 ; total_cost[2]                  ; total_money[7]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 10.458     ;
+; -9.657 ; total_cost[5]                  ; total_money[7]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 10.324     ;
+; -9.629 ; total_cost[4]                  ; total_money[7]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 10.296     ;
+; -9.470 ; total_cost[0]                  ; total_money[7]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 10.137     ;
+; -9.429 ; total_money[1]                 ; total_money[7]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 10.096     ;
+; -9.314 ; total_money[0]                 ; total_money[7]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.981      ;
+; -9.299 ; total_money[5]                 ; total_money[7]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.966      ;
+; -9.215 ; total_money[2]                 ; total_money[7]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.882      ;
+; -9.132 ; total_cost[1]                  ; total_money[7]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.799      ;
+; -8.996 ; total_money[4]                 ; total_money[7]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.663      ;
+; -8.896 ; total_money[3]                 ; total_money[7]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.563      ;
+; -8.736 ; total_money[6]                 ; total_money[7]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.403      ;
+; -8.680 ; total_money[0]                 ; total_money[1]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.347      ;
+; -8.568 ; total_cost[6]                  ; total_money[4]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.235      ;
+; -8.568 ; total_cost[6]                  ; total_money[2]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.235      ;
+; -8.535 ; total_cost[6]                  ; total_money[6]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.202      ;
+; -8.535 ; total_cost[6]                  ; total_money[5]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.202      ;
+; -8.535 ; total_cost[6]                  ; total_money[3]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.202      ;
+; -8.535 ; total_cost[6]                  ; total_money[1]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.202      ;
+; -8.490 ; total_cost[3]                  ; total_money[4]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.157      ;
+; -8.490 ; total_cost[3]                  ; total_money[2]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.157      ;
+; -8.457 ; total_cost[3]                  ; total_money[6]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.124      ;
+; -8.457 ; total_cost[3]                  ; total_money[5]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.124      ;
+; -8.457 ; total_cost[3]                  ; total_money[3]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.124      ;
+; -8.457 ; total_cost[3]                  ; total_money[1]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.124      ;
+; -8.450 ; total_cost[2]                  ; total_money[4]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.117      ;
+; -8.450 ; total_cost[2]                  ; total_money[2]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.117      ;
+; -8.417 ; total_cost[2]                  ; total_money[6]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.084      ;
+; -8.417 ; total_cost[2]                  ; total_money[5]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.084      ;
+; -8.417 ; total_cost[2]                  ; total_money[3]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.084      ;
+; -8.417 ; total_cost[2]                  ; total_money[1]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.084      ;
+; -8.390 ; total_money[4]                 ; total_money[5]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.057      ;
+; -8.365 ; pepsiQuantity[0]               ; total_cost[5]                   ; clk          ; clk         ; 1.000        ; 0.000      ; 9.032      ;
+; -8.316 ; total_cost[5]                  ; total_money[4]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.983      ;
+; -8.316 ; total_cost[5]                  ; total_money[2]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.983      ;
+; -8.288 ; total_cost[4]                  ; total_money[4]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.955      ;
+; -8.288 ; total_cost[4]                  ; total_money[2]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.955      ;
+; -8.283 ; total_cost[5]                  ; total_money[6]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.950      ;
+; -8.283 ; total_cost[5]                  ; total_money[5]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.950      ;
+; -8.283 ; total_cost[5]                  ; total_money[3]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.950      ;
+; -8.283 ; total_cost[5]                  ; total_money[1]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.950      ;
+; -8.255 ; total_cost[4]                  ; total_money[6]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.922      ;
+; -8.255 ; total_cost[4]                  ; total_money[5]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.922      ;
+; -8.255 ; total_cost[4]                  ; total_money[3]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.922      ;
+; -8.255 ; total_cost[4]                  ; total_money[1]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.922      ;
+; -8.169 ; cokeQuantity[0]                ; total_cost[5]                   ; clk          ; clk         ; 1.000        ; 0.000      ; 8.836      ;
+; -8.129 ; total_cost[0]                  ; total_money[4]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.796      ;
+; -8.129 ; total_cost[0]                  ; total_money[2]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.796      ;
+; -8.110 ; lcd:lcd_instance|char_count[0] ; lcd:lcd_instance|lcd_char[1]    ; clk          ; clk         ; 1.000        ; 0.000      ; 8.777      ;
+; -8.096 ; total_cost[0]                  ; total_money[6]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.763      ;
+; -8.096 ; total_cost[0]                  ; total_money[5]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.763      ;
+; -8.096 ; total_cost[0]                  ; total_money[3]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.763      ;
+; -8.096 ; total_cost[0]                  ; total_money[1]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.763      ;
+; -8.088 ; total_money[1]                 ; total_money[4]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.755      ;
+; -8.088 ; total_money[1]                 ; total_money[2]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.755      ;
+; -8.063 ; total_money[3]                 ; total_money[6]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.730      ;
+; -8.058 ; total_money[0]                 ; total_money[0]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.725      ;
+; -8.055 ; total_money[1]                 ; total_money[6]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.722      ;
+; -8.055 ; total_money[1]                 ; total_money[5]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.722      ;
+; -8.055 ; total_money[1]                 ; total_money[3]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.722      ;
+; -8.055 ; total_money[1]                 ; total_money[1]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.722      ;
+; -8.053 ; lcd:lcd_instance|lcd_char[2]   ; lcd:lcd_instance|lcd_dat[3]     ; clk          ; clk         ; 1.000        ; 0.000      ; 8.720      ;
+; -8.033 ; total_money[0]                 ; total_money[6]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.700      ;
+; -8.031 ; total_money[0]                 ; total_money[5]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.698      ;
+; -8.024 ; selected_quantity[1]           ; total_cost[5]                   ; clk          ; clk         ; 1.000        ; 0.000      ; 8.691      ;
+; -7.973 ; total_money[0]                 ; total_money[4]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.640      ;
+; -7.973 ; total_money[0]                 ; total_money[2]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.640      ;
+; -7.958 ; total_money[5]                 ; total_money[4]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.625      ;
+; -7.958 ; total_money[5]                 ; total_money[2]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.625      ;
+; -7.940 ; total_money[0]                 ; total_money[3]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.607      ;
+; -7.925 ; total_money[5]                 ; total_money[6]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.592      ;
+; -7.925 ; total_money[5]                 ; total_money[5]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.592      ;
+; -7.925 ; total_money[5]                 ; total_money[3]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.592      ;
+; -7.925 ; total_money[5]                 ; total_money[1]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.592      ;
+; -7.906 ; total_money[4]                 ; total_money[6]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.573      ;
+; -7.896 ; lcd:lcd_instance|lcd_char[3]   ; lcd:lcd_instance|lcd_dat[3]     ; clk          ; clk         ; 1.000        ; 0.000      ; 8.563      ;
+; -7.887 ; cokeQuantity[1]                ; total_cost[5]                   ; clk          ; clk         ; 1.000        ; 0.000      ; 8.554      ;
+; -7.874 ; total_money[2]                 ; total_money[4]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.541      ;
+; -7.874 ; total_money[2]                 ; total_money[2]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.541      ;
+; -7.846 ; total_money[7]                 ; total_money[7]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.513      ;
+; -7.841 ; total_money[2]                 ; total_money[6]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.508      ;
+; -7.841 ; total_money[2]                 ; total_money[5]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.508      ;
+; -7.841 ; total_money[2]                 ; total_money[3]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.508      ;
+; -7.841 ; total_money[2]                 ; total_money[1]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.508      ;
+; -7.796 ; total_cost[6]                  ; total_money[0]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.463      ;
+; -7.791 ; total_cost[1]                  ; total_money[4]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.458      ;
+; -7.791 ; total_cost[1]                  ; total_money[2]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.458      ;
+; -7.779 ; pepsiQuantity[0]               ; total_cost[6]                   ; clk          ; clk         ; 1.000        ; 0.000      ; 8.446      ;
+; -7.779 ; pepsiQuantity[0]               ; total_cost[4]                   ; clk          ; clk         ; 1.000        ; 0.000      ; 8.446      ;
+; -7.779 ; pepsiQuantity[0]               ; total_cost[3]                   ; clk          ; clk         ; 1.000        ; 0.000      ; 8.446      ;
+; -7.779 ; pepsiQuantity[0]               ; total_cost[2]                   ; clk          ; clk         ; 1.000        ; 0.000      ; 8.446      ;
+; -7.778 ; lcd:lcd_instance|char_count[0] ; lcd:lcd_instance|lcd_char[3]    ; clk          ; clk         ; 1.000        ; 0.000      ; 8.445      ;
+; -7.777 ; total_money[3]                 ; total_money[4]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.444      ;
+; -7.773 ; total_money[3]                 ; total_money[5]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.440      ;
+; -7.767 ; pepsiQuantity[1]               ; total_cost[5]                   ; clk          ; clk         ; 1.000        ; 0.000      ; 8.434      ;
+; -7.764 ; lcd:lcd_instance|state[1]      ; lcd:lcd_instance|lcd_msg[13][1] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.431      ;
+; -7.763 ; lcd:lcd_instance|count[10]     ; lcd:lcd_instance|count[18]      ; clk          ; clk         ; 1.000        ; 0.000      ; 8.430      ;
+; -7.763 ; lcd:lcd_instance|count[10]     ; lcd:lcd_instance|count[13]      ; clk          ; clk         ; 1.000        ; 0.000      ; 8.430      ;
++--------+--------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'lcd:lcd_instance|clk10'                                                                                                                                    ;
++--------+--------------------------------+-------------------------------+------------------------+------------------------+--------------+------------+------------+
+; Slack  ; From Node                      ; To Node                       ; Launch Clock           ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------+-------------------------------+------------------------+------------------------+--------------+------------+------------+
+; -4.618 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd[2]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 5.285      ;
+; -4.452 ; lcd:lcd_instance|lcd_state.S3  ; lcd:lcd_instance|lcd_rs       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 5.119      ;
+; -4.443 ; lcd:lcd_instance|lcd_state.S3  ; lcd:lcd_instance|lcd[4]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 5.110      ;
+; -4.440 ; lcd:lcd_instance|lcd_state.S3  ; lcd:lcd_instance|lcd[1]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 5.107      ;
+; -4.395 ; lcd:lcd_instance|lcd_state.000 ; lcd:lcd_instance|lcd[6]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 5.062      ;
+; -4.319 ; lcd:lcd_instance|lcd_state.S5  ; lcd:lcd_instance|lcd_rs       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.986      ;
+; -4.310 ; lcd:lcd_instance|lcd_state.S5  ; lcd:lcd_instance|lcd[4]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.977      ;
+; -4.307 ; lcd:lcd_instance|lcd_state.S5  ; lcd:lcd_instance|lcd[1]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.974      ;
+; -4.267 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd[2]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.934      ;
+; -4.241 ; lcd:lcd_instance|lcd_state.000 ; lcd:lcd_instance|lcd[7]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.908      ;
+; -4.241 ; lcd:lcd_instance|lcd_state.000 ; lcd:lcd_instance|lcd[5]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.908      ;
+; -4.241 ; lcd:lcd_instance|lcd_state.000 ; lcd:lcd_instance|lcd[4]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.908      ;
+; -4.241 ; lcd:lcd_instance|lcd_state.000 ; lcd:lcd_instance|lcd[2]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.908      ;
+; -4.241 ; lcd:lcd_instance|lcd_state.000 ; lcd:lcd_instance|lcd[1]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.908      ;
+; -4.241 ; lcd:lcd_instance|lcd_state.000 ; lcd:lcd_instance|lcd[0]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.908      ;
+; -4.177 ; lcd:lcd_instance|lcd_state.S3  ; lcd:lcd_instance|lcd[5]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.844      ;
+; -4.174 ; lcd:lcd_instance|lcd_state.S3  ; lcd:lcd_instance|lcd[2]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.841      ;
+; -4.149 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd[6]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.816      ;
+; -4.137 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd[6]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.804      ;
+; -4.061 ; lcd:lcd_instance|lcd_state.000 ; lcd:lcd_instance|lcd[3]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.728      ;
+; -4.057 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd[0]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.724      ;
+; -4.044 ; lcd:lcd_instance|lcd_state.S5  ; lcd:lcd_instance|lcd[5]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.711      ;
+; -4.043 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd[1]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.710      ;
+; -4.041 ; lcd:lcd_instance|lcd_state.S5  ; lcd:lcd_instance|lcd[2]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.708      ;
+; -3.995 ; lcd:lcd_instance|lcd_state.S3  ; lcd:lcd_instance|lcd[6]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.662      ;
+; -3.995 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd[7]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.662      ;
+; -3.995 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd[5]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.662      ;
+; -3.995 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd[4]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.662      ;
+; -3.995 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd[2]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.662      ;
+; -3.995 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd[1]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.662      ;
+; -3.995 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd[0]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.662      ;
+; -3.983 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd[7]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.650      ;
+; -3.983 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd[5]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.650      ;
+; -3.983 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd[4]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.650      ;
+; -3.930 ; lcd:lcd_instance|lcd[3]        ; lcd:lcd_instance|lcd[3]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.597      ;
+; -3.924 ; lcd:lcd_instance|lcd_state.S4  ; lcd:lcd_instance|lcd_rs       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.591      ;
+; -3.915 ; lcd:lcd_instance|lcd_state.S4  ; lcd:lcd_instance|lcd[4]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.582      ;
+; -3.912 ; lcd:lcd_instance|lcd_state.S4  ; lcd:lcd_instance|lcd[1]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.579      ;
+; -3.862 ; lcd:lcd_instance|lcd_state.S5  ; lcd:lcd_instance|lcd[6]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.529      ;
+; -3.847 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd[3]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.514      ;
+; -3.802 ; lcd:lcd_instance|lcd_state.000 ; lcd:lcd_instance|lcd_state.S3 ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.469      ;
+; -3.745 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd[6]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.412      ;
+; -3.742 ; lcd:lcd_instance|lcd_state.S2  ; lcd:lcd_instance|count_cmd[1] ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.409      ;
+; -3.742 ; lcd:lcd_instance|lcd_state.S2  ; lcd:lcd_instance|count_cmd[2] ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.409      ;
+; -3.736 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd[0]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.403      ;
+; -3.703 ; lcd:lcd_instance|lcd_state.S3  ; lcd:lcd_instance|lcd[0]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.370      ;
+; -3.702 ; lcd:lcd_instance|lcd_state.S3  ; lcd:lcd_instance|lcd[7]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.369      ;
+; -3.692 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd[1]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.359      ;
+; -3.682 ; lcd:lcd_instance|lcd_state.S2  ; lcd:lcd_instance|lcd_ready    ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.349      ;
+; -3.649 ; lcd:lcd_instance|lcd_state.S4  ; lcd:lcd_instance|lcd[5]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.316      ;
+; -3.646 ; lcd:lcd_instance|lcd_state.S4  ; lcd:lcd_instance|lcd[2]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.313      ;
+; -3.625 ; lcd:lcd_instance|lcd_state.000 ; lcd:lcd_instance|lcd_en       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.292      ;
+; -3.620 ; lcd:lcd_instance|lcd_state.000 ; lcd:lcd_instance|lcd_rs       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.287      ;
+; -3.608 ; lcd:lcd_instance|lcd_state.S2  ; lcd:lcd_instance|lcd[3]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.275      ;
+; -3.591 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd[7]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.258      ;
+; -3.591 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd[5]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.258      ;
+; -3.591 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd[4]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.258      ;
+; -3.576 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd[3]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.243      ;
+; -3.570 ; lcd:lcd_instance|lcd_state.S5  ; lcd:lcd_instance|lcd[0]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.237      ;
+; -3.569 ; lcd:lcd_instance|lcd_state.S5  ; lcd:lcd_instance|lcd[7]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.236      ;
+; -3.556 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd_state.S3 ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.223      ;
+; -3.544 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd_state.S3 ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.211      ;
+; -3.518 ; lcd:lcd_instance|lcd_state.S5  ; lcd:lcd_instance|n_flag       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.185      ;
+; -3.505 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd_state.S1 ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.172      ;
+; -3.467 ; lcd:lcd_instance|lcd_state.S4  ; lcd:lcd_instance|lcd[6]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.134      ;
+; -3.379 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd_en       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.046      ;
+; -3.374 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd_rs       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.041      ;
+; -3.367 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd_en       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.034      ;
+; -3.362 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd_rs       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 4.029      ;
+; -3.294 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd[3]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 3.961      ;
+; -3.192 ; lcd:lcd_instance|lcd_state.000 ; lcd:lcd_instance|lcd_ready    ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 3.859      ;
+; -3.175 ; lcd:lcd_instance|lcd_state.S4  ; lcd:lcd_instance|lcd[0]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 3.842      ;
+; -3.174 ; lcd:lcd_instance|lcd_state.S4  ; lcd:lcd_instance|lcd[7]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 3.841      ;
+; -3.152 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd_state.S3 ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 3.819      ;
+; -3.133 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd_state.S1 ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 3.800      ;
+; -3.128 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|count_cmd[1] ; clk                    ; lcd:lcd_instance|clk10 ; 1.000        ; 1.049      ; 4.844      ;
+; -3.128 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|count_cmd[2] ; clk                    ; lcd:lcd_instance|clk10 ; 1.000        ; 1.049      ; 4.844      ;
+; -3.011 ; lcd:lcd_instance|lcd_state.S4  ; lcd:lcd_instance|lcd_en       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 3.678      ;
+; -2.975 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd_en       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 3.642      ;
+; -2.970 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd_rs       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 3.637      ;
+; -2.956 ; lcd:lcd_instance|lcd_state.S1  ; lcd:lcd_instance|lcd_ready    ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 3.623      ;
+; -2.944 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd_ready    ; clk                    ; lcd:lcd_instance|clk10 ; 1.000        ; 1.049      ; 4.660      ;
+; -2.765 ; lcd:lcd_instance|lcd_state.000 ; lcd:lcd_instance|lcd_state.S1 ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 3.432      ;
+; -2.689 ; lcd:lcd_instance|lcd_state.S1  ; lcd:lcd_instance|lcd[3]       ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 3.356      ;
+; -2.684 ; lcd:lcd_instance|lcd_state.S3  ; lcd:lcd_instance|lcd_state.S4 ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 3.351      ;
+; -2.681 ; lcd:lcd_instance|lcd_state.S3  ; lcd:lcd_instance|lcd_state.S3 ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 3.348      ;
+; -2.617 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd_state.S1 ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 3.284      ;
+; -2.502 ; lcd:lcd_instance|lcd_dat[4]    ; lcd:lcd_instance|lcd[4]       ; clk                    ; lcd:lcd_instance|clk10 ; 1.000        ; 1.049      ; 4.218      ;
+; -2.482 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd[7]       ; clk                    ; lcd:lcd_instance|clk10 ; 1.000        ; 1.049      ; 4.198      ;
+; -2.482 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd[5]       ; clk                    ; lcd:lcd_instance|clk10 ; 1.000        ; 1.049      ; 4.198      ;
+; -2.482 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd[4]       ; clk                    ; lcd:lcd_instance|clk10 ; 1.000        ; 1.049      ; 4.198      ;
+; -2.482 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd[2]       ; clk                    ; lcd:lcd_instance|clk10 ; 1.000        ; 1.049      ; 4.198      ;
+; -2.482 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd[1]       ; clk                    ; lcd:lcd_instance|clk10 ; 1.000        ; 1.049      ; 4.198      ;
+; -2.482 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd[0]       ; clk                    ; lcd:lcd_instance|clk10 ; 1.000        ; 1.049      ; 4.198      ;
+; -2.425 ; lcd:lcd_instance|lcd_state.S2  ; lcd:lcd_instance|count_cmd[0] ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 3.092      ;
+; -2.381 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|count_cmd[2] ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 3.048      ;
+; -2.377 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd[6]       ; clk                    ; lcd:lcd_instance|clk10 ; 1.000        ; 1.049      ; 4.093      ;
+; -2.376 ; lcd:lcd_instance|lcd_state.S1  ; lcd:lcd_instance|lcd_state.S2 ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 3.043      ;
+; -2.232 ; lcd:lcd_instance|lcd_state.S5  ; lcd:lcd_instance|lcd_state.S3 ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 2.899      ;
+; -2.229 ; lcd:lcd_instance|lcd_state.S5  ; lcd:lcd_instance|lcd_state.S5 ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 1.000        ; 0.000      ; 2.896      ;
++--------+--------------------------------+-------------------------------+------------------------+------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                                                                        ;
++--------+-------------------------------------+-------------------------------------+------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                           ; To Node                             ; Launch Clock           ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------+-------------------------------------+------------------------+-------------+--------------+------------+------------+
+; -1.968 ; lcd:lcd_instance|clk10              ; lcd:lcd_instance|clk10              ; lcd:lcd_instance|clk10 ; clk         ; 0.000        ; 3.699      ; 2.328      ;
+; -1.468 ; lcd:lcd_instance|clk10              ; lcd:lcd_instance|clk10              ; lcd:lcd_instance|clk10 ; clk         ; -0.500       ; 3.699      ; 2.328      ;
+; 1.659  ; lcd:lcd_instance|count[18]          ; lcd:lcd_instance|count[18]          ; clk                    ; clk         ; 0.000        ; 0.000      ; 1.880      ;
+; 1.668  ; lcd:lcd_instance|char_count[3]      ; lcd:lcd_instance|char_count[3]      ; clk                    ; clk         ; 0.000        ; 0.000      ; 1.889      ;
+; 1.678  ; laysQuantity[1]                     ; laysQuantity[1]                     ; clk                    ; clk         ; 0.000        ; 0.000      ; 1.899      ;
+; 1.691  ; qLED2                               ; qLED2                               ; clk                    ; clk         ; 0.000        ; 0.000      ; 1.912      ;
+; 1.731  ; main_fsm_state.state_idle2          ; main_fsm_state.state_idle2          ; clk                    ; clk         ; 0.000        ; 0.000      ; 1.952      ;
+; 1.745  ; main_fsm_state.state_idle2          ; lcd_start                           ; clk                    ; clk         ; 0.000        ; 0.000      ; 1.966      ;
+; 1.826  ; selected_quantity[0]                ; total_cost[2]                       ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.047      ;
+; 1.973  ; main_fsm_state.state_idle           ; main_fsm_state.state_idle2          ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.194      ;
+; 1.975  ; lcd:lcd_instance|reset              ; lcd:lcd_instance|reset              ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.196      ;
+; 1.986  ; lcd_msg_index[2]                    ; lcd_msg_index[2]                    ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.207      ;
+; 1.999  ; main_fsm_state.state_endMessage     ; main_fsm_state.state_endMessage     ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.220      ;
+; 2.000  ; lcd_msg_index[0]                    ; lcd_msg_index[0]                    ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.221      ;
+; 2.002  ; main_fsm_state.state_endMessage     ; qLED2                               ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.223      ;
+; 2.003  ; main_fsm_state.state_endMessage     ; qLED1                               ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.224      ;
+; 2.004  ; main_fsm_state.state_endMessage     ; qLED3                               ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.225      ;
+; 2.008  ; main_fsm_state.state_endMessage     ; main_fsm_state.state_idle           ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.229      ;
+; 2.046  ; lcd:lcd_instance|lcd_char[2]        ; lcd:lcd_instance|lcd_dat[2]         ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.267      ;
+; 2.108  ; lcd:lcd_instance|count[6]           ; lcd:lcd_instance|count[6]           ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.329      ;
+; 2.116  ; lcd:lcd_instance|count[9]           ; lcd:lcd_instance|count[9]           ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.337      ;
+; 2.117  ; lcd:lcd_instance|count[16]          ; lcd:lcd_instance|count[16]          ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.126  ; lcd:lcd_instance|count[8]           ; lcd:lcd_instance|count[8]           ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126  ; lcd:lcd_instance|count[10]          ; lcd:lcd_instance|count[10]          ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126  ; lcd:lcd_instance|count[11]          ; lcd:lcd_instance|count[11]          ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.347      ;
+; 2.127  ; lcd:lcd_instance|char_count[1]      ; lcd:lcd_instance|char_count[1]      ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.348      ;
+; 2.141  ; qLED3                               ; qLED3                               ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.362      ;
+; 2.145  ; pepsiQuantity[2]                    ; pepsiQuantity[2]                    ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.366      ;
+; 2.154  ; lcd:lcd_instance|state[2]           ; lcd:lcd_instance|state[0]           ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.375      ;
+; 2.160  ; qLED1                               ; qLED1                               ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.381      ;
+; 2.172  ; main_fsm_state.state_idle           ; lcd_start                           ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.393      ;
+; 2.182  ; laysQuantity[2]                     ; laysQuantity[2]                     ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.403      ;
+; 2.212  ; lcd_msg_index[0]                    ; lcd_msg_index[1]                    ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.433      ;
+; 2.213  ; main_fsm_state.state_idle2          ; main_fsm_state.state_idle           ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.434      ;
+; 2.221  ; lcd:lcd_instance|count[17]          ; lcd:lcd_instance|count[17]          ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.221  ; lcd:lcd_instance|count[7]           ; lcd:lcd_instance|count[7]           ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.221  ; lcd:lcd_instance|count[12]          ; lcd:lcd_instance|count[12]          ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.230  ; lcd:lcd_instance|count[14]          ; lcd:lcd_instance|count[14]          ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.451      ;
+; 2.230  ; lcd:lcd_instance|count[4]           ; lcd:lcd_instance|count[4]           ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.451      ;
+; 2.230  ; lcd:lcd_instance|count[5]           ; lcd:lcd_instance|count[5]           ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.451      ;
+; 2.231  ; lcd:lcd_instance|count[13]          ; lcd:lcd_instance|count[13]          ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231  ; lcd:lcd_instance|count[15]          ; lcd:lcd_instance|count[15]          ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.232  ; lcd:lcd_instance|char_count[2]      ; lcd:lcd_instance|char_count[2]      ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.453      ;
+; 2.239  ; main_fsm_state.state_selectQuantity ; main_fsm_state.state_selectQuantity ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.460      ;
+; 2.249  ; lcd:lcd_instance|char_count[0]      ; lcd:lcd_instance|char_count[0]      ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.470      ;
+; 2.260  ; cokeQuantity[1]                     ; cokeQuantity[1]                     ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.481      ;
+; 2.266  ; lcd_start                           ; lcd_start                           ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.487      ;
+; 2.274  ; main_fsm_state.state_selectQuantity ; cokeQuantity[1]                     ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.495      ;
+; 2.274  ; main_fsm_state.state_selectQuantity ; total_cost[6]                       ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.495      ;
+; 2.274  ; main_fsm_state.state_selectQuantity ; total_cost[4]                       ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.495      ;
+; 2.274  ; main_fsm_state.state_selectQuantity ; total_cost[3]                       ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.495      ;
+; 2.274  ; main_fsm_state.state_selectQuantity ; total_cost[2]                       ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.495      ;
+; 2.279  ; lcd:lcd_instance|state[0]           ; lcd:lcd_instance|state[0]           ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.500      ;
+; 2.316  ; lcd:lcd_instance|lcd_char[1]        ; lcd:lcd_instance|lcd_dat[1]         ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.537      ;
+; 2.461  ; lcd:lcd_instance|lcd_char[3]        ; lcd:lcd_instance|lcd_dat[3]         ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.682      ;
+; 2.477  ; lcd:lcd_instance|count[3]           ; lcd:lcd_instance|count[3]           ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.698      ;
+; 2.500  ; lcd:lcd_instance|count[0]           ; lcd:lcd_instance|count[0]           ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.721      ;
+; 2.546  ; lcd:lcd_instance|hundreds[5]        ; lcd:lcd_instance|lcd_dat[4]         ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.767      ;
+; 2.555  ; lcd:lcd_instance|hundreds[5]        ; lcd:lcd_instance|lcd_dat[5]         ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.776      ;
+; 2.562  ; selected_product.01                 ; laysQuantity[1]                     ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.783      ;
+; 2.607  ; lcd_msg_index[3]                    ; lcd_msg_index[3]                    ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.828      ;
+; 2.616  ; main_fsm_state.state_selectQuantity ; total_cost[5]                       ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.837      ;
+; 2.619  ; lcd:lcd_instance|count[1]           ; lcd:lcd_instance|count[1]           ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.840      ;
+; 2.620  ; lcd:lcd_instance|count[2]           ; lcd:lcd_instance|count[2]           ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.841      ;
+; 2.626  ; lcd:lcd_instance|lcd_char[6]        ; lcd:lcd_instance|lcd_dat[0]         ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.847      ;
+; 2.631  ; lcd:lcd_instance|lcd_char[6]        ; lcd:lcd_instance|lcd_dat[6]         ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.852      ;
+; 2.632  ; lcd:lcd_instance|lcd_char[4]        ; lcd:lcd_instance|lcd_dat[4]         ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.853      ;
+; 2.655  ; selected_product.10                 ; cokeQuantity[1]                     ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.876      ;
+; 2.657  ; selected_product.10                 ; total_cost[6]                       ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.878      ;
+; 2.658  ; main_fsm_state.state_idle2          ; lcd_msg_index[0]                    ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.879      ;
+; 2.665  ; selected_product.10                 ; total_cost[3]                       ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.886      ;
+; 2.666  ; selected_product.10                 ; total_cost[4]                       ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.887      ;
+; 2.667  ; selected_product.10                 ; total_cost[2]                       ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.888      ;
+; 2.676  ; lcd_msg_index[1]                    ; lcd:lcd_instance|lcd_msg[7][3]      ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.897      ;
+; 2.682  ; lcd_msg_index[1]                    ; lcd:lcd_instance|lcd_msg[4][3]      ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.903      ;
+; 2.686  ; lcd:lcd_instance|state[1]           ; lcd:lcd_instance|done               ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.907      ;
+; 2.699  ; pepsiQuantity[1]                    ; pepsiQuantity[1]                    ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.920      ;
+; 2.704  ; main_fsm_state.state_idle2          ; qLED3                               ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.925      ;
+; 2.706  ; main_fsm_state.state_idle2          ; qLED1                               ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.927      ;
+; 2.736  ; lcd:lcd_instance|flag               ; lcd:lcd_instance|flag               ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.957      ;
+; 2.745  ; lcd_msg_index[1]                    ; lcd:lcd_instance|lcd_msg[11][2]     ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.966      ;
+; 2.784  ; lcd_msg_index[3]                    ; lcd:lcd_instance|lcd_msg[4][0]      ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.005      ;
+; 2.786  ; lcd_msg_index[3]                    ; lcd:lcd_instance|lcd_msg[13][0]     ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.007      ;
+; 2.787  ; lcd:lcd_instance|state[0]           ; lcd:lcd_instance|done               ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.008      ;
+; 2.791  ; lcd_msg_index[3]                    ; lcd:lcd_instance|lcd_msg[8][1]      ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.012      ;
+; 2.793  ; lcd_msg_index[3]                    ; lcd:lcd_instance|lcd_msg[9][1]      ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.014      ;
+; 2.800  ; lcd:lcd_instance|state[2]           ; lcd:lcd_instance|state[1]           ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.021      ;
+; 2.806  ; lcd_msg_index[1]                    ; lcd_msg_index[1]                    ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.027      ;
+; 2.822  ; lcd_msg_index[1]                    ; lcd:lcd_instance|lcd_msg[11][0]     ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.043      ;
+; 2.831  ; lcd_msg_index[1]                    ; lcd:lcd_instance|lcd_msg[9][0]      ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.052      ;
+; 2.879  ; lcd_msg_index[3]                    ; lcd:lcd_instance|lcd_msg[6][3]      ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.100      ;
+; 2.883  ; lcd_msg_index[3]                    ; lcd:lcd_instance|lcd_msg[1][3]      ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.104      ;
+; 2.883  ; lcd_msg_index[3]                    ; lcd:lcd_instance|lcd_msg[3][3]      ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.104      ;
+; 2.940  ; lcd:lcd_instance|count[6]           ; lcd:lcd_instance|count[7]           ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.161      ;
+; 2.948  ; lcd:lcd_instance|count[9]           ; lcd:lcd_instance|count[10]          ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.169      ;
+; 2.949  ; lcd:lcd_instance|count[16]          ; lcd:lcd_instance|count[17]          ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.170      ;
+; 2.958  ; lcd:lcd_instance|count[11]          ; lcd:lcd_instance|count[12]          ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.179      ;
+; 2.958  ; lcd:lcd_instance|count[10]          ; lcd:lcd_instance|count[11]          ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.179      ;
+; 2.959  ; lcd:lcd_instance|char_count[1]      ; lcd:lcd_instance|char_count[2]      ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.180      ;
+; 2.966  ; lcd:lcd_instance|state[1]           ; lcd:lcd_instance|flag               ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.187      ;
++--------+-------------------------------------+-------------------------------------+------------------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'lcd:lcd_instance|clk10'                                                                                                                                     ;
++-------+--------------------------------+--------------------------------+------------------------+------------------------+--------------+------------+------------+
+; Slack ; From Node                      ; To Node                        ; Launch Clock           ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------+--------------------------------+------------------------+------------------------+--------------+------------+------------+
+; 0.940 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd_state.S4  ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 2.210      ;
+; 1.255 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd_state.S2  ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 2.525      ;
+; 1.308 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|count_cmd[0]  ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 2.578      ;
+; 1.545 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd_state.000 ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 2.815      ;
+; 1.806 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd_state.S3  ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 3.076      ;
+; 1.806 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd_state.S5  ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 3.076      ;
+; 1.864 ; lcd:lcd_instance|lcd_dat[3]    ; lcd:lcd_instance|lcd[3]        ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 3.134      ;
+; 2.019 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd_state.S1  ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 3.289      ;
+; 2.070 ; lcd:lcd_instance|lcd_dat[6]    ; lcd:lcd_instance|lcd[6]        ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 3.340      ;
+; 2.107 ; lcd:lcd_instance|lcd[6]        ; lcd:lcd_instance|lcd[6]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 2.328      ;
+; 2.159 ; lcd:lcd_instance|lcd_state.S2  ; lcd:lcd_instance|lcd_state.000 ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 2.380      ;
+; 2.176 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 2.397      ;
+; 2.202 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 2.423      ;
+; 2.221 ; lcd:lcd_instance|lcd_en        ; lcd:lcd_instance|lcd_en        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 2.442      ;
+; 2.222 ; lcd:lcd_instance|lcd_rs        ; lcd:lcd_instance|lcd_rs        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 2.443      ;
+; 2.234 ; lcd:lcd_instance|flag          ; lcd:lcd_instance|lcd_state.S5  ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 3.504      ;
+; 2.235 ; lcd:lcd_instance|flag          ; lcd:lcd_instance|lcd_state.S3  ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 3.505      ;
+; 2.241 ; lcd:lcd_instance|flag          ; lcd:lcd_instance|lcd_state.S4  ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 3.511      ;
+; 2.278 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 2.499      ;
+; 2.280 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd[7]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 2.501      ;
+; 2.312 ; lcd:lcd_instance|lcd_state.S4  ; lcd:lcd_instance|lcd_state.S5  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 2.533      ;
+; 2.324 ; lcd:lcd_instance|lcd_dat[5]    ; lcd:lcd_instance|lcd[5]        ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 3.594      ;
+; 2.357 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd_en        ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 3.627      ;
+; 2.357 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd_rs        ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 3.627      ;
+; 2.357 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd[3]        ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 3.627      ;
+; 2.410 ; lcd:lcd_instance|lcd_dat[2]    ; lcd:lcd_instance|lcd[2]        ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 3.680      ;
+; 2.447 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 2.668      ;
+; 2.498 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|n_flag        ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 3.768      ;
+; 2.528 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 2.749      ;
+; 2.532 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|n_reset       ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 3.802      ;
+; 2.559 ; lcd:lcd_instance|lcd_state.S1  ; lcd:lcd_instance|lcd_en        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 2.780      ;
+; 2.600 ; lcd:lcd_instance|lcd_dat[1]    ; lcd:lcd_instance|lcd[1]        ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 3.870      ;
+; 2.638 ; lcd:lcd_instance|lcd_dat[0]    ; lcd:lcd_instance|lcd[0]        ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 3.908      ;
+; 2.675 ; lcd:lcd_instance|lcd_state.S5  ; lcd:lcd_instance|lcd_state.S5  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 2.896      ;
+; 2.678 ; lcd:lcd_instance|lcd_state.S5  ; lcd:lcd_instance|lcd_state.S3  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 2.899      ;
+; 2.822 ; lcd:lcd_instance|lcd_state.S1  ; lcd:lcd_instance|lcd_state.S2  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.043      ;
+; 2.823 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd[6]        ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 4.093      ;
+; 2.827 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.048      ;
+; 2.871 ; lcd:lcd_instance|lcd_state.S2  ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.092      ;
+; 2.874 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|count_cmd[1]  ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 4.144      ;
+; 2.874 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|count_cmd[2]  ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 4.144      ;
+; 2.914 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd[5]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.135      ;
+; 2.928 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd[7]        ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 4.198      ;
+; 2.928 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd[5]        ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 4.198      ;
+; 2.928 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd[4]        ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 4.198      ;
+; 2.928 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd[2]        ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 4.198      ;
+; 2.928 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd[1]        ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 4.198      ;
+; 2.928 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd[0]        ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 4.198      ;
+; 2.948 ; lcd:lcd_instance|lcd_dat[4]    ; lcd:lcd_instance|lcd[4]        ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 4.218      ;
+; 3.063 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd_state.S1  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.284      ;
+; 3.123 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd[1]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.344      ;
+; 3.127 ; lcd:lcd_instance|lcd_state.S3  ; lcd:lcd_instance|lcd_state.S3  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.348      ;
+; 3.130 ; lcd:lcd_instance|lcd_state.S3  ; lcd:lcd_instance|lcd_state.S4  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.351      ;
+; 3.135 ; lcd:lcd_instance|lcd_state.S1  ; lcd:lcd_instance|lcd[3]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.356      ;
+; 3.211 ; lcd:lcd_instance|lcd_state.000 ; lcd:lcd_instance|lcd_state.S1  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.432      ;
+; 3.224 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd[3]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.445      ;
+; 3.256 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd[7]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.477      ;
+; 3.257 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd[0]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.478      ;
+; 3.275 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd[3]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.496      ;
+; 3.329 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd[4]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.550      ;
+; 3.390 ; lcd:lcd_instance|reset         ; lcd:lcd_instance|lcd_ready     ; clk                    ; lcd:lcd_instance|clk10 ; 0.000        ; 1.049      ; 4.660      ;
+; 3.402 ; lcd:lcd_instance|lcd_state.S1  ; lcd:lcd_instance|lcd_ready     ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.623      ;
+; 3.416 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd_rs        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.637      ;
+; 3.421 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd_en        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.642      ;
+; 3.457 ; lcd:lcd_instance|lcd_state.S4  ; lcd:lcd_instance|lcd_en        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.678      ;
+; 3.537 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd[4]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.758      ;
+; 3.542 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd[5]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.763      ;
+; 3.546 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd[7]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.767      ;
+; 3.579 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd_state.S1  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.800      ;
+; 3.593 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd[1]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.814      ;
+; 3.598 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd_state.S3  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.819      ;
+; 3.620 ; lcd:lcd_instance|lcd_state.S4  ; lcd:lcd_instance|lcd[7]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.841      ;
+; 3.621 ; lcd:lcd_instance|lcd_state.S4  ; lcd:lcd_instance|lcd[0]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.842      ;
+; 3.638 ; lcd:lcd_instance|lcd_state.000 ; lcd:lcd_instance|lcd_ready     ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.859      ;
+; 3.663 ; lcd:lcd_instance|lcd_state.000 ; lcd:lcd_instance|lcd[3]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.884      ;
+; 3.750 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd[2]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 3.971      ;
+; 3.808 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd_rs        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.029      ;
+; 3.813 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd_en        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.034      ;
+; 3.820 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd_rs        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.041      ;
+; 3.825 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd_en        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.046      ;
+; 3.834 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd[5]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.055      ;
+; 3.913 ; lcd:lcd_instance|lcd_state.S4  ; lcd:lcd_instance|lcd[6]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.134      ;
+; 3.946 ; lcd:lcd_instance|lcd_state.S4  ; lcd:lcd_instance|lcd[5]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.167      ;
+; 3.947 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd[1]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.168      ;
+; 3.951 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd_state.S1  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.172      ;
+; 3.964 ; lcd:lcd_instance|lcd_state.S5  ; lcd:lcd_instance|n_flag        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.185      ;
+; 3.990 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd_state.S3  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.211      ;
+; 4.002 ; lcd:lcd_instance|count_cmd[2]  ; lcd:lcd_instance|lcd_state.S3  ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.223      ;
+; 4.015 ; lcd:lcd_instance|lcd_state.S5  ; lcd:lcd_instance|lcd[7]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.236      ;
+; 4.016 ; lcd:lcd_instance|lcd_state.S5  ; lcd:lcd_instance|lcd[0]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.237      ;
+; 4.037 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd[2]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.258      ;
+; 4.037 ; lcd:lcd_instance|count_cmd[1]  ; lcd:lcd_instance|lcd[0]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.258      ;
+; 4.054 ; lcd:lcd_instance|lcd_state.S2  ; lcd:lcd_instance|lcd[3]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.275      ;
+; 4.066 ; lcd:lcd_instance|lcd_state.000 ; lcd:lcd_instance|lcd_rs        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.287      ;
+; 4.071 ; lcd:lcd_instance|lcd_state.000 ; lcd:lcd_instance|lcd_en        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.292      ;
+; 4.092 ; lcd:lcd_instance|lcd_state.S4  ; lcd:lcd_instance|lcd[2]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.313      ;
+; 4.098 ; lcd:lcd_instance|lcd_state.S4  ; lcd:lcd_instance|lcd[4]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.319      ;
+; 4.112 ; lcd:lcd_instance|count_cmd[0]  ; lcd:lcd_instance|lcd[3]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.333      ;
+; 4.128 ; lcd:lcd_instance|lcd_state.S2  ; lcd:lcd_instance|lcd_ready     ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.349      ;
+; 4.148 ; lcd:lcd_instance|lcd_state.S3  ; lcd:lcd_instance|lcd[7]        ; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 0.000        ; 0.000      ; 4.369      ;
++-------+--------------------------------+--------------------------------+------------------------+------------------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'clk'                                                                                      ;
++--------+--------------+----------------+------------------+-------+------------+--------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                         ;
++--------+--------------+----------------+------------------+-------+------------+--------------------------------+
+; -2.289 ; 1.000        ; 3.289          ; Port Rate        ; clk   ; Rise       ; clk                            ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cokeQuantity[0]                ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cokeQuantity[0]                ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cokeQuantity[1]                ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cokeQuantity[1]                ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cokeQuantity[2]                ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cokeQuantity[2]                ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; laysQuantity[0]                ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; laysQuantity[0]                ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; laysQuantity[1]                ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; laysQuantity[1]                ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; laysQuantity[2]                ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; laysQuantity[2]                ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|char_count[0] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|char_count[0] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|char_count[1] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|char_count[1] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|char_count[2] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|char_count[2] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|char_count[3] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|char_count[3] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|clk10         ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|clk10         ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|count[0]      ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|count[0]      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|count[10]     ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|count[10]     ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|count[11]     ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|count[11]     ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|count[12]     ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|count[12]     ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|count[13]     ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|count[13]     ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|count[14]     ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|count[14]     ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|count[15]     ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|count[15]     ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|count[16]     ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|count[16]     ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|count[17]     ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|count[17]     ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|count[18]     ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|count[18]     ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|count[1]      ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|count[1]      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|count[2]      ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|count[2]      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|count[3]      ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|count[3]      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|count[4]      ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|count[4]      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|count[5]      ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|count[5]      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|count[6]      ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|count[6]      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|count[7]      ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|count[7]      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|count[8]      ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|count[8]      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|count[9]      ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|count[9]      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|done          ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|done          ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|flag          ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|flag          ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|hundreds[5]   ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|hundreds[5]   ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|lcd_char[0]   ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|lcd_char[0]   ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|lcd_char[1]   ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|lcd_char[1]   ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|lcd_char[2]   ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|lcd_char[2]   ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|lcd_char[3]   ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|lcd_char[3]   ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|lcd_char[4]   ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|lcd_char[4]   ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|lcd_char[5]   ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|lcd_char[5]   ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|lcd_char[6]   ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|lcd_char[6]   ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|lcd_dat[0]    ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|lcd_dat[0]    ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|lcd_dat[1]    ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|lcd_dat[1]    ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|lcd_dat[2]    ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|lcd_dat[2]    ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|lcd_dat[3]    ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|lcd_dat[3]    ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|lcd_dat[4]    ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|lcd_dat[4]    ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|lcd_dat[5]    ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|lcd_dat[5]    ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|lcd_dat[6]    ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|lcd_dat[6]    ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|lcd_msg[0][1] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|lcd_msg[0][1] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|lcd_msg[0][2] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; lcd:lcd_instance|lcd_msg[0][2] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; lcd:lcd_instance|lcd_msg[0][5] ;
++--------+--------------+----------------+------------------+-------+------------+--------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'lcd:lcd_instance|clk10'                                                                                   ;
++-------+--------------+----------------+------------------+------------------------+------------+--------------------------------+
+; Slack ; Actual Width ; Required Width ; Type             ; Clock                  ; Clock Edge ; Target                         ;
++-------+--------------+----------------+------------------+------------------------+------------+--------------------------------+
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|count_cmd[0]  ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|count_cmd[0]  ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|count_cmd[1]  ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|count_cmd[1]  ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|count_cmd[2]  ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|count_cmd[2]  ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd[0]        ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd[0]        ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd[1]        ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd[1]        ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd[2]        ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd[2]        ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd[3]        ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd[3]        ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd[4]        ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd[4]        ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd[5]        ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd[5]        ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd[6]        ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd[6]        ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd[7]        ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd[7]        ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd_en        ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd_en        ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd_ready     ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd_ready     ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd_rs        ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd_rs        ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd_state.000 ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd_state.000 ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd_state.S1  ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd_state.S1  ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd_state.S2  ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd_state.S2  ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd_state.S3  ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd_state.S3  ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd_state.S4  ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd_state.S4  ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd_state.S5  ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|lcd_state.S5  ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|n_flag        ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|n_flag        ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|n_reset       ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd:lcd_instance|n_reset       ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|clk10|regout      ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|clk10|regout      ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|count_cmd[0]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|count_cmd[0]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|count_cmd[1]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|count_cmd[1]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|count_cmd[2]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|count_cmd[2]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd[0]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd[0]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd[1]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd[1]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd[2]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd[2]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd[3]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd[3]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd[4]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd[4]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd[5]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd[5]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd[6]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd[6]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd[7]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd[7]|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd_en|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd_en|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd_ready|clk     ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd_ready|clk     ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd_rs|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd_rs|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd_state.000|clk ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd_state.000|clk ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd_state.S1|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd_state.S1|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd_state.S2|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd_state.S2|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd_state.S3|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd_state.S3|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd_state.S4|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd_state.S4|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd_state.S5|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|lcd_state.S5|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|n_flag|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|n_flag|clk        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|n_reset|clk       ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; lcd:lcd_instance|clk10 ; Rise       ; lcd_instance|n_reset|clk       ;
++-------+--------------+----------------+------------------+------------------------+------------+--------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; coke      ; clk        ; 6.505  ; 6.505  ; Rise       ; clk             ;
+; fiveRs    ; clk        ; 8.787  ; 8.787  ; Rise       ; clk             ;
+; lays      ; clk        ; 6.188  ; 6.188  ; Rise       ; clk             ;
+; oneRs     ; clk        ; 10.491 ; 10.491 ; Rise       ; clk             ;
+; pepsi     ; clk        ; 6.963  ; 6.963  ; Rise       ; clk             ;
+; quantity1 ; clk        ; 3.727  ; 3.727  ; Rise       ; clk             ;
+; quantity2 ; clk        ; 4.466  ; 4.466  ; Rise       ; clk             ;
+; quantity3 ; clk        ; 4.609  ; 4.609  ; Rise       ; clk             ;
+; tenRs     ; clk        ; 7.104  ; 7.104  ; Rise       ; clk             ;
+; twoRs     ; clk        ; 10.862 ; 10.862 ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; coke      ; clk        ; -2.776 ; -2.776 ; Rise       ; clk             ;
+; fiveRs    ; clk        ; -3.339 ; -3.339 ; Rise       ; clk             ;
+; lays      ; clk        ; -2.598 ; -2.598 ; Rise       ; clk             ;
+; oneRs     ; clk        ; -3.981 ; -3.981 ; Rise       ; clk             ;
+; pepsi     ; clk        ; -2.169 ; -2.169 ; Rise       ; clk             ;
+; quantity1 ; clk        ; -2.114 ; -2.114 ; Rise       ; clk             ;
+; quantity2 ; clk        ; -1.573 ; -1.573 ; Rise       ; clk             ;
+; quantity3 ; clk        ; -1.565 ; -1.565 ; Rise       ; clk             ;
+; tenRs     ; clk        ; -3.328 ; -3.328 ; Rise       ; clk             ;
+; twoRs     ; clk        ; -4.352 ; -4.352 ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                      ;
++-----------+------------------------+--------+--------+------------+------------------------+
+; Data Port ; Clock Port             ; Rise   ; Fall   ; Clock Edge ; Clock Reference        ;
++-----------+------------------------+--------+--------+------------+------------------------+
+; done_1    ; clk                    ; 9.693  ; 9.693  ; Rise       ; clk                    ;
+; oqLED1    ; clk                    ; 8.884  ; 8.884  ; Rise       ; clk                    ;
+; oqLED2    ; clk                    ; 9.001  ; 9.001  ; Rise       ; clk                    ;
+; oqLED3    ; clk                    ; 8.947  ; 8.947  ; Rise       ; clk                    ;
+; start_1   ; clk                    ; 8.478  ; 8.478  ; Rise       ; clk                    ;
+; lcd[*]    ; lcd:lcd_instance|clk10 ; 10.950 ; 10.950 ; Rise       ; lcd:lcd_instance|clk10 ;
+;  lcd[0]   ; lcd:lcd_instance|clk10 ; 10.834 ; 10.834 ; Rise       ; lcd:lcd_instance|clk10 ;
+;  lcd[1]   ; lcd:lcd_instance|clk10 ; 10.950 ; 10.950 ; Rise       ; lcd:lcd_instance|clk10 ;
+;  lcd[2]   ; lcd:lcd_instance|clk10 ; 10.122 ; 10.122 ; Rise       ; lcd:lcd_instance|clk10 ;
+;  lcd[3]   ; lcd:lcd_instance|clk10 ; 10.153 ; 10.153 ; Rise       ; lcd:lcd_instance|clk10 ;
+;  lcd[4]   ; lcd:lcd_instance|clk10 ; 10.119 ; 10.119 ; Rise       ; lcd:lcd_instance|clk10 ;
+;  lcd[5]   ; lcd:lcd_instance|clk10 ; 10.034 ; 10.034 ; Rise       ; lcd:lcd_instance|clk10 ;
+;  lcd[6]   ; lcd:lcd_instance|clk10 ; 10.030 ; 10.030 ; Rise       ; lcd:lcd_instance|clk10 ;
+;  lcd[7]   ; lcd:lcd_instance|clk10 ; 10.739 ; 10.739 ; Rise       ; lcd:lcd_instance|clk10 ;
+; lcd_en    ; lcd:lcd_instance|clk10 ; 10.854 ; 10.854 ; Rise       ; lcd:lcd_instance|clk10 ;
+; lcd_rs    ; lcd:lcd_instance|clk10 ; 10.932 ; 10.932 ; Rise       ; lcd:lcd_instance|clk10 ;
++-----------+------------------------+--------+--------+------------+------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                              ;
++-----------+------------------------+--------+--------+------------+------------------------+
+; Data Port ; Clock Port             ; Rise   ; Fall   ; Clock Edge ; Clock Reference        ;
++-----------+------------------------+--------+--------+------------+------------------------+
+; done_1    ; clk                    ; 9.693  ; 9.693  ; Rise       ; clk                    ;
+; oqLED1    ; clk                    ; 8.884  ; 8.884  ; Rise       ; clk                    ;
+; oqLED2    ; clk                    ; 9.001  ; 9.001  ; Rise       ; clk                    ;
+; oqLED3    ; clk                    ; 8.947  ; 8.947  ; Rise       ; clk                    ;
+; start_1   ; clk                    ; 8.478  ; 8.478  ; Rise       ; clk                    ;
+; lcd[*]    ; lcd:lcd_instance|clk10 ; 10.030 ; 10.030 ; Rise       ; lcd:lcd_instance|clk10 ;
+;  lcd[0]   ; lcd:lcd_instance|clk10 ; 10.834 ; 10.834 ; Rise       ; lcd:lcd_instance|clk10 ;
+;  lcd[1]   ; lcd:lcd_instance|clk10 ; 10.950 ; 10.950 ; Rise       ; lcd:lcd_instance|clk10 ;
+;  lcd[2]   ; lcd:lcd_instance|clk10 ; 10.122 ; 10.122 ; Rise       ; lcd:lcd_instance|clk10 ;
+;  lcd[3]   ; lcd:lcd_instance|clk10 ; 10.153 ; 10.153 ; Rise       ; lcd:lcd_instance|clk10 ;
+;  lcd[4]   ; lcd:lcd_instance|clk10 ; 10.119 ; 10.119 ; Rise       ; lcd:lcd_instance|clk10 ;
+;  lcd[5]   ; lcd:lcd_instance|clk10 ; 10.034 ; 10.034 ; Rise       ; lcd:lcd_instance|clk10 ;
+;  lcd[6]   ; lcd:lcd_instance|clk10 ; 10.030 ; 10.030 ; Rise       ; lcd:lcd_instance|clk10 ;
+;  lcd[7]   ; lcd:lcd_instance|clk10 ; 10.739 ; 10.739 ; Rise       ; lcd:lcd_instance|clk10 ;
+; lcd_en    ; lcd:lcd_instance|clk10 ; 10.854 ; 10.854 ; Rise       ; lcd:lcd_instance|clk10 ;
+; lcd_rs    ; lcd:lcd_instance|clk10 ; 10.932 ; 10.932 ; Rise       ; lcd:lcd_instance|clk10 ;
++-----------+------------------------+--------+--------+------------+------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                             ;
++------------------------+------------------------+----------+----------+----------+----------+
+; From Clock             ; To Clock               ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------------------+------------------------+----------+----------+----------+----------+
+; clk                    ; clk                    ; 3087     ; 0        ; 0        ; 0        ;
+; lcd:lcd_instance|clk10 ; clk                    ; 16       ; 1        ; 0        ; 0        ;
+; clk                    ; lcd:lcd_instance|clk10 ; 34       ; 0        ; 0        ; 0        ;
+; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 132      ; 0        ; 0        ; 0        ;
++------------------------+------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                              ;
++------------------------+------------------------+----------+----------+----------+----------+
+; From Clock             ; To Clock               ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------------------+------------------------+----------+----------+----------+----------+
+; clk                    ; clk                    ; 3087     ; 0        ; 0        ; 0        ;
+; lcd:lcd_instance|clk10 ; clk                    ; 16       ; 1        ; 0        ; 0        ;
+; clk                    ; lcd:lcd_instance|clk10 ; 34       ; 0        ; 0        ; 0        ;
+; lcd:lcd_instance|clk10 ; lcd:lcd_instance|clk10 ; 132      ; 0        ; 0        ; 0        ;
++------------------------+------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 10    ; 10   ;
+; Unconstrained Input Port Paths  ; 84    ; 84   ;
+; Unconstrained Output Ports      ; 15    ; 15   ;
+; Unconstrained Output Port Paths ; 15    ; 15   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Mon Apr 13 17:10:17 2015
+Info: Command: quartus_sta vending_machine -c vending_machine
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (306004): Started post-fitting delay annotation
+Info (306005): Delay annotation completed successfully
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'vending_machine.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+    Info (332105): create_clock -period 1.000 -name lcd:lcd_instance|clk10 lcd:lcd_instance|clk10
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -9.909
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -9.909           -1133.017 clk 
+    Info (332119):    -4.618             -78.261 lcd:lcd_instance|clk10 
+Info (332146): Worst-case hold slack is -1.968
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.968              -1.968 clk 
+    Info (332119):     0.940               0.000 lcd:lcd_instance|clk10 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 clk 
+    Info (332119):     0.234               0.000 lcd:lcd_instance|clk10 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 323 megabytes
+    Info: Processing ended: Mon Apr 13 17:10:18 2015
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:02
+
+

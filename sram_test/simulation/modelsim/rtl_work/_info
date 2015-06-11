@@ -1,0 +1,45 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/tinchuk/ee214/sram_test/simulation/modelsim
+vsram
+!i10b 1
+!s100 hOzHznB_W>adQWafcn1im1
+IH3;4]hXbF2JP^KM0X5[aI3
+Vm7M:nX9@cLRJ0=FQh>hSO2
+Z1 d/home/tinchuk/ee214/sram_test/simulation/modelsim
+Z2 w1429076618
+Z3 8/home/tinchuk/ee214/sram_test/sram.v
+Z4 F/home/tinchuk/ee214/sram_test/sram.v
+L0 128
+Z5 OV;L;10.1d;51
+r1
+!s85 0
+31
+Z6 !s108 1429077608.341571
+Z7 !s107 /home/tinchuk/ee214/sram_test/sram.v|
+Z8 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/tinchuk/ee214/sram_test|/home/tinchuk/ee214/sram_test/sram.v|
+!s101 -O0
+Z9 o-vlog01compat -work work -O0
+Z10 !s92 -vlog01compat -work work +incdir+/home/tinchuk/ee214/sram_test -O0
+vsram_test
+!i10b 1
+!s100 H[kZPV=dlZZ2zUNE6CRcj0
+IkYHCa9KSg4NR5UfEE5ST90
+Vd0bTOZ_CLh;Gmoc2f8ic03
+R1
+R2
+R3
+R4
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!s101 -O0
+R9
+R10

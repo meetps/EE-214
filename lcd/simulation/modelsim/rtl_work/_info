@@ -1,0 +1,25 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/tinchuk/ee214/lcd/simulation/modelsim
+vkey_lcd
+!i10b 1
+!s100 ^@OS15[6R4CP1e>zV3k[H3
+IB3lH=A_f=ZaP;_B>2aDI:2
+VBHDb^]8VenC_T91S:`?DM3
+Z1 d/home/tinchuk/ee214/lcd/simulation/modelsim
+w1426280450
+8/home/tinchuk/ee214/lcd/key_lcd.v
+F/home/tinchuk/ee214/lcd/key_lcd.v
+L0 6
+OV;L;10.1d;51
+r1
+!s85 0
+31
+!s108 1426280542.448547
+!s107 /home/tinchuk/ee214/lcd/key_lcd.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/tinchuk/ee214/lcd|/home/tinchuk/ee214/lcd/key_lcd.v|
+!s101 -O0
+o-vlog01compat -work work -O0
+!s92 -vlog01compat -work work +incdir+/home/tinchuk/ee214/lcd -O0

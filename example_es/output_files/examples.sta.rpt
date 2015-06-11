@@ -1,0 +1,715 @@
+TimeQuest Timing Analyzer report for examples
+Wed Apr 15 11:06:10 2015
+Quartus II 32-bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'clk'
+ 12. Hold: 'clk'
+ 13. Minimum Pulse Width: 'clk'
+ 14. Setup Times
+ 15. Hold Times
+ 16. Clock to Output Times
+ 17. Minimum Clock to Output Times
+ 18. Setup Transfers
+ 19. Hold Transfers
+ 20. Report TCCS
+ 21. Report RSKM
+ 22. Unconstrained Paths
+ 23. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                       ;
++--------------------+----------------------------------------------------+
+; Quartus II Version ; Version 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name      ; examples                                           ;
+; Device Family      ; MAX V                                              ;
+; Device Name        ; 5M1270ZT144C5                                      ;
+; Timing Models      ; Final                                              ;
+; Delay Model        ; Slow Model                                         ;
+; Rise/Fall Delays   ; Unavailable                                        ;
++--------------------+----------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++--------------------------------------------------+
+; Fmax Summary                                     ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 148.39 MHz ; 148.39 MHz      ; clk        ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++--------------------------------+
+; Setup Summary                  ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -5.739 ; -204.116      ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Hold Summary                  ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 1.375 ; 0.000         ;
++-------+-------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++--------------------------------+
+; Minimum Pulse Width Summary    ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -2.289 ; -2.289        ;
++-------+--------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                             ;
++--------+------------------+------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node        ; To Node                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------+------------------------+--------------+-------------+--------------+------------+------------+
+; -5.739 ; read_count[1]    ; sram_addr_out[0]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.406      ;
+; -5.739 ; read_count[1]    ; sram_addr_out[1]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.406      ;
+; -5.739 ; read_count[1]    ; sram_addr_out[3]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.406      ;
+; -5.739 ; read_count[1]    ; sram_addr_out[6]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.406      ;
+; -5.739 ; read_count[1]    ; sram_addr_out[7]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.406      ;
+; -5.739 ; read_count[1]    ; sram_addr_out[9]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.406      ;
+; -5.739 ; read_count[1]    ; sram_addr_out[11]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 6.406      ;
+; -5.739 ; read_count[1]    ; sram_addr_out[13]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 6.406      ;
+; -5.717 ; read_count[1]    ; sram_addr_out[12]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 6.384      ;
+; -5.393 ; read_count[0]    ; sram_addr_out[0]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.060      ;
+; -5.393 ; read_count[0]    ; sram_addr_out[1]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.060      ;
+; -5.393 ; read_count[0]    ; sram_addr_out[3]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.060      ;
+; -5.393 ; read_count[0]    ; sram_addr_out[6]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.060      ;
+; -5.393 ; read_count[0]    ; sram_addr_out[7]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.060      ;
+; -5.393 ; read_count[0]    ; sram_addr_out[9]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.060      ;
+; -5.393 ; read_count[0]    ; sram_addr_out[11]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 6.060      ;
+; -5.393 ; read_count[0]    ; sram_addr_out[13]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 6.060      ;
+; -5.371 ; read_count[0]    ; sram_addr_out[12]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 6.038      ;
+; -5.330 ; write_count[1]   ; sram_addr_out[0]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.997      ;
+; -5.330 ; write_count[1]   ; sram_addr_out[1]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.997      ;
+; -5.330 ; write_count[1]   ; sram_addr_out[3]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.997      ;
+; -5.330 ; write_count[1]   ; sram_addr_out[6]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.997      ;
+; -5.330 ; write_count[1]   ; sram_addr_out[7]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.997      ;
+; -5.330 ; write_count[1]   ; sram_addr_out[9]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.997      ;
+; -5.330 ; write_count[1]   ; sram_addr_out[11]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 5.997      ;
+; -5.330 ; write_count[1]   ; sram_addr_out[13]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 5.997      ;
+; -5.308 ; write_count[1]   ; sram_addr_out[12]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 5.975      ;
+; -5.307 ; read_count[1]    ; sram_addr_out[2]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.974      ;
+; -5.307 ; read_count[1]    ; sram_addr_out[4]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.974      ;
+; -5.307 ; read_count[1]    ; sram_addr_out[5]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.974      ;
+; -5.307 ; read_count[1]    ; sram_addr_out[8]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.974      ;
+; -5.307 ; read_count[1]    ; sram_addr_out[10]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 5.974      ;
+; -5.307 ; read_count[1]    ; sram_addr_out[14]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 5.974      ;
+; -5.000 ; write_count[1]   ; sram_we_n~reg0         ; clk          ; clk         ; 1.000        ; 0.000      ; 5.667      ;
+; -5.000 ; write_count[1]   ; sram_oe_n~reg0         ; clk          ; clk         ; 1.000        ; 0.000      ; 5.667      ;
+; -4.978 ; write_count[1]   ; temp_sram_data[0]      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.645      ;
+; -4.978 ; write_count[1]   ; temp_sram_data[1]      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.645      ;
+; -4.978 ; write_count[1]   ; temp_sram_data[2]      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.645      ;
+; -4.978 ; write_count[1]   ; temp_sram_data[3]      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.645      ;
+; -4.978 ; write_count[1]   ; temp_sram_data[4]      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.645      ;
+; -4.978 ; write_count[1]   ; temp_sram_data[5]      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.645      ;
+; -4.978 ; write_count[1]   ; temp_sram_data[6]      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.645      ;
+; -4.978 ; write_count[1]   ; temp_sram_data[7]      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.645      ;
+; -4.961 ; read_count[0]    ; sram_addr_out[2]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.628      ;
+; -4.961 ; read_count[0]    ; sram_addr_out[4]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.628      ;
+; -4.961 ; read_count[0]    ; sram_addr_out[5]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.628      ;
+; -4.961 ; read_count[0]    ; sram_addr_out[8]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.628      ;
+; -4.961 ; read_count[0]    ; sram_addr_out[10]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 5.628      ;
+; -4.961 ; read_count[0]    ; sram_addr_out[14]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 5.628      ;
+; -4.950 ; write_count[0]   ; sram_addr_out[0]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.617      ;
+; -4.950 ; write_count[0]   ; sram_addr_out[1]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.617      ;
+; -4.950 ; write_count[0]   ; sram_addr_out[3]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.617      ;
+; -4.950 ; write_count[0]   ; sram_addr_out[6]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.617      ;
+; -4.950 ; write_count[0]   ; sram_addr_out[7]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.617      ;
+; -4.950 ; write_count[0]   ; sram_addr_out[9]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.617      ;
+; -4.950 ; write_count[0]   ; sram_addr_out[11]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 5.617      ;
+; -4.950 ; write_count[0]   ; sram_addr_out[13]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 5.617      ;
+; -4.928 ; write_count[0]   ; sram_addr_out[12]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 5.595      ;
+; -4.901 ; read_count[1]    ; data_out[0]~reg0       ; clk          ; clk         ; 1.000        ; 0.000      ; 5.568      ;
+; -4.901 ; read_count[1]    ; data_out[2]~reg0       ; clk          ; clk         ; 1.000        ; 0.000      ; 5.568      ;
+; -4.898 ; write_count[1]   ; sram_addr_out[2]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.565      ;
+; -4.898 ; write_count[1]   ; sram_addr_out[4]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.565      ;
+; -4.898 ; write_count[1]   ; sram_addr_out[5]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.565      ;
+; -4.898 ; write_count[1]   ; sram_addr_out[8]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.565      ;
+; -4.898 ; write_count[1]   ; sram_addr_out[10]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 5.565      ;
+; -4.898 ; write_count[1]   ; sram_addr_out[14]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 5.565      ;
+; -4.890 ; read_count[1]    ; data_out[1]~reg0       ; clk          ; clk         ; 1.000        ; 0.000      ; 5.557      ;
+; -4.878 ; read_count[1]    ; data_out[3]~reg0       ; clk          ; clk         ; 1.000        ; 0.000      ; 5.545      ;
+; -4.878 ; read_count[1]    ; data_out[4]~reg0       ; clk          ; clk         ; 1.000        ; 0.000      ; 5.545      ;
+; -4.878 ; read_count[1]    ; data_out[5]~reg0       ; clk          ; clk         ; 1.000        ; 0.000      ; 5.545      ;
+; -4.878 ; read_count[1]    ; data_out[6]~reg0       ; clk          ; clk         ; 1.000        ; 0.000      ; 5.545      ;
+; -4.878 ; read_count[1]    ; data_out[7]~reg0       ; clk          ; clk         ; 1.000        ; 0.000      ; 5.545      ;
+; -4.856 ; write_count[0]   ; temp_sram_data[0]      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.523      ;
+; -4.856 ; write_count[0]   ; temp_sram_data[1]      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.523      ;
+; -4.856 ; write_count[0]   ; temp_sram_data[2]      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.523      ;
+; -4.856 ; write_count[0]   ; temp_sram_data[3]      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.523      ;
+; -4.856 ; write_count[0]   ; temp_sram_data[4]      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.523      ;
+; -4.856 ; write_count[0]   ; temp_sram_data[5]      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.523      ;
+; -4.856 ; write_count[0]   ; temp_sram_data[6]      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.523      ;
+; -4.856 ; write_count[0]   ; temp_sram_data[7]      ; clk          ; clk         ; 1.000        ; 0.000      ; 5.523      ;
+; -4.620 ; write_count[0]   ; sram_we_n~reg0         ; clk          ; clk         ; 1.000        ; 0.000      ; 5.287      ;
+; -4.620 ; write_count[0]   ; sram_oe_n~reg0         ; clk          ; clk         ; 1.000        ; 0.000      ; 5.287      ;
+; -4.518 ; write_count[0]   ; sram_addr_out[2]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.185      ;
+; -4.518 ; write_count[0]   ; sram_addr_out[4]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.185      ;
+; -4.518 ; write_count[0]   ; sram_addr_out[5]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.185      ;
+; -4.518 ; write_count[0]   ; sram_addr_out[8]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.185      ;
+; -4.518 ; write_count[0]   ; sram_addr_out[10]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 5.185      ;
+; -4.518 ; write_count[0]   ; sram_addr_out[14]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 5.185      ;
+; -4.463 ; read_count[1]    ; present_state.S2       ; clk          ; clk         ; 1.000        ; 0.000      ; 5.130      ;
+; -4.384 ; read_count[0]    ; sram_we_n~reg0         ; clk          ; clk         ; 1.000        ; 0.000      ; 5.051      ;
+; -4.384 ; read_count[0]    ; sram_oe_n~reg0         ; clk          ; clk         ; 1.000        ; 0.000      ; 5.051      ;
+; -4.374 ; read_count[1]    ; present_state.00       ; clk          ; clk         ; 1.000        ; 0.000      ; 5.041      ;
+; -4.362 ; present_state.00 ; sram_addr_out[0]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.029      ;
+; -4.362 ; present_state.00 ; sram_addr_out[1]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.029      ;
+; -4.362 ; present_state.00 ; sram_addr_out[3]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.029      ;
+; -4.362 ; present_state.00 ; sram_addr_out[6]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.029      ;
+; -4.362 ; present_state.00 ; sram_addr_out[7]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.029      ;
+; -4.362 ; present_state.00 ; sram_addr_out[9]~reg0  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.029      ;
+; -4.362 ; present_state.00 ; sram_addr_out[11]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 5.029      ;
+; -4.362 ; present_state.00 ; sram_addr_out[13]~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 5.029      ;
++--------+------------------+------------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                              ;
++-------+-------------------+------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+------------------------+--------------+-------------+--------------+------------+------------+
+; 1.375 ; temp_sram_data[1] ; data_out[1]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 1.596      ;
+; 2.125 ; present_state.S2  ; present_state.S2       ; clk          ; clk         ; 0.000        ; 0.000      ; 2.346      ;
+; 2.127 ; wr_done~reg0      ; wr_done~reg0           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.348      ;
+; 2.221 ; rd_done~reg0      ; rd_done~reg0           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.233 ; present_state.00  ; present_state.00       ; clk          ; clk         ; 0.000        ; 0.000      ; 2.454      ;
+; 2.237 ; present_state.S2  ; read_count[0]          ; clk          ; clk         ; 0.000        ; 0.000      ; 2.458      ;
+; 2.237 ; present_state.S2  ; write_count[1]         ; clk          ; clk         ; 0.000        ; 0.000      ; 2.458      ;
+; 2.245 ; present_state.S2  ; write_count[0]         ; clk          ; clk         ; 0.000        ; 0.000      ; 2.466      ;
+; 2.253 ; present_state.S2  ; wr_done~reg0           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.474      ;
+; 2.254 ; present_state.S2  ; rd_done~reg0           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.475      ;
+; 2.402 ; temp_sram_data[0] ; data_out[0]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 2.623      ;
+; 2.408 ; present_state.S2  ; sram_oe_n~reg0         ; clk          ; clk         ; 0.000        ; 0.000      ; 2.629      ;
+; 2.488 ; temp_sram_data[6] ; data_out[6]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 2.709      ;
+; 2.503 ; temp_sram_data[2] ; data_out[2]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 2.724      ;
+; 2.506 ; temp_sram_data[4] ; data_out[4]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 2.727      ;
+; 2.513 ; temp_sram_data[5] ; data_out[5]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 2.734      ;
+; 2.579 ; read_count[0]     ; read_count[0]          ; clk          ; clk         ; 0.000        ; 0.000      ; 2.800      ;
+; 2.590 ; read_count[0]     ; read_count[1]          ; clk          ; clk         ; 0.000        ; 0.000      ; 2.811      ;
+; 2.622 ; temp_sram_data[3] ; data_out[3]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 2.843      ;
+; 2.632 ; temp_sram_data[7] ; data_out[7]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 2.853      ;
+; 2.742 ; present_state.00  ; read_count[1]          ; clk          ; clk         ; 0.000        ; 0.000      ; 2.963      ;
+; 2.931 ; present_state.S2  ; sram_we_n~reg0         ; clk          ; clk         ; 0.000        ; 0.000      ; 3.152      ;
+; 2.986 ; write_count[1]    ; write_count[1]         ; clk          ; clk         ; 0.000        ; 0.000      ; 3.207      ;
+; 2.993 ; write_count[1]    ; write_count[0]         ; clk          ; clk         ; 0.000        ; 0.000      ; 3.214      ;
+; 3.071 ; read_count[0]     ; rd_done~reg0           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.292      ;
+; 3.172 ; present_state.S1  ; wr_done~reg0           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.393      ;
+; 3.173 ; present_state.S1  ; rd_done~reg0           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.394      ;
+; 3.233 ; write_count[0]    ; write_count[0]         ; clk          ; clk         ; 0.000        ; 0.000      ; 3.454      ;
+; 3.233 ; write_count[0]    ; write_count[1]         ; clk          ; clk         ; 0.000        ; 0.000      ; 3.454      ;
+; 3.244 ; present_state.S1  ; present_state.S1       ; clk          ; clk         ; 0.000        ; 0.000      ; 3.465      ;
+; 3.254 ; present_state.00  ; present_state.S1       ; clk          ; clk         ; 0.000        ; 0.000      ; 3.475      ;
+; 3.299 ; read_count[1]     ; present_state.S1       ; clk          ; clk         ; 0.000        ; 0.000      ; 3.520      ;
+; 3.417 ; read_count[1]     ; rd_done~reg0           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.638      ;
+; 3.470 ; present_state.S1  ; write_count[0]         ; clk          ; clk         ; 0.000        ; 0.000      ; 3.691      ;
+; 3.472 ; present_state.S1  ; read_count[0]          ; clk          ; clk         ; 0.000        ; 0.000      ; 3.693      ;
+; 3.473 ; present_state.S1  ; write_count[1]         ; clk          ; clk         ; 0.000        ; 0.000      ; 3.694      ;
+; 3.482 ; present_state.S1  ; read_count[1]          ; clk          ; clk         ; 0.000        ; 0.000      ; 3.703      ;
+; 3.486 ; read_count[1]     ; read_count[1]          ; clk          ; clk         ; 0.000        ; 0.000      ; 3.707      ;
+; 3.488 ; read_count[1]     ; read_count[0]          ; clk          ; clk         ; 0.000        ; 0.000      ; 3.709      ;
+; 3.532 ; present_state.00  ; present_state.S2       ; clk          ; clk         ; 0.000        ; 0.000      ; 3.753      ;
+; 3.985 ; read_count[0]     ; present_state.S1       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.206      ;
+; 4.089 ; present_state.S1  ; sram_we_n~reg0         ; clk          ; clk         ; 0.000        ; 0.000      ; 4.310      ;
+; 4.089 ; present_state.S1  ; sram_oe_n~reg0         ; clk          ; clk         ; 0.000        ; 0.000      ; 4.310      ;
+; 4.092 ; write_count[0]    ; present_state.00       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.313      ;
+; 4.120 ; write_count[0]    ; present_state.S2       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.341      ;
+; 4.144 ; read_count[1]     ; sram_we_n~reg0         ; clk          ; clk         ; 0.000        ; 0.000      ; 4.365      ;
+; 4.144 ; read_count[1]     ; sram_oe_n~reg0         ; clk          ; clk         ; 0.000        ; 0.000      ; 4.365      ;
+; 4.221 ; present_state.S2  ; sram_addr_out[2]~reg0  ; clk          ; clk         ; 0.000        ; 0.000      ; 4.442      ;
+; 4.221 ; present_state.S2  ; sram_addr_out[4]~reg0  ; clk          ; clk         ; 0.000        ; 0.000      ; 4.442      ;
+; 4.221 ; present_state.S2  ; sram_addr_out[5]~reg0  ; clk          ; clk         ; 0.000        ; 0.000      ; 4.442      ;
+; 4.221 ; present_state.S2  ; sram_addr_out[8]~reg0  ; clk          ; clk         ; 0.000        ; 0.000      ; 4.442      ;
+; 4.221 ; present_state.S2  ; sram_addr_out[10]~reg0 ; clk          ; clk         ; 0.000        ; 0.000      ; 4.442      ;
+; 4.221 ; present_state.S2  ; sram_addr_out[14]~reg0 ; clk          ; clk         ; 0.000        ; 0.000      ; 4.442      ;
+; 4.264 ; present_state.S2  ; present_state.00       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.485      ;
+; 4.325 ; write_count[0]    ; wr_done~reg0           ; clk          ; clk         ; 0.000        ; 0.000      ; 4.546      ;
+; 4.376 ; present_state.00  ; sram_addr_out[2]~reg0  ; clk          ; clk         ; 0.000        ; 0.000      ; 4.597      ;
+; 4.376 ; present_state.00  ; sram_addr_out[4]~reg0  ; clk          ; clk         ; 0.000        ; 0.000      ; 4.597      ;
+; 4.376 ; present_state.00  ; sram_addr_out[5]~reg0  ; clk          ; clk         ; 0.000        ; 0.000      ; 4.597      ;
+; 4.376 ; present_state.00  ; sram_addr_out[8]~reg0  ; clk          ; clk         ; 0.000        ; 0.000      ; 4.597      ;
+; 4.376 ; present_state.00  ; sram_addr_out[10]~reg0 ; clk          ; clk         ; 0.000        ; 0.000      ; 4.597      ;
+; 4.376 ; present_state.00  ; sram_addr_out[14]~reg0 ; clk          ; clk         ; 0.000        ; 0.000      ; 4.597      ;
+; 4.420 ; write_count[1]    ; present_state.00       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.641      ;
+; 4.474 ; read_count[0]     ; present_state.00       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.695      ;
+; 4.500 ; write_count[1]    ; present_state.S2       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.721      ;
+; 4.563 ; read_count[0]     ; present_state.S2       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.784      ;
+; 4.631 ; present_state.S2  ; sram_addr_out[12]~reg0 ; clk          ; clk         ; 0.000        ; 0.000      ; 4.852      ;
+; 4.653 ; present_state.S2  ; sram_addr_out[0]~reg0  ; clk          ; clk         ; 0.000        ; 0.000      ; 4.874      ;
+; 4.653 ; present_state.S2  ; sram_addr_out[1]~reg0  ; clk          ; clk         ; 0.000        ; 0.000      ; 4.874      ;
+; 4.653 ; present_state.S2  ; sram_addr_out[3]~reg0  ; clk          ; clk         ; 0.000        ; 0.000      ; 4.874      ;
+; 4.653 ; present_state.S2  ; sram_addr_out[6]~reg0  ; clk          ; clk         ; 0.000        ; 0.000      ; 4.874      ;
+; 4.653 ; present_state.S2  ; sram_addr_out[7]~reg0  ; clk          ; clk         ; 0.000        ; 0.000      ; 4.874      ;
+; 4.653 ; present_state.S2  ; sram_addr_out[9]~reg0  ; clk          ; clk         ; 0.000        ; 0.000      ; 4.874      ;
+; 4.653 ; present_state.S2  ; sram_addr_out[11]~reg0 ; clk          ; clk         ; 0.000        ; 0.000      ; 4.874      ;
+; 4.653 ; present_state.S2  ; sram_addr_out[13]~reg0 ; clk          ; clk         ; 0.000        ; 0.000      ; 4.874      ;
+; 4.705 ; write_count[1]    ; wr_done~reg0           ; clk          ; clk         ; 0.000        ; 0.000      ; 4.926      ;
+; 4.716 ; present_state.S1  ; data_out[3]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.937      ;
+; 4.716 ; present_state.S1  ; data_out[4]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.937      ;
+; 4.716 ; present_state.S1  ; data_out[5]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.937      ;
+; 4.716 ; present_state.S1  ; data_out[6]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.937      ;
+; 4.716 ; present_state.S1  ; data_out[7]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.937      ;
+; 4.728 ; present_state.S1  ; data_out[1]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.949      ;
+; 4.739 ; present_state.S1  ; data_out[0]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.960      ;
+; 4.739 ; present_state.S1  ; data_out[2]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.960      ;
+; 4.762 ; read_count[0]     ; data_out[3]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.983      ;
+; 4.762 ; read_count[0]     ; data_out[4]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.983      ;
+; 4.762 ; read_count[0]     ; data_out[5]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.983      ;
+; 4.762 ; read_count[0]     ; data_out[6]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.983      ;
+; 4.762 ; read_count[0]     ; data_out[7]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.983      ;
+; 4.766 ; present_state.S2  ; temp_sram_data[0]      ; clk          ; clk         ; 0.000        ; 0.000      ; 4.987      ;
+; 4.766 ; present_state.S2  ; temp_sram_data[1]      ; clk          ; clk         ; 0.000        ; 0.000      ; 4.987      ;
+; 4.766 ; present_state.S2  ; temp_sram_data[2]      ; clk          ; clk         ; 0.000        ; 0.000      ; 4.987      ;
+; 4.766 ; present_state.S2  ; temp_sram_data[3]      ; clk          ; clk         ; 0.000        ; 0.000      ; 4.987      ;
+; 4.766 ; present_state.S2  ; temp_sram_data[4]      ; clk          ; clk         ; 0.000        ; 0.000      ; 4.987      ;
+; 4.766 ; present_state.S2  ; temp_sram_data[5]      ; clk          ; clk         ; 0.000        ; 0.000      ; 4.987      ;
+; 4.766 ; present_state.S2  ; temp_sram_data[6]      ; clk          ; clk         ; 0.000        ; 0.000      ; 4.987      ;
+; 4.766 ; present_state.S2  ; temp_sram_data[7]      ; clk          ; clk         ; 0.000        ; 0.000      ; 4.987      ;
+; 4.774 ; read_count[0]     ; data_out[1]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.995      ;
+; 4.785 ; read_count[0]     ; data_out[0]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 5.006      ;
+; 4.785 ; read_count[0]     ; data_out[2]~reg0       ; clk          ; clk         ; 0.000        ; 0.000      ; 5.006      ;
+; 4.786 ; present_state.00  ; sram_addr_out[12]~reg0 ; clk          ; clk         ; 0.000        ; 0.000      ; 5.007      ;
++-------+-------------------+------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'clk'                                                                              ;
++--------+--------------+----------------+------------------+-------+------------+------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                 ;
++--------+--------------+----------------+------------------+-------+------------+------------------------+
+; -2.289 ; 1.000        ; 3.289          ; Port Rate        ; clk   ; Rise       ; clk                    ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; data_out[0]~reg0       ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; data_out[0]~reg0       ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; data_out[1]~reg0       ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; data_out[1]~reg0       ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; data_out[2]~reg0       ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; data_out[2]~reg0       ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; data_out[3]~reg0       ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; data_out[3]~reg0       ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; data_out[4]~reg0       ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; data_out[4]~reg0       ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; data_out[5]~reg0       ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; data_out[5]~reg0       ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; data_out[6]~reg0       ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; data_out[6]~reg0       ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; data_out[7]~reg0       ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; data_out[7]~reg0       ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; present_state.00       ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; present_state.00       ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; present_state.S1       ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; present_state.S1       ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; present_state.S2       ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; present_state.S2       ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; rd_done~reg0           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; rd_done~reg0           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; read_count[0]          ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; read_count[0]          ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; read_count[1]          ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; read_count[1]          ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; sram_addr_out[0]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; sram_addr_out[0]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; sram_addr_out[10]~reg0 ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; sram_addr_out[10]~reg0 ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; sram_addr_out[11]~reg0 ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; sram_addr_out[11]~reg0 ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; sram_addr_out[12]~reg0 ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; sram_addr_out[12]~reg0 ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; sram_addr_out[13]~reg0 ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; sram_addr_out[13]~reg0 ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; sram_addr_out[14]~reg0 ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; sram_addr_out[14]~reg0 ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; sram_addr_out[1]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; sram_addr_out[1]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; sram_addr_out[2]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; sram_addr_out[2]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; sram_addr_out[3]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; sram_addr_out[3]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; sram_addr_out[4]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; sram_addr_out[4]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; sram_addr_out[5]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; sram_addr_out[5]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; sram_addr_out[6]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; sram_addr_out[6]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; sram_addr_out[7]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; sram_addr_out[7]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; sram_addr_out[8]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; sram_addr_out[8]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; sram_addr_out[9]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; sram_addr_out[9]~reg0  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; sram_oe_n~reg0         ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; sram_oe_n~reg0         ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; sram_we_n~reg0         ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; sram_we_n~reg0         ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; temp_sram_data[0]      ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; temp_sram_data[0]      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; temp_sram_data[1]      ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; temp_sram_data[1]      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; temp_sram_data[2]      ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; temp_sram_data[2]      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; temp_sram_data[3]      ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; temp_sram_data[3]      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; temp_sram_data[4]      ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; temp_sram_data[4]      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; temp_sram_data[5]      ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; temp_sram_data[5]      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; temp_sram_data[6]      ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; temp_sram_data[6]      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; temp_sram_data[7]      ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; temp_sram_data[7]      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; wr_done~reg0           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; wr_done~reg0           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; write_count[0]         ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; write_count[0]         ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; write_count[1]         ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; write_count[1]         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk|combout            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk|combout            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; data_out[0]~reg0|clk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; data_out[0]~reg0|clk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; data_out[1]~reg0|clk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; data_out[1]~reg0|clk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; data_out[2]~reg0|clk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; data_out[2]~reg0|clk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; data_out[3]~reg0|clk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; data_out[3]~reg0|clk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; data_out[4]~reg0|clk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; data_out[4]~reg0|clk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; data_out[5]~reg0|clk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; data_out[5]~reg0|clk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; data_out[6]~reg0|clk   ;
++--------+--------------+----------------+------------------+-------+------------+------------------------+
+
+
++--------------------------------------------------------------------------+
+; Setup Times                                                              ;
++--------------+------------+-------+-------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++--------------+------------+-------+-------+------------+-----------------+
+; addr_in[*]   ; clk        ; 3.141 ; 3.141 ; Rise       ; clk             ;
+;  addr_in[0]  ; clk        ; 3.141 ; 3.141 ; Rise       ; clk             ;
+;  addr_in[1]  ; clk        ; 2.312 ; 2.312 ; Rise       ; clk             ;
+;  addr_in[2]  ; clk        ; 2.017 ; 2.017 ; Rise       ; clk             ;
+;  addr_in[3]  ; clk        ; 2.306 ; 2.306 ; Rise       ; clk             ;
+;  addr_in[4]  ; clk        ; 2.705 ; 2.705 ; Rise       ; clk             ;
+;  addr_in[5]  ; clk        ; 2.612 ; 2.612 ; Rise       ; clk             ;
+;  addr_in[6]  ; clk        ; 2.647 ; 2.647 ; Rise       ; clk             ;
+;  addr_in[7]  ; clk        ; 2.593 ; 2.593 ; Rise       ; clk             ;
+;  addr_in[8]  ; clk        ; 2.726 ; 2.726 ; Rise       ; clk             ;
+;  addr_in[9]  ; clk        ; 2.655 ; 2.655 ; Rise       ; clk             ;
+;  addr_in[10] ; clk        ; 2.135 ; 2.135 ; Rise       ; clk             ;
+;  addr_in[11] ; clk        ; 2.636 ; 2.636 ; Rise       ; clk             ;
+;  addr_in[12] ; clk        ; 2.096 ; 2.096 ; Rise       ; clk             ;
+;  addr_in[13] ; clk        ; 2.653 ; 2.653 ; Rise       ; clk             ;
+;  addr_in[14] ; clk        ; 2.651 ; 2.651 ; Rise       ; clk             ;
+; data_in[*]   ; clk        ; 2.933 ; 2.933 ; Rise       ; clk             ;
+;  data_in[0]  ; clk        ; 1.442 ; 1.442 ; Rise       ; clk             ;
+;  data_in[1]  ; clk        ; 1.959 ; 1.959 ; Rise       ; clk             ;
+;  data_in[2]  ; clk        ; 2.030 ; 2.030 ; Rise       ; clk             ;
+;  data_in[3]  ; clk        ; 1.980 ; 1.980 ; Rise       ; clk             ;
+;  data_in[4]  ; clk        ; 2.707 ; 2.707 ; Rise       ; clk             ;
+;  data_in[5]  ; clk        ; 2.933 ; 2.933 ; Rise       ; clk             ;
+;  data_in[6]  ; clk        ; 2.209 ; 2.209 ; Rise       ; clk             ;
+;  data_in[7]  ; clk        ; 1.884 ; 1.884 ; Rise       ; clk             ;
+; enable       ; clk        ; 5.211 ; 5.211 ; Rise       ; clk             ;
+; readenable   ; clk        ; 4.569 ; 4.569 ; Rise       ; clk             ;
+; rst_n        ; clk        ; 5.806 ; 5.806 ; Rise       ; clk             ;
+; writeenable  ; clk        ; 4.772 ; 4.772 ; Rise       ; clk             ;
++--------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Hold Times                                                                 ;
++--------------+------------+--------+--------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++--------------+------------+--------+--------+------------+-----------------+
+; addr_in[*]   ; clk        ; -1.463 ; -1.463 ; Rise       ; clk             ;
+;  addr_in[0]  ; clk        ; -2.587 ; -2.587 ; Rise       ; clk             ;
+;  addr_in[1]  ; clk        ; -1.758 ; -1.758 ; Rise       ; clk             ;
+;  addr_in[2]  ; clk        ; -1.463 ; -1.463 ; Rise       ; clk             ;
+;  addr_in[3]  ; clk        ; -1.752 ; -1.752 ; Rise       ; clk             ;
+;  addr_in[4]  ; clk        ; -2.151 ; -2.151 ; Rise       ; clk             ;
+;  addr_in[5]  ; clk        ; -2.058 ; -2.058 ; Rise       ; clk             ;
+;  addr_in[6]  ; clk        ; -2.093 ; -2.093 ; Rise       ; clk             ;
+;  addr_in[7]  ; clk        ; -2.039 ; -2.039 ; Rise       ; clk             ;
+;  addr_in[8]  ; clk        ; -2.172 ; -2.172 ; Rise       ; clk             ;
+;  addr_in[9]  ; clk        ; -2.101 ; -2.101 ; Rise       ; clk             ;
+;  addr_in[10] ; clk        ; -1.581 ; -1.581 ; Rise       ; clk             ;
+;  addr_in[11] ; clk        ; -2.082 ; -2.082 ; Rise       ; clk             ;
+;  addr_in[12] ; clk        ; -1.542 ; -1.542 ; Rise       ; clk             ;
+;  addr_in[13] ; clk        ; -2.099 ; -2.099 ; Rise       ; clk             ;
+;  addr_in[14] ; clk        ; -2.097 ; -2.097 ; Rise       ; clk             ;
+; data_in[*]   ; clk        ; -0.888 ; -0.888 ; Rise       ; clk             ;
+;  data_in[0]  ; clk        ; -0.888 ; -0.888 ; Rise       ; clk             ;
+;  data_in[1]  ; clk        ; -1.405 ; -1.405 ; Rise       ; clk             ;
+;  data_in[2]  ; clk        ; -1.476 ; -1.476 ; Rise       ; clk             ;
+;  data_in[3]  ; clk        ; -1.426 ; -1.426 ; Rise       ; clk             ;
+;  data_in[4]  ; clk        ; -2.153 ; -2.153 ; Rise       ; clk             ;
+;  data_in[5]  ; clk        ; -2.379 ; -2.379 ; Rise       ; clk             ;
+;  data_in[6]  ; clk        ; -1.655 ; -1.655 ; Rise       ; clk             ;
+;  data_in[7]  ; clk        ; -1.330 ; -1.330 ; Rise       ; clk             ;
+; enable       ; clk        ; -2.466 ; -2.466 ; Rise       ; clk             ;
+; readenable   ; clk        ; -2.845 ; -2.845 ; Rise       ; clk             ;
+; rst_n        ; clk        ; -2.426 ; -2.426 ; Rise       ; clk             ;
+; writeenable  ; clk        ; -4.158 ; -4.158 ; Rise       ; clk             ;
++--------------+------------+--------+--------+------------+-----------------+
+
+
++----------------------------------------------------------------------------------+
+; Clock to Output Times                                                            ;
++--------------------+------------+--------+--------+------------+-----------------+
+; Data Port          ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++--------------------+------------+--------+--------+------------+-----------------+
+; data_out[*]        ; clk        ; 8.268  ; 8.268  ; Rise       ; clk             ;
+;  data_out[0]       ; clk        ; 7.171  ; 7.171  ; Rise       ; clk             ;
+;  data_out[1]       ; clk        ; 7.175  ; 7.175  ; Rise       ; clk             ;
+;  data_out[2]       ; clk        ; 8.268  ; 8.268  ; Rise       ; clk             ;
+;  data_out[3]       ; clk        ; 7.175  ; 7.175  ; Rise       ; clk             ;
+;  data_out[4]       ; clk        ; 7.175  ; 7.175  ; Rise       ; clk             ;
+;  data_out[5]       ; clk        ; 7.170  ; 7.170  ; Rise       ; clk             ;
+;  data_out[6]       ; clk        ; 7.170  ; 7.170  ; Rise       ; clk             ;
+;  data_out[7]       ; clk        ; 7.175  ; 7.175  ; Rise       ; clk             ;
+; rd_done            ; clk        ; 9.475  ; 9.475  ; Rise       ; clk             ;
+; sram_addr_out[*]   ; clk        ; 10.263 ; 10.263 ; Rise       ; clk             ;
+;  sram_addr_out[0]  ; clk        ; 9.556  ; 9.556  ; Rise       ; clk             ;
+;  sram_addr_out[1]  ; clk        ; 9.532  ; 9.532  ; Rise       ; clk             ;
+;  sram_addr_out[2]  ; clk        ; 10.011 ; 10.011 ; Rise       ; clk             ;
+;  sram_addr_out[3]  ; clk        ; 10.024 ; 10.024 ; Rise       ; clk             ;
+;  sram_addr_out[4]  ; clk        ; 8.927  ; 8.927  ; Rise       ; clk             ;
+;  sram_addr_out[5]  ; clk        ; 8.959  ; 8.959  ; Rise       ; clk             ;
+;  sram_addr_out[6]  ; clk        ; 9.103  ; 9.103  ; Rise       ; clk             ;
+;  sram_addr_out[7]  ; clk        ; 8.374  ; 8.374  ; Rise       ; clk             ;
+;  sram_addr_out[8]  ; clk        ; 9.494  ; 9.494  ; Rise       ; clk             ;
+;  sram_addr_out[9]  ; clk        ; 9.239  ; 9.239  ; Rise       ; clk             ;
+;  sram_addr_out[10] ; clk        ; 10.263 ; 10.263 ; Rise       ; clk             ;
+;  sram_addr_out[11] ; clk        ; 9.525  ; 9.525  ; Rise       ; clk             ;
+;  sram_addr_out[12] ; clk        ; 8.438  ; 8.438  ; Rise       ; clk             ;
+;  sram_addr_out[13] ; clk        ; 8.963  ; 8.963  ; Rise       ; clk             ;
+;  sram_addr_out[14] ; clk        ; 8.333  ; 8.333  ; Rise       ; clk             ;
+; sram_data[*]       ; clk        ; 9.650  ; 9.650  ; Rise       ; clk             ;
+;  sram_data[0]      ; clk        ; 9.650  ; 9.650  ; Rise       ; clk             ;
+;  sram_data[1]      ; clk        ; 9.529  ; 9.529  ; Rise       ; clk             ;
+;  sram_data[2]      ; clk        ; 9.625  ; 9.625  ; Rise       ; clk             ;
+;  sram_data[3]      ; clk        ; 9.086  ; 9.086  ; Rise       ; clk             ;
+;  sram_data[4]      ; clk        ; 8.573  ; 8.573  ; Rise       ; clk             ;
+;  sram_data[5]      ; clk        ; 8.622  ; 8.622  ; Rise       ; clk             ;
+;  sram_data[6]      ; clk        ; 9.002  ; 9.002  ; Rise       ; clk             ;
+;  sram_data[7]      ; clk        ; 8.709  ; 8.709  ; Rise       ; clk             ;
+; sram_oe_n          ; clk        ; 10.057 ; 10.057 ; Rise       ; clk             ;
+; sram_we_n          ; clk        ; 10.174 ; 10.174 ; Rise       ; clk             ;
+; wr_done            ; clk        ; 9.640  ; 9.640  ; Rise       ; clk             ;
++--------------------+------------+--------+--------+------------+-----------------+
+
+
++----------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                    ;
++--------------------+------------+--------+--------+------------+-----------------+
+; Data Port          ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++--------------------+------------+--------+--------+------------+-----------------+
+; data_out[*]        ; clk        ; 7.170  ; 7.170  ; Rise       ; clk             ;
+;  data_out[0]       ; clk        ; 7.171  ; 7.171  ; Rise       ; clk             ;
+;  data_out[1]       ; clk        ; 7.175  ; 7.175  ; Rise       ; clk             ;
+;  data_out[2]       ; clk        ; 8.268  ; 8.268  ; Rise       ; clk             ;
+;  data_out[3]       ; clk        ; 7.175  ; 7.175  ; Rise       ; clk             ;
+;  data_out[4]       ; clk        ; 7.175  ; 7.175  ; Rise       ; clk             ;
+;  data_out[5]       ; clk        ; 7.170  ; 7.170  ; Rise       ; clk             ;
+;  data_out[6]       ; clk        ; 7.170  ; 7.170  ; Rise       ; clk             ;
+;  data_out[7]       ; clk        ; 7.175  ; 7.175  ; Rise       ; clk             ;
+; rd_done            ; clk        ; 9.475  ; 9.475  ; Rise       ; clk             ;
+; sram_addr_out[*]   ; clk        ; 8.333  ; 8.333  ; Rise       ; clk             ;
+;  sram_addr_out[0]  ; clk        ; 9.556  ; 9.556  ; Rise       ; clk             ;
+;  sram_addr_out[1]  ; clk        ; 9.532  ; 9.532  ; Rise       ; clk             ;
+;  sram_addr_out[2]  ; clk        ; 10.011 ; 10.011 ; Rise       ; clk             ;
+;  sram_addr_out[3]  ; clk        ; 10.024 ; 10.024 ; Rise       ; clk             ;
+;  sram_addr_out[4]  ; clk        ; 8.927  ; 8.927  ; Rise       ; clk             ;
+;  sram_addr_out[5]  ; clk        ; 8.959  ; 8.959  ; Rise       ; clk             ;
+;  sram_addr_out[6]  ; clk        ; 9.103  ; 9.103  ; Rise       ; clk             ;
+;  sram_addr_out[7]  ; clk        ; 8.374  ; 8.374  ; Rise       ; clk             ;
+;  sram_addr_out[8]  ; clk        ; 9.494  ; 9.494  ; Rise       ; clk             ;
+;  sram_addr_out[9]  ; clk        ; 9.239  ; 9.239  ; Rise       ; clk             ;
+;  sram_addr_out[10] ; clk        ; 10.263 ; 10.263 ; Rise       ; clk             ;
+;  sram_addr_out[11] ; clk        ; 9.525  ; 9.525  ; Rise       ; clk             ;
+;  sram_addr_out[12] ; clk        ; 8.438  ; 8.438  ; Rise       ; clk             ;
+;  sram_addr_out[13] ; clk        ; 8.963  ; 8.963  ; Rise       ; clk             ;
+;  sram_addr_out[14] ; clk        ; 8.333  ; 8.333  ; Rise       ; clk             ;
+; sram_data[*]       ; clk        ; 8.573  ; 8.573  ; Rise       ; clk             ;
+;  sram_data[0]      ; clk        ; 9.650  ; 9.650  ; Rise       ; clk             ;
+;  sram_data[1]      ; clk        ; 9.529  ; 9.529  ; Rise       ; clk             ;
+;  sram_data[2]      ; clk        ; 9.625  ; 9.625  ; Rise       ; clk             ;
+;  sram_data[3]      ; clk        ; 9.086  ; 9.086  ; Rise       ; clk             ;
+;  sram_data[4]      ; clk        ; 8.573  ; 8.573  ; Rise       ; clk             ;
+;  sram_data[5]      ; clk        ; 8.622  ; 8.622  ; Rise       ; clk             ;
+;  sram_data[6]      ; clk        ; 9.002  ; 9.002  ; Rise       ; clk             ;
+;  sram_data[7]      ; clk        ; 8.709  ; 8.709  ; Rise       ; clk             ;
+; sram_oe_n          ; clk        ; 10.057 ; 10.057 ; Rise       ; clk             ;
+; sram_we_n          ; clk        ; 10.174 ; 10.174 ; Rise       ; clk             ;
+; wr_done            ; clk        ; 9.640  ; 9.640  ; Rise       ; clk             ;
++--------------------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 204      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 204      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 27    ; 27   ;
+; Unconstrained Input Port Paths  ; 73    ; 73   ;
+; Unconstrained Output Ports      ; 35    ; 35   ;
+; Unconstrained Output Port Paths ; 35    ; 35   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Wed Apr 15 11:06:09 2015
+Info: Command: quartus_sta examples -c examples
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (306004): Started post-fitting delay annotation
+Info (306005): Delay annotation completed successfully
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'examples.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -5.739
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -5.739            -204.116 clk 
+Info (332146): Worst-case hold slack is 1.375
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.375               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 322 megabytes
+    Info: Processing ended: Wed Apr 15 11:06:10 2015
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

@@ -1,0 +1,11 @@
+Fitter Status : Successful - Wed Apr 15 17:37:09 2015
+Quartus II 32-bit Version : 13.1.0 Build 162 10/23/2013 SJ Web Edition
+Revision Name : toneGenerator
+Top-level Entity Name : autoGenerator
+Family : MAX V
+Device : 5M1270ZT144C5
+Timing Models : Final
+Total logic elements : 30 / 1,270 ( 2 % )
+Total pins : 3 / 114 ( 3 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

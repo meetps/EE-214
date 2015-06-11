@@ -1,0 +1,510 @@
+Analysis & Synthesis report for vending_machine
+Mon Apr 13 17:09:43 2015
+Quartus II 32-bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |vending_machine|main_fsm_state
+  9. State Machine - |vending_machine|selected_product
+ 10. State Machine - |vending_machine|lcd:lcd_instance|lcd_state
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: Top-level Entity: |vending_machine
+ 17. Parameter Settings for User Entity Instance: lcd:lcd_instance
+ 18. Analysis & Synthesis Messages
+ 19. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                             ;
++-----------------------------+--------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Mon Apr 13 17:09:43 2015      ;
+; Quartus II 32-bit Version   ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name               ; vending_machine                            ;
+; Top-level Entity Name       ; vending_machine                            ;
+; Family                      ; MAX V                                      ;
+; Total logic elements        ; 394                                        ;
+; Total pins                  ; 37                                         ;
+; Total virtual pins          ; 0                                          ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                              ;
++-----------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; 5M1270ZT144C5      ;                    ;
+; Top-level entity name                                                      ; vending_machine    ; vending_machine    ;
+; Family name                                                                ; MAX V              ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                        ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                          ; Library ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------+---------+
+; vending_machine.v                ; yes             ; User Verilog HDL File  ; /home/tinchuk/ee214/vending_machine/vending_machine.v ;         ;
+; lcd.v                            ; yes             ; User Verilog HDL File  ; /home/tinchuk/ee214/vending_machine/lcd.v             ;         ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Total logic elements                        ; 394   ;
+;     -- Combinational with no register       ; 206   ;
+;     -- Register only                        ; 7     ;
+;     -- Combinational with a register        ; 181   ;
+;                                             ;       ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 160   ;
+;     -- 3 input functions                    ; 104   ;
+;     -- 2 input functions                    ; 108   ;
+;     -- 1 input functions                    ; 13    ;
+;     -- 0 input functions                    ; 2     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 334   ;
+;     -- arithmetic mode                      ; 60    ;
+;     -- qfbk mode                            ; 0     ;
+;     -- register cascade mode                ; 0     ;
+;     -- synchronous clear/load mode          ; 82    ;
+;     -- asynchronous clear/load mode         ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 188   ;
+; Total logic cells in carry chains           ; 70    ;
+; I/O pins                                    ; 37    ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 166   ;
+; Total fan-out                               ; 1641  ;
+; Average fan-out                             ; 3.81  ;
++---------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name               ; Library Name ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------+--------------+
+; |vending_machine           ; 394 (142)   ; 188          ; 0          ; 37   ; 0            ; 206 (98)     ; 7 (4)             ; 181 (40)         ; 70 (47)         ; 0 (0)      ; |vending_machine                  ; work         ;
+;    |lcd:lcd_instance|      ; 252 (252)   ; 144          ; 0          ; 0    ; 0            ; 108 (108)    ; 3 (3)             ; 141 (141)        ; 23 (23)         ; 0 (0)      ; |vending_machine|lcd:lcd_instance ; work         ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |vending_machine|main_fsm_state                                                                                                                                                                                                                               ;
++----------------------------------------+----------------------------+-----------------------------+---------------------------------+----------------------------------------+------------------------------+-------------------------------------+---------------------------+
+; Name                                   ; main_fsm_state.state_idle2 ; main_fsm_state.state_refill ; main_fsm_state.state_endMessage ; main_fsm_state.state_transactionStatus ; main_fsm_state.state_payment ; main_fsm_state.state_selectQuantity ; main_fsm_state.state_idle ;
++----------------------------------------+----------------------------+-----------------------------+---------------------------------+----------------------------------------+------------------------------+-------------------------------------+---------------------------+
+; main_fsm_state.state_idle              ; 0                          ; 0                           ; 0                               ; 0                                      ; 0                            ; 0                                   ; 0                         ;
+; main_fsm_state.state_selectQuantity    ; 0                          ; 0                           ; 0                               ; 0                                      ; 0                            ; 1                                   ; 1                         ;
+; main_fsm_state.state_payment           ; 0                          ; 0                           ; 0                               ; 0                                      ; 1                            ; 0                                   ; 1                         ;
+; main_fsm_state.state_transactionStatus ; 0                          ; 0                           ; 0                               ; 1                                      ; 0                            ; 0                                   ; 1                         ;
+; main_fsm_state.state_endMessage        ; 0                          ; 0                           ; 1                               ; 0                                      ; 0                            ; 0                                   ; 1                         ;
+; main_fsm_state.state_refill            ; 0                          ; 1                           ; 0                               ; 0                                      ; 0                            ; 0                                   ; 1                         ;
+; main_fsm_state.state_idle2             ; 1                          ; 0                           ; 0                               ; 0                                      ; 0                            ; 0                                   ; 1                         ;
++----------------------------------------+----------------------------+-----------------------------+---------------------------------+----------------------------------------+------------------------------+-------------------------------------+---------------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------+
+; State Machine - |vending_machine|selected_product                                                           ;
++---------------------+---------------------+---------------------+---------------------+---------------------+
+; Name                ; selected_product.11 ; selected_product.10 ; selected_product.01 ; selected_product.00 ;
++---------------------+---------------------+---------------------+---------------------+---------------------+
+; selected_product.00 ; 0                   ; 0                   ; 0                   ; 0                   ;
+; selected_product.01 ; 0                   ; 0                   ; 1                   ; 1                   ;
+; selected_product.10 ; 0                   ; 1                   ; 0                   ; 1                   ;
+; selected_product.11 ; 1                   ; 0                   ; 0                   ; 1                   ;
++---------------------+---------------------+---------------------+---------------------+---------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------+
+; State Machine - |vending_machine|lcd:lcd_instance|lcd_state                                              ;
++---------------+--------------+--------------+--------------+--------------+--------------+---------------+
+; Name          ; lcd_state.S5 ; lcd_state.S4 ; lcd_state.S3 ; lcd_state.S2 ; lcd_state.S1 ; lcd_state.000 ;
++---------------+--------------+--------------+--------------+--------------+--------------+---------------+
+; lcd_state.000 ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ;
+; lcd_state.S1  ; 0            ; 0            ; 0            ; 0            ; 1            ; 1             ;
+; lcd_state.S2  ; 0            ; 0            ; 0            ; 1            ; 0            ; 1             ;
+; lcd_state.S3  ; 0            ; 0            ; 1            ; 0            ; 0            ; 1             ;
+; lcd_state.S4  ; 0            ; 1            ; 0            ; 0            ; 0            ; 1             ;
+; lcd_state.S5  ; 1            ; 0            ; 0            ; 0            ; 0            ; 1             ;
++---------------+--------------+--------------+--------------+--------------+--------------+---------------+
+
+
++--------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                   ;
++----------------------------------------+---------------------------------------------+
+; Register name                          ; Reason for Removal                          ;
++----------------------------------------+---------------------------------------------+
+; lcd:lcd_instance|hundreds[2,3,6,7]     ; Stuck at GND due to stuck port data_in      ;
+; lcd:lcd_instance|tens[6,7]             ; Stuck at GND due to stuck port data_in      ;
+; lcd:lcd_instance|ones[0,6,7]           ; Stuck at GND due to stuck port data_in      ;
+; lcd:lcd_instance|hundreds[1]           ; Stuck at GND due to stuck port data_in      ;
+; lcd:lcd_instance|ones[4]               ; Merged with lcd:lcd_instance|ones[5]        ;
+; lcd:lcd_instance|ones[5]               ; Merged with lcd:lcd_instance|tens[4]        ;
+; lcd:lcd_instance|tens[4]               ; Merged with lcd:lcd_instance|tens[5]        ;
+; lcd:lcd_instance|tens[5]               ; Merged with lcd:lcd_instance|hundreds[4]    ;
+; lcd:lcd_instance|hundreds[4]           ; Merged with lcd:lcd_instance|hundreds[5]    ;
+; lcd:lcd_instance|lcd_msg[0][7]         ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[10][7]        ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[11][7]        ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[12][7]        ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[13][3]        ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[13][7]        ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[14][0]        ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[14][1]        ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[14][2]        ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[14][3]        ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[14][4]        ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[14][6]        ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[14][7]        ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[15][0]        ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[15][1]        ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[15][2]        ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[15][3]        ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[15][4]        ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[15][6]        ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[15][7]        ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[1][7]         ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[2][7]         ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[3][7]         ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[4][7]         ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[5][1]         ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[5][7]         ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[6][7]         ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[7][7]         ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[8][7]         ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[9][7]         ; Merged with lcd:lcd_instance|lcd_msg[0][3]  ;
+; lcd:lcd_instance|lcd_msg[1][6]         ; Merged with lcd:lcd_instance|lcd_msg[0][6]  ;
+; lcd:lcd_instance|lcd_msg[15][5]        ; Merged with lcd:lcd_instance|lcd_msg[14][5] ;
+; lcd:lcd_instance|lcd_msg[3][6]         ; Merged with lcd:lcd_instance|lcd_msg[14][5] ;
+; lcd:lcd_instance|lcd_msg[4][6]         ; Merged with lcd:lcd_instance|lcd_msg[14][5] ;
+; lcd:lcd_instance|lcd_msg[8][5]         ; Merged with lcd:lcd_instance|lcd_msg[14][5] ;
+; lcd:lcd_instance|lcd_msg[9][2]         ; Merged with lcd:lcd_instance|lcd_msg[12][6] ;
+; lcd:lcd_instance|lcd_msg[13][6]        ; Merged with lcd:lcd_instance|lcd_msg[0][4]  ;
+; lcd:lcd_instance|lcd_msg[9][5]         ; Merged with lcd:lcd_instance|lcd_msg[8][6]  ;
+; lcd:lcd_instance|lcd_msg[5][4]         ; Merged with lcd:lcd_instance|lcd_msg[2][3]  ;
+; lcd:lcd_instance|lcd_msg[7][4]         ; Merged with lcd:lcd_instance|lcd_msg[0][1]  ;
+; lcd:lcd_instance|lcd_msg[10][3]        ; Merged with lcd:lcd_instance|lcd_msg[10][2] ;
+; lcd:lcd_instance|lcd_msg[2][1]         ; Merged with lcd:lcd_instance|lcd_msg[11][3] ;
+; lcd:lcd_instance|lcd_msg[5][2]         ; Merged with lcd:lcd_instance|lcd_msg[3][1]  ;
+; lcd:lcd_instance|lcd_msg[7][2]         ; Merged with lcd:lcd_instance|lcd_msg[3][0]  ;
+; lcd:lcd_instance|lcd_msg[5][5]         ; Merged with lcd:lcd_instance|lcd_msg[4][5]  ;
+; lcd:lcd_instance|lcd_msg[7][5]         ; Merged with lcd:lcd_instance|lcd_msg[10][5] ;
+; lcd:lcd_instance|lcd_msg[12][5]        ; Merged with lcd:lcd_instance|lcd_msg[11][5] ;
+; lcd:lcd_instance|lcd_rw                ; Stuck at GND due to stuck port data_in      ;
+; lcd:lcd_instance|hundreds[0]           ; Stuck at GND due to stuck port data_in      ;
+; lcd:lcd_instance|tens[0..3]            ; Stuck at GND due to stuck port data_in      ;
+; lcd:lcd_instance|ones[1..3]            ; Stuck at GND due to stuck port data_in      ;
+; lcd:lcd_instance|lcd_msg[0][3]         ; Stuck at GND due to stuck port data_in      ;
+; lcd:lcd_instance|lcd_msg[14][5]        ; Stuck at VCC due to stuck port data_in      ;
+; lcd:lcd_instance|lcd_char[7]           ; Stuck at GND due to stuck port data_in      ;
+; lcd:lcd_instance|lcd_dat[7]            ; Stuck at GND due to stuck port data_in      ;
+; lcd:lcd_instance|state[3]              ; Stuck at GND due to stuck port clock_enable ;
+; lcd:lcd_instance|temp[0..2]            ; Lost fanout                                 ;
+; main_fsm_state~12                      ; Lost fanout                                 ;
+; main_fsm_state~13                      ; Lost fanout                                 ;
+; main_fsm_state~14                      ; Lost fanout                                 ;
+; selected_product~2                     ; Lost fanout                                 ;
+; selected_product~3                     ; Lost fanout                                 ;
+; lcd:lcd_instance|lcd_state~8           ; Lost fanout                                 ;
+; lcd:lcd_instance|lcd_state~9           ; Lost fanout                                 ;
+; lcd:lcd_instance|lcd_state~10          ; Lost fanout                                 ;
+; selected_product.00                    ; Lost fanout                                 ;
+; main_fsm_state.state_refill            ; Stuck at GND due to stuck port data_in      ;
+; lcd:lcd_instance|char_count[4]         ; Lost fanout                                 ;
+; lcd:lcd_instance|lcd_msg[0][4]         ; Merged with lcd:lcd_instance|lcd_msg[5][6]  ;
+; lcd:lcd_instance|lcd_msg[0][0]         ; Merged with lcd:lcd_instance|lcd_msg[9][6]  ;
+; total_cost[7]                          ; Stuck at GND due to stuck port data_in      ;
+; Total Number of Removed Registers = 93 ;                                             ;
++----------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                         ;
++--------------------------------+---------------------------+----------------------------------------+
+; Register name                  ; Reason for Removal        ; Registers Removed due to This Register ;
++--------------------------------+---------------------------+----------------------------------------+
+; lcd:lcd_instance|hundreds[7]   ; Stuck at GND              ; lcd:lcd_instance|lcd_dat[7]            ;
+;                                ; due to stuck port data_in ;                                        ;
+; lcd:lcd_instance|tens[7]       ; Stuck at GND              ; lcd:lcd_instance|temp[2]               ;
+;                                ; due to stuck port data_in ;                                        ;
+; lcd:lcd_instance|ones[7]       ; Stuck at GND              ; lcd:lcd_instance|temp[1]               ;
+;                                ; due to stuck port data_in ;                                        ;
+; lcd:lcd_instance|hundreds[0]   ; Stuck at GND              ; lcd:lcd_instance|temp[0]               ;
+;                                ; due to stuck port data_in ;                                        ;
+; lcd:lcd_instance|lcd_msg[0][3] ; Stuck at GND              ; lcd:lcd_instance|lcd_char[7]           ;
+;                                ; due to stuck port data_in ;                                        ;
++--------------------------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 188   ;
+; Number of registers using Synchronous Clear  ; 49    ;
+; Number of registers using Synchronous Load   ; 45    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 136   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; pepsiQuantity[2]                       ; 2       ;
+; pepsiQuantity[0]                       ; 2       ;
+; cokeQuantity[2]                        ; 2       ;
+; cokeQuantity[0]                        ; 2       ;
+; laysQuantity[2]                        ; 2       ;
+; laysQuantity[0]                        ; 2       ;
+; Total number of inverted registers = 6 ;         ;
++----------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |vending_machine|lcd:lcd_instance|count_cmd[2]  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |vending_machine|total_cost[7]                  ;
+; 16:1               ; 81 bits   ; 810 LEs       ; 567 LEs              ; 243 LEs                ; Yes        ; |vending_machine|lcd:lcd_instance|lcd_msg[7][0] ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |vending_machine|lcd:lcd_instance|lcd[4]        ;
+; 7:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |vending_machine|total_cost[6]                  ;
+; 18:1               ; 3 bits    ; 36 LEs        ; 3 LEs                ; 33 LEs                 ; Yes        ; |vending_machine|lcd:lcd_instance|temp[2]       ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |vending_machine|lcd:lcd_instance|lcd_dat[7]    ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |vending_machine|lcd:lcd_instance|lcd_dat[5]    ;
+; 18:1               ; 5 bits    ; 60 LEs        ; 5 LEs                ; 55 LEs                 ; Yes        ; |vending_machine|lcd:lcd_instance|char_count[2] ;
+; 9:1                ; 7 bits    ; 42 LEs        ; 14 LEs               ; 28 LEs                 ; Yes        ; |vending_machine|total_money[4]                 ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |vending_machine|lcd_msg_index[1]               ;
+; 15:1               ; 3 bits    ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; Yes        ; |vending_machine|lcd:lcd_instance|lcd_char[2]   ;
+; 22:1               ; 3 bits    ; 42 LEs        ; 18 LEs               ; 24 LEs                 ; Yes        ; |vending_machine|lcd:lcd_instance|state[1]      ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |vending_machine|pepsiQuantity[0]               ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |vending_machine|cokeQuantity[2]                ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |vending_machine|laysQuantity[2]                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |vending_machine ;
++-------------------------+-------+-----------------------------------------------+
+; Parameter Name          ; Value ; Type                                          ;
++-------------------------+-------+-----------------------------------------------+
+; state_idle              ; 000   ; Unsigned Binary                               ;
+; state_idle2             ; 110   ; Unsigned Binary                               ;
+; state_selectQuantity    ; 001   ; Unsigned Binary                               ;
+; state_payment           ; 010   ; Unsigned Binary                               ;
+; state_transactionStatus ; 011   ; Unsigned Binary                               ;
+; state_endMessage        ; 100   ; Unsigned Binary                               ;
+; state_refill            ; 101   ; Unsigned Binary                               ;
+; pepsiPrice              ; 1100  ; Unsigned Binary                               ;
+; cokePrice               ; 1010  ; Unsigned Binary                               ;
+; laysPrice               ; 1111  ; Unsigned Binary                               ;
++-------------------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: lcd:lcd_instance ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; S0             ; 000   ; Unsigned Binary                      ;
+; S1             ; 001   ; Unsigned Binary                      ;
+; S2             ; 010   ; Unsigned Binary                      ;
+; S3             ; 011   ; Unsigned Binary                      ;
+; S4             ; 100   ; Unsigned Binary                      ;
+; S5             ; 101   ; Unsigned Binary                      ;
+; d0             ; 0000  ; Unsigned Binary                      ;
+; d1             ; 0001  ; Unsigned Binary                      ;
+; d2             ; 0010  ; Unsigned Binary                      ;
+; d3             ; 0011  ; Unsigned Binary                      ;
+; d4             ; 0100  ; Unsigned Binary                      ;
+; d5             ; 0101  ; Unsigned Binary                      ;
+; d6             ; 0110  ; Unsigned Binary                      ;
+; d7             ; 0111  ; Unsigned Binary                      ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 32-bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Mon Apr 13 17:09:40 2015
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off vending_machine -c vending_machine
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file vending_machine.v
+    Info (12023): Found entity 1: vending_machine
+Info (12021): Found 1 design units, including 1 entities, in source file vending_lcd_final.v
+    Info (12023): Found entity 1: vending_lcd_final
+Info (12021): Found 1 design units, including 1 entities, in source file lcd.v
+    Info (12023): Found entity 1: lcd
+Info (12021): Found 1 design units, including 1 entities, in source file sram.v
+    Info (12023): Found entity 1: sram
+Info (12127): Elaborating entity "vending_machine" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at vending_machine.v(63): object "total_change" assigned a value but never read
+Warning (10034): Output port "changeAmount" at vending_machine.v(17) has no driver
+Info (12128): Elaborating entity "lcd" for hierarchy "lcd:lcd_instance"
+Warning (10230): Verilog HDL assignment warning at lcd.v(443): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at lcd.v(446): truncated value with size 32 to match size of target (4)
+Warning (10030): Net "lcd_cmd.data_a" at lcd.v(16) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "lcd_cmd.waddr_a" at lcd.v(16) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "lcd_cmd.we_a" at lcd.v(16) has no driver or initial value, using a default initial value '0'
+Critical Warning (127005): Memory depth (8) in the design file differs from memory depth (5) in the Memory Initialization File "/home/tinchuk/ee214/vending_machine/db/vending_machine.ram0_lcd_1bb9a.hdl.mif" -- setting initial value for remaining addresses to 0
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "changeAmount[0]" is stuck at GND
+    Warning (13410): Pin "changeAmount[1]" is stuck at GND
+    Warning (13410): Pin "changeAmount[2]" is stuck at GND
+    Warning (13410): Pin "changeAmount[3]" is stuck at GND
+    Warning (13410): Pin "changeAmount[4]" is stuck at GND
+    Warning (13410): Pin "changeAmount[5]" is stuck at GND
+    Warning (13410): Pin "changeAmount[6]" is stuck at GND
+    Warning (13410): Pin "changeAmount[7]" is stuck at GND
+    Warning (13410): Pin "lcd_rw" is stuck at GND
+Info (17049): 13 registers lost all their fanouts during netlist optimizations.
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "refill"
+    Warning (15610): No output dependent on input pin "rst"
+Info (21057): Implemented 431 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 13 input pins
+    Info (21059): Implemented 24 output pins
+    Info (21061): Implemented 394 logic cells
+Info (144001): Generated suppressed messages file /home/tinchuk/ee214/vending_machine/output_files/vending_machine.map.smsg
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 22 warnings
+    Info: Peak virtual memory: 364 megabytes
+    Info: Processing ended: Mon Apr 13 17:09:43 2015
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /home/tinchuk/ee214/vending_machine/output_files/vending_machine.map.smsg.
+
+

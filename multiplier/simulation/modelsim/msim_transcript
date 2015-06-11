@@ -1,0 +1,117 @@
+# do multiplier_run_msim_gate_vhdl.do 
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# Copying /home/tinchuk/altera/13.1/modelsim_ase/linux/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied /home/tinchuk/altera/13.1/modelsim_ase/linux/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {multiplier.vho}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package maxv_atom_pack
+# -- Loading package maxv_components
+# -- Compiling entity multiplier
+# -- Compiling architecture structure of multiplier
+# 
+vsim -voptargs=+acc work.multiplier
+# vsim -voptargs=+acc work.multiplier 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading maxv.maxv_atom_pack(body)
+# Loading maxv.maxv_components
+# Loading work.multiplier(structure)
+# Loading ieee.std_logic_arith(body)
+# Loading maxv.maxv_io(behave)
+# Loading maxv.maxv_lcell(vital_le_atom)
+# Loading maxv.maxv_asynch_lcell(vital_le)
+# Loading maxv.maxv_lcell_register(vital_le_reg)
+add wave -position insertpoint  \
+sim:/multiplier/out1 \
+sim:/multiplier/Multiplier4 \
+sim:/multiplier/Multiplier1 \
+sim:/multiplier/Multiplier2 \
+sim:/multiplier/Multiplier3 \
+sim:/multiplier/Loadswitch \
+sim:/multiplier/Clock \
+sim:/multiplier/B4 \
+sim:/multiplier/B3 \
+sim:/multiplier/B2 \
+sim:/multiplier/B1 \
+sim:/multiplier/out2 \
+sim:/multiplier/out3 \
+sim:/multiplier/out4 \
+sim:/multiplier/out5 \
+sim:/multiplier/out6 \
+sim:/multiplier/out7 \
+sim:/multiplier/out8 \
+sim:/multiplier/gnd \
+sim:/multiplier/vcc \
+sim:/multiplier/unknown \
+sim:/multiplier/devoe \
+sim:/multiplier/devclrn \
+sim:/multiplier/devpor \
+sim:/multiplier/ww_devoe \
+sim:/multiplier/ww_devclrn \
+sim:/multiplier/ww_devpor \
+sim:/multiplier/ww_out1 \
+sim:/multiplier/ww_Multiplier4 \
+sim:/multiplier/ww_Multiplier1 \
+sim:/multiplier/ww_Multiplier2 \
+sim:/multiplier/ww_Multiplier3 \
+sim:/multiplier/ww_Loadswitch \
+sim:/multiplier/ww_Clock \
+sim:/multiplier/ww_B4 \
+sim:/multiplier/ww_B3 \
+sim:/multiplier/ww_B2 \
+sim:/multiplier/ww_B1 \
+sim:/multiplier/ww_out2 \
+sim:/multiplier/ww_out3 \
+sim:/multiplier/ww_out4 \
+sim:/multiplier/ww_out5 \
+sim:/multiplier/ww_out6 \
+sim:/multiplier/ww_out7 \
+sim:/multiplier/ww_out8 \
+sim:/multiplier/\\B1~combout\\ \
+sim:/multiplier/\\Loadswitch~combout\\ \
+sim:/multiplier/\\inst3|26~regout\\ \
+sim:/multiplier/\\inst3|6~combout\\ \
+sim:/multiplier/\\B2~combout\\ \
+sim:/multiplier/\\inst3|25~regout\\ \
+sim:/multiplier/\\inst3|50~combout\\ \
+sim:/multiplier/\\B3~combout\\ \
+sim:/multiplier/\\inst3|24~regout\\ \
+sim:/multiplier/\\inst3|22~combout\\ \
+sim:/multiplier/\\B4~combout\\ \
+sim:/multiplier/\\inst3|23~regout\\ \
+sim:/multiplier/\\Clock~combout\\ \
+sim:/multiplier/\\inst32|4~1_combout\\ \
+sim:/multiplier/\\Multiplier1~combout\\ \
+sim:/multiplier/\\inst2|113~regout\\ \
+sim:/multiplier/\\Multiplier2~combout\\ \
+sim:/multiplier/\\inst2|114~regout\\ \
+sim:/multiplier/\\inst12|1~0_combout\\ \
+sim:/multiplier/\\Multiplier3~combout\\ \
+sim:/multiplier/\\inst2|115~regout\\ \
+sim:/multiplier/\\Multiplier4~combout\\ \
+sim:/multiplier/\\inst12|1~1_combout\\ \
+sim:/multiplier/\\inst2|116~regout\\ \
+sim:/multiplier/\\inst1|18~0_combout\\ \
+sim:/multiplier/\\inst2|118~regout\\ \
+sim:/multiplier/\\inst2|119~regout\\ \
+sim:/multiplier/\\inst2|120~regout\\ \
+sim:/multiplier/\\inst2|117~regout\\ \
+sim:/multiplier/\\inst3|ALT_INV_22~combout\\ \
+sim:/multiplier/\\ALT_INV_Loadswitch~combout\\
+force -freeze sim:/multiplier/Clock 1 0, 0 {50 ps} -r 100
+quit

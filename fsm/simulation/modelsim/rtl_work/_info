@@ -1,0 +1,25 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/tinchuk/ee214/fsm/simulation/modelsim
+vfsm_light_sequence
+!i10b 1
+!s100 4bN]IlDU6FY4MQ2gUX;V01
+ISWaXNF]fFGAPRgDiNFnME0
+VmZkB4?Zo38Q3AkC=aY:i]0
+Z1 d/home/tinchuk/ee214/fsm/simulation/modelsim
+w1426874737
+8/home/tinchuk/ee214/fsm/fsm_light_sequence.v
+F/home/tinchuk/ee214/fsm/fsm_light_sequence.v
+L0 1
+OV;L;10.1d;51
+r1
+!s85 0
+31
+!s108 1426875235.859274
+!s107 /home/tinchuk/ee214/fsm/fsm_light_sequence.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/tinchuk/ee214/fsm|/home/tinchuk/ee214/fsm/fsm_light_sequence.v|
+!s101 -O0
+o-vlog01compat -work work -O0
+!s92 -vlog01compat -work work +incdir+/home/tinchuk/ee214/fsm -O0

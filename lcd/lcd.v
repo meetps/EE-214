@@ -1,0 +1,255 @@
+/*********************************************************
+* LCD and Keypad integration with Krypton
+* Author : Meet P Shah
+* E-mail : meetshah1995@gmail.com
+**********************************************************/
+module lcd (lcd, led, col, lcd_rs, lcd_rw, lcd_en, row, clk, rst);
+// It is a largely followed practise to name outputs first.
+
+output reg [7:0] lcd; // Variable names are self-explanatory
+output reg [4:0] led; // Should these be reg/ wire???
+output reg [3:0] col;
+output reg lcd_rs, lcd_rw, lcd_en;
+
+input [3:0] row;
+input clk, rst;
+
+// Input Clock = 50 MHz , Output Clock (delay) needed = 100 Hz
+// Thus 2^N ~= 50000000/100 = 500000
+// Thus N =19 
+reg [18:0] count;             // Counter for 10 ms delay -> N = 19
+reg [7:0] temp, lcd_dat;     // temp = row-column combination of ‘the key’
+reg [3:0] temp_row;          // Stores row value before de-bouncing
+reg [2:0] state;             // FSM to send Commands and Data to LCD
+reg [2:0] count_cmd;         // Keeps count of commands sent to the LCD
+reg [1:0] state_debounce;    // FSM for switch de-bouncing
+
+reg ten_millisec_clock;
+
+reg [7:0] lcd_commands[4:0];              // Declare an array to store the LCD commands
+
+initial
+begin
+lcd_commands[0] <= 8'h38;								// Assign values to these array elements
+lcd_commands[1] <= 8'h01;
+lcd_commands[2] <= 8'h0E;
+lcd_commands[3] <= 8'h80;
+lcd_commands[4] <= 8'h06;
+end 
+
+wire S0,S1,S2,S3,S4,S5;									// Define states for sending LCD commands and data
+
+assign S0 = 3'b000;											// We have used states S0 to S2 for sending commands,
+assign S1 = 3'b001;
+assign S2 = 3'b010;
+assign S3 = 3'b011;											// and S3 to S5 for sending data.
+assign S4 = 3'b100;
+assign S5 = 3'b101; 
+																
+wire D0,D1,D2;													// Define states for switch de-bouncing
+
+assign D0 = 2'b00;												// We have named these states D0 to D2.
+assign D1 = 2'b01;
+assign D2 = 2'b10;														
+					
+
+//-------------------------------------------------------------------
+
+// * Hardware = N bit Counter -> for generating 10 ms delay
+always @(posedge clk)
+begin
+ // Active high reset is to be used throughout
+ // Implement the count for the 10ms delay
+	if(rst)
+		begin
+			count <= 18'b0;
+			ten_millisec_clock = 1'b0;
+		end
+	else
+		begin
+		count = count + 1'b1;
+		if(count == 18'b1)
+			ten_millisec_clock = ~ten_millisec_clock;
+		end
+ end
+
+//-------------------------------------------------------------------
+// * Hardware = Switch/ push button reading and de-bouncing mechanism
+// * Should operate at 10 ms clk
+
+always @ (posedge ten_millisec_clock)
+// ... Decide the sensitivity list
+begin
+																		// ... Initialize State and column and LED values
+	case (state_debounce)
+		D0: 															// Wait until non-zero row value is detected
+			begin
+				if (row == 0)
+					begin
+						col = col >> 1;							// ... Rotate the column and Decide the next state
+						state_debounce <= D0;
+						end
+				else
+					begin
+						temp_row <= row;							// ... Store the row value and Decide the next state
+						state_debounce <= D1;
+					end
+			end
+		D1: 															// Verify the row value (De-bounce)
+			begin
+				if(row == temp_row)
+					begin
+						temp = {row, col};
+						state_debounce <= D2;
+					end
+				else 
+					state_debounce <= D0;
+			// If row values are equal, store the column-row
+			// Combination in the variable ‘temp’
+			// And Decide the next state
+			// If not equal, then Decide the next state
+			end
+		D2:
+			begin
+				if(temp_row == row)
+					state_debounce <= D2;
+				else 
+					state_debounce <= D0;
+			end	
+			// Wait until key is released to avoid multiple
+			// detections and Decide the next state
+			// When key is released, Decide the next state
+		default: // Why should you have a default case? Think.
+			begin
+			state_debounce <= D0;
+			end
+	endcase
+end
+//-------------------------------------------------------------------
+// * Hardware = Decoder -> to compute the data to be sent to the LED/ LCD
+// * operate at 10 ms and the value to decode is the row/ column data
+always @ (posedge ten_millisec_clock)
+
+// Decide the sensitivity list
+
+begin
+case(temp)
+8'b10000001: begin lcd_dat <= 8'h70; led <= 5'h0F; end
+8'b10000010: begin lcd_dat <= 8'h30; led <= 5'h00; end
+8'b10000100: begin lcd_dat <= 8'h69; led <= 5'h0E; end
+8'b10001000: begin lcd_dat <= 8'h68; led <= 5'h0D; end
+
+8'b01000001: begin lcd_dat <= 8'h37; led <= 5'h07; end
+8'b01000010: begin lcd_dat <= 8'h38; led <= 5'h08; end
+8'b01000100: begin lcd_dat <= 8'h39; led <= 5'h09; end
+8'b01001000: begin lcd_dat <= 8'h67; led <= 5'h0C; end
+
+8'b00100001: begin lcd_dat <= 8'h34; led <= 5'h04; end
+8'b00100010: begin lcd_dat <= 8'h35; led <= 5'h05; end
+8'b00100100: begin lcd_dat <= 8'h36; led <= 5'h06; end
+8'b00101000: begin lcd_dat <= 8'h66; led <= 5'h0B; end
+
+8'b00010001: begin lcd_dat <= 8'h31; led <= 5'h01; end
+8'b00010010: begin lcd_dat <= 8'h32; led <= 5'h02; end 
+8'b00010100: begin lcd_dat <= 8'h33; led <= 5'h03; end 
+8'b00011000: begin lcd_dat <= 8'h65; led <= 5'h0A; end
+
+// ... Depending on the unique row-column combination,
+// decide value to be sent to the LED/LCD.
+// For example: if key ‘1’ is pressed,
+// led <= 5'h01;
+// lcd_dat <= 8'h31; ... ASCII value of ‘1’
+// and so on...
+// Can only ASCII values be sent to LCD? Think.
+
+
+default: begin lcd_dat <= 8'h0; led <= 5'h1F; end
+// What should your LED show when no key is pressed?
+
+endcase
+end
+//-------------------------------------------------------------------
+// *Hardware = LCD Controller -> to send proper signals to the LCD
+always @ (ten_millisec_clock)
+//  Decide the sensitivity list
+begin
+	if (rst)
+		begin
+			state <= S0;
+			count_cmd <= 3'h0; // Index to the LCD command array
+	end
+
+	else
+		begin
+			case (state)
+			S0: // S0 to S2: Send LCD commands
+				begin
+					if (count_cmd < 3'b101)
+						begin
+							lcd <= lcd_commands [count_cmd];
+							lcd_rs <= 1'b0;
+							lcd_rw <= 1'b0;
+							lcd_en <= 1'b0;
+							state <= S1;
+						end
+						// LCD requires 5 commands to be sent.
+						// We send these commands and wait for valid LCD data
+					else state <= S3;
+				end
+			S1:
+				begin
+					lcd <= lcd_commands [count_cmd];
+					lcd_rs <= 1'b0;
+					lcd_rw <= 1'b0;
+					lcd_en <= 1'b1;
+					state <= S2;
+				end
+			S2:
+				begin
+					lcd <= lcd_commands [count_cmd];
+					lcd_rs <= 1'b0;
+					lcd_rw <= 1'b0;
+					lcd_en <= 1'b0;
+					state <= S0;
+					count_cmd = count_cmd + 1'b1;
+					//count_cmd <= count_next_cmd;
+				end
+			S3: // S3 to S5: Send LCD data
+				begin
+					lcd <= lcd_dat;
+					lcd_rs <= 1'b1;
+					lcd_rw <= 1'b0;
+					lcd_en <= 1'b0;
+					state <= S4;
+				end
+			S4:
+				begin
+					lcd <= lcd_dat;
+					lcd_rs <= 1'b1;
+					lcd_rw <= 1'b0;
+					lcd_en <= 1'b1;
+					state <= S5;
+				end
+			S5:
+				begin
+					lcd <= lcd_dat;
+					lcd_rs <= 1'b1;
+					lcd_rw <= 1'b0;
+					lcd_en <= 1'b0;
+				// Monitor the state of de-bounce FSM to avoid displaying
+				// the same character multiple times due to long key-press.
+				if (state_debounce == D1) 
+					state <= S3;
+				else 
+					state <= S5;
+				end
+			default:
+				begin
+					state <= S0;
+					count_cmd <= 3'h0;
+				end
+endcase
+end
+end
+endmodule
+

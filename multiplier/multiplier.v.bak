@@ -1,0 +1,113 @@
+/*********************************************************
+* 4 Bit Multiplier Verilog Code using Successive Addition
+* Author : Meet P Shah
+* E-mail : meetshah1995@gmail.com
+**********************************************************/
+
+module four_bit_down_counter(load, input_number , clock, borrow, counter_output);
+
+input clock , load; 
+input [3:0] input_number;
+
+output reg [3:0] counter_output;
+output reg borrow; 
+
+always @( posedge clock ) begin
+  if ( load ) {borrow, counter_output} <= {1'b0, input_number};
+  else {borrow, counter_output} <= {borrow, counter_output} - 1;
+end
+
+
+endmodule
+
+
+//module four_bit_down_counter(load, input_number , clock, borrow, counter_output);
+//
+//input clock , load; 
+//input [3:0] input_number;
+//
+//output [3:0] counter_output;
+//output reg borrow; 
+//reg [3:0] tmp;
+//always @(posedge clock or posedge load)
+//	begin
+//		if(load)
+//			begin 
+//				tmp = input_number; 
+//				assign borrow = 1'b0;
+//			end
+//		else
+//			begin
+//			 if(tmp == 4'b0)
+//				 assign borrow = 1'b1;
+//			 else 	
+//				 tmp = tmp - 1'b1;
+//				 assign borrow = 1'b0;
+//			end
+//		end		
+//	assign counter_output = tmp;
+//endmodule
+
+module eight_bit_adder( input_1 , input_2, adder_output);
+input [7:0] input_1;
+input [7:0] input_2;
+output [7:0] adder_output;
+assign adder_output = input_1 + input_2;
+
+endmodule
+
+
+module eight_bit_pipo_shift_register(load_clear, clock ,input_number, final_output);
+input load_clear, clock;
+input [7:0] input_number;
+output reg [7:0] final_output;
+always @(posedge clock )
+	begin
+		if(!load_clear)
+			assign final_output = input_number;
+	end
+always @(posedge load_clear)
+	begin
+		assign final_output = 8'b00000000;
+	end
+endmodule
+
+module four_bit_multiplier(CLOCK, LOAD, MULTIPLICAND, MULTIPLIER, RESULT);
+input CLOCK;
+input LOAD;
+input [3:0] MULTIPLICAND;
+input [3:0] MULTIPLIER;
+output wire [7:0] RESULT;
+
+//module eight_bit_pipo_shift_register(load_clear, ANDed_clock,input_from_adder, final_output);
+//module eight_bit_adder( partial_sum , multiplicand, adder_output);
+//module four_bit_down_counter(load, multiplier , ANDed_clock, borrow, counter_output);
+
+
+wire BORROW;
+wire [3:0] COUNTER_OUTPUT;
+//to take data from output of register to its input 
+wire [7:0] PARTIAL_SUM;
+wire [7:0] PARTIAL_PRODUCT;
+wire AND_CLOCK;
+assign AND_CLOCK = CLOCK&(~BORROW);
+
+
+//four_bit_down_counter(load, input_number , clock, borrow, counter_output);
+
+four_bit_down_counter counter(LOAD, MULTIPLIER, AND_CLOCK, BORROW, COUNTER_OUTPUT);
+eight_bit_adder adder(MULTIPLICAND, PARTIAL_PRODUCT, PARTIAL_SUM);
+eight_bit_pipo_shift_register register(LOAD, AND_CLOCK, PARTIAL_SUM, PARTIAL_PRODUCT);
+
+assign RESULT = PARTIAL_PRODUCT;
+endmodule
+
+module test;
+reg CLOCK;
+reg LOAD;
+reg [3:0] MULTIPLICAND;
+reg [3:0] MULTIPLIER;
+wire [7:0] FINAL_RESULT;
+four_bit_multiplier fbm(CLOCK, LOAD, MULTIPLICAND, MULTIPLIER, FINAL_RESULT); 
+endmodule
+

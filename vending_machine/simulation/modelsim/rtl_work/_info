@@ -1,0 +1,45 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/tinchuk/ee214/vending_machine/simulation/modelsim
+vlcd
+!i10b 1
+!s100 HL4JeYl0A3DWIKI=NTlMl0
+IUaDSHCzMFX7VZF;M]^aQ`0
+V=:QEmnP8^aKP4i4W[Tze60
+Z1 d/home/tinchuk/ee214/vending_machine/simulation/modelsim
+w1428924143
+8/home/tinchuk/ee214/vending_machine/lcd.v
+F/home/tinchuk/ee214/vending_machine/lcd.v
+L0 4
+Z2 OV;L;10.1d;51
+r1
+!s85 0
+31
+!s108 1428924816.302344
+!s107 /home/tinchuk/ee214/vending_machine/lcd.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/tinchuk/ee214/vending_machine|/home/tinchuk/ee214/vending_machine/lcd.v|
+!s101 -O0
+Z3 o-vlog01compat -work work -O0
+Z4 !s92 -vlog01compat -work work +incdir+/home/tinchuk/ee214/vending_machine -O0
+vvending_machine
+IW1DJ]E6eADNzCfDfSB1X>2
+V]YA@YN?G8DA1Z=I`KjloZ3
+R1
+w1428924555
+8/home/tinchuk/ee214/vending_machine/vending_machine.v
+F/home/tinchuk/ee214/vending_machine/vending_machine.v
+L0 1
+R2
+r1
+31
+R3
+!i10b 1
+!s100 7VN^IcL=EzkjGL[CTbY_62
+!s85 0
+!s108 1428924816.272072
+!s107 /home/tinchuk/ee214/vending_machine/vending_machine.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/tinchuk/ee214/vending_machine|/home/tinchuk/ee214/vending_machine/vending_machine.v|
+!s101 -O0
+R4
